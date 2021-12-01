@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>avião.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bbb529;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #cc7832;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+avião.h</font>
+</center></td></tr></table>
+<pre><span class="s0">#ifndef </span><span class="s1">AED_PROJECT1_AVIÃO_H</span>
+<span class="s0">#define </span><span class="s1">AED_PROJECT1_AVIÃO_H</span>
+
+<span class="s0">#include </span><span class="s2">&lt;iostream&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;vector&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;list&gt;</span>
+<span class="s0">#include </span><span class="s2">&lt;queue&gt;</span>
+<span class="s0">#include </span><span class="s2">&quot;voo.h&quot;</span>
+
+<span class="s3">using namespace </span><span class="s1">std</span><span class="s3">;</span>
+
+<span class="s3">class </span><span class="s1">Serviço{</span>
+<span class="s3">private</span><span class="s1">:</span>
+    <span class="s3">char </span><span class="s1">tipoServiço</span><span class="s3">; </span><span class="s4">//'m' = manutenção &amp;&amp; 'l' = limpeza</span>
+    <span class="s3">int </span><span class="s1">data</span><span class="s3">;</span>
+    <span class="s1">string nomeFuncionário</span><span class="s3">;</span>
+
+<span class="s3">public</span><span class="s1">:</span>
+    <span class="s3">bool operator </span><span class="s1">== (</span><span class="s3">const </span><span class="s1">Serviço &amp; s) </span><span class="s3">const;</span>
+
+<span class="s1">}</span><span class="s3">;</span>
+<span class="s3">class </span><span class="s1">Avião{</span>
+<span class="s3">private</span><span class="s1">:</span>
+    <span class="s4">//vector&lt;string&gt; matrícula;</span>
+    <span class="s1">string matrícula</span><span class="s3">;</span>
+    <span class="s3">int </span><span class="s1">capacidade</span><span class="s3">;</span>
+    <span class="s1">list&lt;Voo&gt; listaVoo</span><span class="s3">;</span>
+    <span class="s1">queue&lt;Serviço&gt; serviçosPorFazer</span><span class="s3">;</span>
+    <span class="s1">queue&lt;Serviço&gt; serviçosJáFeitos</span><span class="s3">;</span>
+<span class="s3">public</span><span class="s1">:</span>
+    <span class="s1">Avião()</span><span class="s3">;</span>
+    <span class="s1">Avião(string matrícula</span><span class="s3">, int </span><span class="s1">capacidade</span><span class="s3">,</span><span class="s1">list&lt;Voo&gt; listaVoo)</span><span class="s3">;</span>
+    <span class="s4">//list&lt;Voo&gt; getListaVoo() const;</span>
+    <span class="s3">void </span><span class="s1">novoServiço(vector&lt;Serviço&gt; ns)</span><span class="s3">;</span>
+    <span class="s3">void </span><span class="s1">atualizarServiços(vector&lt;Serviço&gt; sf)</span><span class="s3">;</span>
+
+
+
+<span class="s1">}</span><span class="s3">;</span>
+
+<span class="s0">#endif </span><span class="s4">//AED_PROJECT1_AVIÃO_H</span>
+</pre>
+</body>
+</html>
