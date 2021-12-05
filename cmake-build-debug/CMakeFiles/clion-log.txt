@@ -1,4 +1,18 @@
-"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\Rui\Desktop\AED_project1
+"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\andre\CLionProjects\Projeto1AED
+-- The C compiler identification is GNU 8.1.0
+-- The CXX compiler identification is GNU 8.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Doxygen: C:/Program Files/doxygen/bin/doxygen.exe (found version "1.9.2 (caa4e3de211fbbef2c3adf58a6bd4c86d0eb7cb8)") found components: doxygen missing components: dot
+Doxygen build started
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Rui/Desktop/AED_project1/cmake-build-debug
+-- Build files have been written to: C:/Users/andre/CLionProjects/Projeto1AED/cmake-build-debug
