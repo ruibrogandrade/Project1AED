@@ -1,16 +1,20 @@
 #include "voo.h"
 using namespace std;
 
-Voo::Voo() {
-    //não sei se faz sentido criar um voo vazio (?)
+
+Voo::Voo() {}
+
+Voo::Voo(int lot) { //   : lotação(lot)
+    vagas = lot;
 }
 
-Voo::Voo(int numVoo, int dataPartida, int duração, string origem, string destino) {
+Voo::Voo(int numVoo, int dataPartida, int duração, int lot, string origem, string destino) : lotação(lot){
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
     this->duração = duração;
     this->origem = origem;
     this->destino = destino;
+    vagas = lot;
 }
 
 int Voo::getNumVoo() const {
@@ -25,6 +29,18 @@ int Voo::getDuração() const {
     return this->duração;
 }
 
+int Voo::getNumLugares() const {
+    return lotação;
+}
+
+int Voo::getNumLugaresOcupados() const {
+    return lotação - vagas;
+}
+
+int Voo::getVagas() {
+    return vagas;
+}
+
 string Voo::getOrigem() const {
     return this->origem;
 }
@@ -32,6 +48,7 @@ string Voo::getOrigem() const {
 string Voo::getDestino() const {
     return this->destino;
 }
+
 
 
 

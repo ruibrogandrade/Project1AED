@@ -5,17 +5,37 @@
 #include <vector>
 using namespace std;
 
+class Bilhete{  //como relaciono esta classe com a classe Voo?
+                //deixo estar esta classe aqui,
+                //ou meto-a no passageiro.h?
+private:
+    int numBilhete;
+    int quantBagagem;
+public:
+    Bilhete();
+    bool bagagem();
+    int getNumBilhete();
+};
+
 
 class Voo{
-private:
+private: //estes atributos estariam tbm em protected para de alguma
+         //maneira a classe Bilhete conseguir aceder?
     int numVoo, dataPartida, duração;
     string origem, destino;
+protected:
+    int vagas;
+    int lotação; //const
 public:
     Voo();
-    Voo(int numVoo, int dataPartida, int duração, string origem, string destino);
+    Voo(int lot);
+    Voo(int numVoo, int dataPartida, int duração, int lot, string origem, string destino);
     int getNumVoo() const;
     int getDataPartida() const;
     int getDuração() const;
+    int getNumLugares() const;
+    int getNumLugaresOcupados() const;
+    int getVagas();
     string getOrigem() const;
     string getDestino() const;
 };

@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Rui\Desktop\AED_project1
+CMAKE_SOURCE_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\AED_project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Rui\Desktop\AED_project1\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\AED_project1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Desktop\AED_project1\cmake-build-debug\CMakeFiles C:\Users\Rui\Desktop\AED_project1\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\AED_project1\cmake-build-debug\CMakeFiles" "C:\Users\barba\OneDrive\Ambiente de Trabalho\AED_project1\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Desktop\AED_project1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\AED_project1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -152,6 +152,30 @@ Tests/avião.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/avião.cpp.s
 .PHONY : Tests/avião.cpp.s
 
+Tests/passageiro.obj: Tests/passageiro.cpp.obj
+.PHONY : Tests/passageiro.obj
+
+# target to build an object file
+Tests/passageiro.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.obj
+.PHONY : Tests/passageiro.cpp.obj
+
+Tests/passageiro.i: Tests/passageiro.cpp.i
+.PHONY : Tests/passageiro.i
+
+# target to preprocess a source file
+Tests/passageiro.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.i
+.PHONY : Tests/passageiro.cpp.i
+
+Tests/passageiro.s: Tests/passageiro.cpp.s
+.PHONY : Tests/passageiro.s
+
+# target to generate assembly for a file
+Tests/passageiro.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.s
+.PHONY : Tests/passageiro.cpp.s
+
 Tests/voo.obj: Tests/voo.cpp.obj
 .PHONY : Tests/voo.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... Tests/avião.obj
 	@echo ... Tests/avião.i
 	@echo ... Tests/avião.s
+	@echo ... Tests/passageiro.obj
+	@echo ... Tests/passageiro.i
+	@echo ... Tests/passageiro.s
 	@echo ... Tests/voo.obj
 	@echo ... Tests/voo.i
 	@echo ... Tests/voo.s
