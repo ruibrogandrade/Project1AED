@@ -25,14 +25,11 @@ void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
     for(int i = 0; i < ns.size(); i++) servicos.push(ns[i]);
 }
 
-//Não faz muito sentido esta função, assim todos os servicos vão ter de ser feitos ao mesmo tempo? Como é que poderiamos só atualizar alguns?
 void Aviao::atualizarservicos(vector<servico> sc) { //sf = servicos concluídos
     while(!sc.empty()){
         for(int i = 0; i < sc.size(); i++){
-            if(servicosPorFazer.back() == sc[i]){
-                servicosJaFeitos.push(servicosPorFazer.back());
-                servicosPorFazer.pop();
-                sc.erase(sc.begin() + i);
+            if(sc[i].getFeito() == false) {
+                sc[i].setFeito(true);
             }
         }
     }

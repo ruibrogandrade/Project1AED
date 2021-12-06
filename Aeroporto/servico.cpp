@@ -1,5 +1,6 @@
 #include <iostream>
 #include "servico.h"
+using namespace std;
 
 
 servico::servico(char tiposervico, int data, std::string nomeFuncionario, bool feito) {
@@ -13,7 +14,7 @@ char servico::getTipoServico() {
     return tiposervico;
 }
 
-void servico::setTipoServico() {
+void servico::setTipoServico(char tiposervico) {
     this->tiposervico=tiposervico;
 }
 
@@ -21,7 +22,7 @@ int servico::getData() {
     return data;
 }
 
-void servico::setData() {
+void servico::setData(string data) {
     this->data=data;
 }
 
@@ -29,7 +30,7 @@ string servico::getNomeFuncionario() {
     return nomeFuncionario;
 }
 
-void servico::setNomeFuncionario() {
+void servico::setNomeFuncionario(string nomeFuncionario) {
     this->nomeFuncionario=nomeFuncionario
 }
 
@@ -37,7 +38,7 @@ bool servico::getFeito() {
     return feito;
 }
 
-void servico::setFeito() {
+void servico::setFeito(bool feito) {
     this->feito=feito;
 }
 
