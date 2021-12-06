@@ -3,9 +3,9 @@ project(projeto1)
 
 set(CMAKE_CXX_STANDARD 20)
 
-<<<<<<< HEAD
-add_executable(AED_project1 main.cpp Tests/avião.cpp Tests/avião.h Tests/voo.cpp Tests/voo.h Tests/passageiro.cpp Tests/passageiro.h)
-=======
+
+add_executable(AED_project1 main.cpp Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/passageiros.cpp Aeroporto/passageiros.h)
+
 add_executable(projeto1 main.cpp Aeroporto/passageiros.cpp Aeroporto/passageiros.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/bagagens.cpp Aeroporto/bagagens.h Aeroporto/aviao.cpp Aeroporto/aviao.h)
 
 # Doxygen Build
@@ -29,4 +29,3 @@ if(DOXYGEN_FOUND)
 else(DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the documentation.")
 endif(DOXYGEN_FOUND)
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d

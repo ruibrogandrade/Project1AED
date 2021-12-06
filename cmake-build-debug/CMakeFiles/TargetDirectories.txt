@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-C:/Users/Rui/Documents/Projects/AED_project1/cmake-build-debug/CMakeFiles/AED_project1.dir
-C:/Users/Rui/Documents/Projects/AED_project1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Rui/Documents/Projects/AED_project1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-=======
-C:/Users/andre/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/Doxygen.dir
-C:/Users/andre/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/projeto1.dir
-C:/Users/andre/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/andre/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/rebuild_cache.dir
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
+C:/Users/Rui/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/AED_project1.dir
+C:/Users/Rui/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/projeto1.dir
+C:/Users/Rui/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Rui/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/rebuild_cache.dir

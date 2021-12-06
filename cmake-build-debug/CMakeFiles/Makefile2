@@ -44,32 +44,25 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = C:\Users\Rui\Documents\Projects\AED_project1
+CMAKE_SOURCE_DIR = C:\Users\Rui\CLionProjects\Projeto1AED
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug
-=======
-CMAKE_SOURCE_DIR = C:\Users\andre\CLionProjects\Projeto1AED
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
+CMAKE_BINARY_DIR = C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Doxygen.dir/all
+all: CMakeFiles/AED_project1.dir/all
 all: CMakeFiles/projeto1.dir/all
 .PHONY : all
 
@@ -78,50 +71,35 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Doxygen.dir/clean
+clean: CMakeFiles/AED_project1.dir/clean
 clean: CMakeFiles/projeto1.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Doxygen.dir
+# Target rules for target CMakeFiles/AED_project1.dir
 
 # All Build rule for target.
-<<<<<<< HEAD
 CMakeFiles/AED_project1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target AED_project1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target AED_project1"
 .PHONY : CMakeFiles/AED_project1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AED_project1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/AED_project1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/AED_project1.dir/rule
-=======
-CMakeFiles/Doxygen.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Doxygen.dir\build.make CMakeFiles/Doxygen.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Doxygen.dir\build.make CMakeFiles/Doxygen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles --progress-num=1 "Built target Doxygen"
-.PHONY : CMakeFiles/Doxygen.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Doxygen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Doxygen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/Doxygen.dir/rule
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
 
 # Convenience name for target.
-Doxygen: CMakeFiles/Doxygen.dir/rule
-.PHONY : Doxygen
+AED_project1: CMakeFiles/AED_project1.dir/rule
+.PHONY : AED_project1
 
 # clean rule for target.
-CMakeFiles/Doxygen.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Doxygen.dir\build.make CMakeFiles/Doxygen.dir/clean
-.PHONY : CMakeFiles/Doxygen.dir/clean
+CMakeFiles/AED_project1.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/clean
+.PHONY : CMakeFiles/AED_project1.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/projeto1.dir
@@ -130,14 +108,14 @@ CMakeFiles/Doxygen.dir/clean:
 CMakeFiles/projeto1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles --progress-num=2,3,4,5,6,7 "Built target projeto1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles --progress-num=6,7,8,9,10,11 "Built target projeto1"
 .PHONY : CMakeFiles/projeto1.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/projeto1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/projeto1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/projeto1.dir/rule
 
 # Convenience name for target.
