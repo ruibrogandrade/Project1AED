@@ -10,36 +10,23 @@
 #include <list>
 #include <queue>
 #include "voo.h"
+#include "servico.h"
 
 using namespace std;
 
-class servico{
-private:
-    char tiposervico; //'m' = manutenção && 'l' = limpeza
-    int data;
-    string nomeFuncionario;
-
-public:
-    bool operator == (const servico & s) const;
-
-};
 class Aviao{
 private:
     //vector<string> matricula;
     string matricula;
     int capacidade;
     list<Voo> listaVoo;
-    queue<servico> servicosPorFazer;
-    queue<servico> servicosJaFeitos;
+    queue<servico> servicos;
 public:
     Aviao();
     Aviao(string matricula, int capacidade,list<Voo> listaVoo);
     //list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
-
-
-
 };
 
 

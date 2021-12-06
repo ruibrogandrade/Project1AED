@@ -192,6 +192,30 @@ Aeroporto/bagagens.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/bagagens.cpp.s
 .PHONY : Aeroporto/bagagens.cpp.s
 
+Aeroporto/funcionalidades.obj: Aeroporto/funcionalidades.cpp.obj
+.PHONY : Aeroporto/funcionalidades.obj
+
+# target to build an object file
+Aeroporto/funcionalidades.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj
+.PHONY : Aeroporto/funcionalidades.cpp.obj
+
+Aeroporto/funcionalidades.i: Aeroporto/funcionalidades.cpp.i
+.PHONY : Aeroporto/funcionalidades.i
+
+# target to preprocess a source file
+Aeroporto/funcionalidades.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.i
+.PHONY : Aeroporto/funcionalidades.cpp.i
+
+Aeroporto/funcionalidades.s: Aeroporto/funcionalidades.cpp.s
+.PHONY : Aeroporto/funcionalidades.s
+
+# target to generate assembly for a file
+Aeroporto/funcionalidades.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.s
+.PHONY : Aeroporto/funcionalidades.cpp.s
+
 Aeroporto/passageiros.obj: Aeroporto/passageiros.cpp.obj
 .PHONY : Aeroporto/passageiros.obj
 
@@ -218,6 +242,30 @@ Aeroporto/passageiros.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/passageiros.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.s
 .PHONY : Aeroporto/passageiros.cpp.s
+
+Aeroporto/servico.obj: Aeroporto/servico.cpp.obj
+.PHONY : Aeroporto/servico.obj
+
+# target to build an object file
+Aeroporto/servico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj
+.PHONY : Aeroporto/servico.cpp.obj
+
+Aeroporto/servico.i: Aeroporto/servico.cpp.i
+.PHONY : Aeroporto/servico.i
+
+# target to preprocess a source file
+Aeroporto/servico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.i
+.PHONY : Aeroporto/servico.cpp.i
+
+Aeroporto/servico.s: Aeroporto/servico.cpp.s
+.PHONY : Aeroporto/servico.s
+
+# target to generate assembly for a file
+Aeroporto/servico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.s
+.PHONY : Aeroporto/servico.cpp.s
 
 Aeroporto/voo.obj: Aeroporto/voo.cpp.obj
 .PHONY : Aeroporto/voo.obj
@@ -289,9 +337,15 @@ help:
 	@echo ... Aeroporto/bagagens.obj
 	@echo ... Aeroporto/bagagens.i
 	@echo ... Aeroporto/bagagens.s
+	@echo ... Aeroporto/funcionalidades.obj
+	@echo ... Aeroporto/funcionalidades.i
+	@echo ... Aeroporto/funcionalidades.s
 	@echo ... Aeroporto/passageiros.obj
 	@echo ... Aeroporto/passageiros.i
 	@echo ... Aeroporto/passageiros.s
+	@echo ... Aeroporto/servico.obj
+	@echo ... Aeroporto/servico.i
+	@echo ... Aeroporto/servico.s
 	@echo ... Aeroporto/voo.obj
 	@echo ... Aeroporto/voo.i
 	@echo ... Aeroporto/voo.s

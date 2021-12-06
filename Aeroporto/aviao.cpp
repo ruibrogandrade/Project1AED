@@ -3,6 +3,7 @@
 //
 
 #include "aviao.h"
+#include "servico.h"
 
 using namespace std;
 
@@ -21,9 +22,10 @@ Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
 }
 
 void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
-    for(int i = 0; i < ns.size(); i++) servicosPorFazer.push(ns[i]);
+    for(int i = 0; i < ns.size(); i++) servicos.push(ns[i]);
 }
 
+//Não faz muito sentido esta função, assim todos os servicos vão ter de ser feitos ao mesmo tempo? Como é que poderiamos só atualizar alguns?
 void Aviao::atualizarservicos(vector<servico> sc) { //sf = servicos concluídos
     while(!sc.empty()){
         for(int i = 0; i < sc.size(); i++){

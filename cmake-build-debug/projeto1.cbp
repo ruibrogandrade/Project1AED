@@ -136,12 +136,24 @@
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/bagagens.h">
 			<Option target="projeto1"/>
 		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/funcionalidades.cpp">
+			<Option target="projeto1"/>
+		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/funcionalidades.h">
+			<Option target="projeto1"/>
+		</Unit>
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/passageiros.cpp">
 			<Option target="AED_project1"/>
 			<Option target="projeto1"/>
 		</Unit>
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/passageiros.h">
 			<Option target="AED_project1"/>
+			<Option target="projeto1"/>
+		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/servico.cpp">
+			<Option target="projeto1"/>
+		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/servico.h">
 			<Option target="projeto1"/>
 		</Unit>
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/voo.cpp">
