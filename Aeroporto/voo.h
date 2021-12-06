@@ -8,18 +8,6 @@
 #include <vector>
 using namespace std;
 
-class Bilhete{  //como relaciono esta classe com a classe Voo?
-    //deixo estar esta classe aqui,
-    //ou meto-a no passageiro.h?
-private:
-    int numBilhete;
-    int quantBagagem;
-public:
-    Bilhete();
-    bool bagagem();
-    int getNumBilhete();
-};
-
 
 class Voo{
 private: //estes atributos estariam tbm em protected para de alguma

@@ -136,6 +136,12 @@
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/bagagens.h">
 			<Option target="projeto1"/>
 		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/bilhete.cpp">
+			<Option target="projeto1"/>
+		</Unit>
+		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/bilhete.h">
+			<Option target="projeto1"/>
+		</Unit>
 		<Unit filename="C:/Users/Rui/CLionProjects/Projeto1AED/Aeroporto/funcionalidades.cpp">
 			<Option target="projeto1"/>
 		</Unit>
