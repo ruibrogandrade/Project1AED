@@ -20,6 +20,4 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
         bilhetes.push_back(b);
         vagas--;
     }
-
-
 }

@@ -12,13 +12,13 @@ private:
 
 public:
     servico(char tiposervico, int data, string nomeFuncionario, bool feito);
-    char getTipoServico();
+    char getTipoServico() const;
     void setTipoServico(char tiposervico);
-    int getData();
+    int getData() const;
     void setData(string data);
-    string getNomeFuncionario();
+    string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
-    bool getFeito();
+    bool getFeito() const;
     void setFeito(bool feito);
     bool operator == (const servico & s) const;
 };
