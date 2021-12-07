@@ -10,7 +10,8 @@ Voo::Voo(int lot) { //   : lotacao(lot)
     vagas = lot;
 }
 
-Voo::Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){
+Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){
+    //ao fazermos assim o construtor de voo, estamos basicamente a incorporar o updater aqui dentro, não sei se está correto
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
     this->duracao = duracao;
@@ -19,23 +20,38 @@ Voo::Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, strin
     vagas = lot;
 }
 
-int Voo::getNumVoo() const {
-    return this->numVoo;
+int Voo::getNumVoo() {
+    return numVoo;
 }
 
-int Voo::getDataPartida() const {
-    return this->dataPartida;
+void Voo::setNumVoo(int numVoo) {
+    this->numVoo=numVoo;
 }
 
-int Voo::getduracao() const {
-    return this->duracao;
+Data Voo::getDataPartida(){
+    return dataPartida;
 }
 
-int Voo::getNumLugares() const {
+void Voo::setDataPartida(Data dataPartida) {
+    this->dataPartida = dataPartida;
+}
+
+int Voo::getDuracao(){
+    return duracao;
+}
+void Voo::setDuracao(int duracao) {
+    this->duracao=duracao;
+}
+
+int Voo::getNumLugares(){
     return lotacao;
 }
 
-int Voo::getNumLugaresOcupados() const {
+void Voo::setNumLugares(int lotacao) {
+    this->lotacao=lotacao;
+}
+
+int Voo::getNumLugaresOcupados(){
     return lotacao - vagas;
 }
 
@@ -43,10 +59,22 @@ int Voo::getVagas() {
     return vagas;
 }
 
-string Voo::getOrigem() const {
-    return this->origem;
+void Voo::setVagas(int vagas) {
+    this->vagas=vagas;
 }
 
-string Voo::getDestino() const {
-    return this->destino;
+string Voo::getOrigem(){
+    return origem;
+}
+
+void Voo::setOrigem(string origem) {
+    this->origem=origem;
+}
+
+string Voo::getDestino() {
+    return destino;
+}
+
+void Voo::setDestino(string destino) {
+    this->destino=destino;
 }

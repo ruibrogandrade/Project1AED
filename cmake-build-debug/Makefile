@@ -47,33 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = "C:\Users\Rui Andrade\CLionProjects\Projeto1AED"
+CMAKE_SOURCE_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug"
-=======
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = C:\Users\Rui\Documents\Projects\AED_project1
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug
-=======
-CMAKE_SOURCE_DIR = C:\Users\andre\CLionProjects\Projeto1AED
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
->>>>>>> origin/andre
+CMAKE_BINARY_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -81,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -91,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -100,21 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-<<<<<<< HEAD
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\CMakeFiles" "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" 0
-=======
-<<<<<<< HEAD
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\CMakeFiles C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\Documents\Projects\AED_project1\cmake-build-debug\CMakeFiles 0
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\andre\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
->>>>>>> origin/andre
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +116,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named AED_project1
+
+# Build rule for target.
+AED_project1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 AED_project1
+.PHONY : AED_project1
+
+# fast build rule for target.
+AED_project1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/build
+.PHONY : AED_project1/fast
+
+#=============================================================================
 # Target rules for targets named Doxygen
 
 # Build rule for target.
@@ -167,11 +154,36 @@ projeto1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/build
 .PHONY : projeto1/fast
 
+Aeroporto/Data.obj: Aeroporto/Data.cpp.obj
+.PHONY : Aeroporto/Data.obj
+
+# target to build an object file
+Aeroporto/Data.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj
+.PHONY : Aeroporto/Data.cpp.obj
+
+Aeroporto/Data.i: Aeroporto/Data.cpp.i
+.PHONY : Aeroporto/Data.i
+
+# target to preprocess a source file
+Aeroporto/Data.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.i
+.PHONY : Aeroporto/Data.cpp.i
+
+Aeroporto/Data.s: Aeroporto/Data.cpp.s
+.PHONY : Aeroporto/Data.s
+
+# target to generate assembly for a file
+Aeroporto/Data.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.s
+.PHONY : Aeroporto/Data.cpp.s
+
 Aeroporto/aviao.obj: Aeroporto/aviao.cpp.obj
 .PHONY : Aeroporto/aviao.obj
 
 # target to build an object file
 Aeroporto/aviao.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/aviao.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.obj
 .PHONY : Aeroporto/aviao.cpp.obj
 
@@ -180,6 +192,7 @@ Aeroporto/aviao.i: Aeroporto/aviao.cpp.i
 
 # target to preprocess a source file
 Aeroporto/aviao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/aviao.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.i
 .PHONY : Aeroporto/aviao.cpp.i
 
@@ -188,6 +201,7 @@ Aeroporto/aviao.s: Aeroporto/aviao.cpp.s
 
 # target to generate assembly for a file
 Aeroporto/aviao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/aviao.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.s
 .PHONY : Aeroporto/aviao.cpp.s
 
@@ -215,11 +229,60 @@ Aeroporto/bagagens.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/bagagens.cpp.s
 .PHONY : Aeroporto/bagagens.cpp.s
 
+Aeroporto/bilhete.obj: Aeroporto/bilhete.cpp.obj
+.PHONY : Aeroporto/bilhete.obj
+
+# target to build an object file
+Aeroporto/bilhete.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj
+.PHONY : Aeroporto/bilhete.cpp.obj
+
+Aeroporto/bilhete.i: Aeroporto/bilhete.cpp.i
+.PHONY : Aeroporto/bilhete.i
+
+# target to preprocess a source file
+Aeroporto/bilhete.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.i
+.PHONY : Aeroporto/bilhete.cpp.i
+
+Aeroporto/bilhete.s: Aeroporto/bilhete.cpp.s
+.PHONY : Aeroporto/bilhete.s
+
+# target to generate assembly for a file
+Aeroporto/bilhete.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.s
+.PHONY : Aeroporto/bilhete.cpp.s
+
+Aeroporto/funcionalidades.obj: Aeroporto/funcionalidades.cpp.obj
+.PHONY : Aeroporto/funcionalidades.obj
+
+# target to build an object file
+Aeroporto/funcionalidades.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj
+.PHONY : Aeroporto/funcionalidades.cpp.obj
+
+Aeroporto/funcionalidades.i: Aeroporto/funcionalidades.cpp.i
+.PHONY : Aeroporto/funcionalidades.i
+
+# target to preprocess a source file
+Aeroporto/funcionalidades.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.i
+.PHONY : Aeroporto/funcionalidades.cpp.i
+
+Aeroporto/funcionalidades.s: Aeroporto/funcionalidades.cpp.s
+.PHONY : Aeroporto/funcionalidades.s
+
+# target to generate assembly for a file
+Aeroporto/funcionalidades.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.s
+.PHONY : Aeroporto/funcionalidades.cpp.s
+
 Aeroporto/passageiros.obj: Aeroporto/passageiros.cpp.obj
 .PHONY : Aeroporto/passageiros.obj
 
 # target to build an object file
 Aeroporto/passageiros.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/passageiros.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.obj
 .PHONY : Aeroporto/passageiros.cpp.obj
 
@@ -228,6 +291,7 @@ Aeroporto/passageiros.i: Aeroporto/passageiros.cpp.i
 
 # target to preprocess a source file
 Aeroporto/passageiros.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/passageiros.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.i
 .PHONY : Aeroporto/passageiros.cpp.i
 
@@ -236,43 +300,40 @@ Aeroporto/passageiros.s: Aeroporto/passageiros.cpp.s
 
 # target to generate assembly for a file
 Aeroporto/passageiros.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/passageiros.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.s
 .PHONY : Aeroporto/passageiros.cpp.s
 
-<<<<<<< HEAD
-Tests/passageiro.obj: Tests/passageiro.cpp.obj
-.PHONY : Tests/passageiro.obj
+Aeroporto/servico.obj: Aeroporto/servico.cpp.obj
+.PHONY : Aeroporto/servico.obj
 
 # target to build an object file
-Tests/passageiro.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.obj
-.PHONY : Tests/passageiro.cpp.obj
+Aeroporto/servico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj
+.PHONY : Aeroporto/servico.cpp.obj
 
-Tests/passageiro.i: Tests/passageiro.cpp.i
-.PHONY : Tests/passageiro.i
+Aeroporto/servico.i: Aeroporto/servico.cpp.i
+.PHONY : Aeroporto/servico.i
 
 # target to preprocess a source file
-Tests/passageiro.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.i
-.PHONY : Tests/passageiro.cpp.i
+Aeroporto/servico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.i
+.PHONY : Aeroporto/servico.cpp.i
 
-Tests/passageiro.s: Tests/passageiro.cpp.s
-.PHONY : Tests/passageiro.s
+Aeroporto/servico.s: Aeroporto/servico.cpp.s
+.PHONY : Aeroporto/servico.s
 
 # target to generate assembly for a file
-Tests/passageiro.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Tests/passageiro.cpp.s
-.PHONY : Tests/passageiro.cpp.s
+Aeroporto/servico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.s
+.PHONY : Aeroporto/servico.cpp.s
 
-Tests/voo.obj: Tests/voo.cpp.obj
-.PHONY : Tests/voo.obj
-=======
 Aeroporto/voo.obj: Aeroporto/voo.cpp.obj
 .PHONY : Aeroporto/voo.obj
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
 
 # target to build an object file
 Aeroporto/voo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/voo.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.obj
 .PHONY : Aeroporto/voo.cpp.obj
 
@@ -281,6 +342,7 @@ Aeroporto/voo.i: Aeroporto/voo.cpp.i
 
 # target to preprocess a source file
 Aeroporto/voo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/voo.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.i
 .PHONY : Aeroporto/voo.cpp.i
 
@@ -289,6 +351,7 @@ Aeroporto/voo.s: Aeroporto/voo.cpp.s
 
 # target to generate assembly for a file
 Aeroporto/voo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/Aeroporto/voo.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.s
 .PHONY : Aeroporto/voo.cpp.s
 
@@ -297,6 +360,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/main.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
@@ -305,6 +369,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -313,6 +378,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\AED_project1.dir\build.make CMakeFiles/AED_project1.dir/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
@@ -324,33 +390,33 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-<<<<<<< HEAD
-	@echo ... AED_project1
-	@echo ... Tests/avião.obj
-	@echo ... Tests/avião.i
-	@echo ... Tests/avião.s
-	@echo ... Tests/passageiro.obj
-	@echo ... Tests/passageiro.i
-	@echo ... Tests/passageiro.s
-	@echo ... Tests/voo.obj
-	@echo ... Tests/voo.i
-	@echo ... Tests/voo.s
-=======
 	@echo ... Doxygen
+	@echo ... AED_project1
 	@echo ... projeto1
+	@echo ... Aeroporto/Data.obj
+	@echo ... Aeroporto/Data.i
+	@echo ... Aeroporto/Data.s
 	@echo ... Aeroporto/aviao.obj
 	@echo ... Aeroporto/aviao.i
 	@echo ... Aeroporto/aviao.s
 	@echo ... Aeroporto/bagagens.obj
 	@echo ... Aeroporto/bagagens.i
 	@echo ... Aeroporto/bagagens.s
+	@echo ... Aeroporto/bilhete.obj
+	@echo ... Aeroporto/bilhete.i
+	@echo ... Aeroporto/bilhete.s
+	@echo ... Aeroporto/funcionalidades.obj
+	@echo ... Aeroporto/funcionalidades.i
+	@echo ... Aeroporto/funcionalidades.s
 	@echo ... Aeroporto/passageiros.obj
 	@echo ... Aeroporto/passageiros.i
 	@echo ... Aeroporto/passageiros.s
+	@echo ... Aeroporto/servico.obj
+	@echo ... Aeroporto/servico.i
+	@echo ... Aeroporto/servico.s
 	@echo ... Aeroporto/voo.obj
 	@echo ... Aeroporto/voo.i
 	@echo ... Aeroporto/voo.s
->>>>>>> a034689c301f2c7d74e310f53d05a0d555f8fb1d
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

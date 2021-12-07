@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include "voo.h"
+#include "bilhete.h"
 
 
 class Passageiro: public Voo{

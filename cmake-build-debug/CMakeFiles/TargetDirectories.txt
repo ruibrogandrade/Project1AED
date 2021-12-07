@@ -1,0 +1,5 @@
+C:/Users/barba/OneDrive/Ambiente de Trabalho/Projeto_AED/Projeto1AED/cmake-build-debug/CMakeFiles/AED_project1.dir
+C:/Users/barba/OneDrive/Ambiente de Trabalho/Projeto_AED/Projeto1AED/cmake-build-debug/CMakeFiles/Doxygen.dir
+C:/Users/barba/OneDrive/Ambiente de Trabalho/Projeto_AED/Projeto1AED/cmake-build-debug/CMakeFiles/projeto1.dir
+C:/Users/barba/OneDrive/Ambiente de Trabalho/Projeto_AED/Projeto1AED/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/barba/OneDrive/Ambiente de Trabalho/Projeto_AED/Projeto1AED/cmake-build-debug/CMakeFiles/rebuild_cache.dir
