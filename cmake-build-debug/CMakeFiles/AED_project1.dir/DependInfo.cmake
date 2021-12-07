@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Rui/Desktop/AED_project1/Tests/avião.cpp" "C:/Users/Rui/Desktop/AED_project1/cmake-build-debug/CMakeFiles/AED_project1.dir/Tests/avião.cpp.obj"
-  "C:/Users/Rui/Desktop/AED_project1/Tests/voo.cpp" "C:/Users/Rui/Desktop/AED_project1/cmake-build-debug/CMakeFiles/AED_project1.dir/Tests/voo.cpp.obj"
-  "C:/Users/Rui/Desktop/AED_project1/main.cpp" "C:/Users/Rui/Desktop/AED_project1/cmake-build-debug/CMakeFiles/AED_project1.dir/main.cpp.obj"
+  "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Tests/avião.cpp" "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/AED_project1.dir/Tests/avião.cpp.obj"
+  "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Tests/voo.cpp" "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/AED_project1.dir/Tests/voo.cpp.obj"
+  "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/main.cpp" "C:/Users/Rui Andrade/CLionProjects/Projeto1AED/cmake-build-debug/CMakeFiles/AED_project1.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
