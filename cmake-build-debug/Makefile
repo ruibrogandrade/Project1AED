@@ -154,30 +154,6 @@ projeto1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/build
 .PHONY : projeto1/fast
 
-Aeroporto/Data.obj: Aeroporto/Data.cpp.obj
-.PHONY : Aeroporto/Data.obj
-
-# target to build an object file
-Aeroporto/Data.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj
-.PHONY : Aeroporto/Data.cpp.obj
-
-Aeroporto/Data.i: Aeroporto/Data.cpp.i
-.PHONY : Aeroporto/Data.i
-
-# target to preprocess a source file
-Aeroporto/Data.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.i
-.PHONY : Aeroporto/Data.cpp.i
-
-Aeroporto/Data.s: Aeroporto/Data.cpp.s
-.PHONY : Aeroporto/Data.s
-
-# target to generate assembly for a file
-Aeroporto/Data.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.s
-.PHONY : Aeroporto/Data.cpp.s
-
 Aeroporto/aviao.obj: Aeroporto/aviao.cpp.obj
 .PHONY : Aeroporto/aviao.obj
 
@@ -369,9 +345,6 @@ help:
 	@echo ... Doxygen
 	@echo ... AED_project1
 	@echo ... projeto1
-	@echo ... Aeroporto/Data.obj
-	@echo ... Aeroporto/Data.i
-	@echo ... Aeroporto/Data.s
 	@echo ... Aeroporto/aviao.obj
 	@echo ... Aeroporto/aviao.i
 	@echo ... Aeroporto/aviao.s
