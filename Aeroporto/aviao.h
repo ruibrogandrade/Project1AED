@@ -16,14 +16,14 @@ using namespace std;
 class servico{
 private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
-    int data;
+    string data;
     string nomeFuncionario;
 
 public:
     bool operator == (const servico & s) const;
 
 };
-class Aviao{
+class Aviao {
 private:
     //vector<string> matricula;
     string matricula;
@@ -32,8 +32,8 @@ private:
     queue<servico> servicosPorFazer;
     queue<servico> servicosJaFeitos;
 public:
-    Aviao();
-    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
+    Aviao() = default;
+    Aviao(string matricula, int capacidade, list<Voo> listaVoo);
     //list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
