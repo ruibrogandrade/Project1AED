@@ -4,7 +4,7 @@
 Passageiro::Passageiro() {}
 
 Passageiro::Passageiro(string nome, vector<Bilhete> bilhetes) : Voo() {
-    this-> nome = nome;
+    this->nome = nome;
     this->bilhetes = bilhetes;
 }
 
@@ -20,6 +20,4 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
         bilhetes.push_back(b);
         vagas--;
     }
-
-
 }

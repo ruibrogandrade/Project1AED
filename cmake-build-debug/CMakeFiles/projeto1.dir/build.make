@@ -130,22 +130,9 @@ CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\aviao.cpp" -o CMakeFiles\projeto1.dir\Aeroporto\aviao.cpp.s
 
-CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj: CMakeFiles/projeto1.dir/flags.make
-CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj: ../Aeroporto/funcionalidades.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\projeto1.dir\Aeroporto\funcionalidades.cpp.obj -c "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\funcionalidades.cpp"
-
-CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\funcionalidades.cpp" > CMakeFiles\projeto1.dir\Aeroporto\funcionalidades.cpp.i
-
-CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\funcionalidades.cpp" -o CMakeFiles\projeto1.dir\Aeroporto\funcionalidades.cpp.s
-
 CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj: CMakeFiles/projeto1.dir/flags.make
 CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj: ../Aeroporto/servico.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\projeto1.dir\Aeroporto\servico.cpp.obj -c "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\servico.cpp"
 
 CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.i: cmake_force
@@ -158,7 +145,7 @@ CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.s: cmake_force
 
 CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj: CMakeFiles/projeto1.dir/flags.make
 CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj: ../Aeroporto/bilhete.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\projeto1.dir\Aeroporto\bilhete.cpp.obj -c "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\bilhete.cpp"
 
 CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.i: cmake_force
@@ -169,19 +156,6 @@ CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\bilhete.cpp" -o CMakeFiles\projeto1.dir\Aeroporto\bilhete.cpp.s
 
-CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj: CMakeFiles/projeto1.dir/flags.make
-CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj: ../Aeroporto/Data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\projeto1.dir\Aeroporto\Data.cpp.obj -c "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\Data.cpp"
-
-CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\Data.cpp" > CMakeFiles\projeto1.dir\Aeroporto\Data.cpp.i
-
-CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Rui Andrade\CLionProjects\Projeto1AED\Aeroporto\Data.cpp" -o CMakeFiles\projeto1.dir\Aeroporto\Data.cpp.s
-
 # Object files for target projeto1
 projeto1_OBJECTS = \
 "CMakeFiles/projeto1.dir/main.cpp.obj" \
@@ -189,10 +163,8 @@ projeto1_OBJECTS = \
 "CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.obj" \
 "CMakeFiles/projeto1.dir/Aeroporto/bagagens.cpp.obj" \
 "CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.obj" \
-"CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj" \
 "CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj" \
-"CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj" \
-"CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj"
+"CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj"
 
 # External object files for target projeto1
 projeto1_EXTERNAL_OBJECTS =
@@ -202,15 +174,13 @@ projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/bagagens.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.obj
-projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj
-projeto1.exe: CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj
 projeto1.exe: CMakeFiles/projeto1.dir/build.make
 projeto1.exe: CMakeFiles/projeto1.dir/linklibs.rsp
 projeto1.exe: CMakeFiles/projeto1.dir/objects1.rsp
 projeto1.exe: CMakeFiles/projeto1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable projeto1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Rui Andrade\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable projeto1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\projeto1.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -132,12 +132,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/Data.cpp">
-			<Option target="projeto1"/>
-		</Unit>
-		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/Data.h">
-			<Option target="projeto1"/>
-		</Unit>
 		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/aviao.cpp">
 			<Option target="AED_project1"/>
 			<Option target="projeto1"/>
@@ -156,12 +150,6 @@
 			<Option target="projeto1"/>
 		</Unit>
 		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/bilhete.h">
-			<Option target="projeto1"/>
-		</Unit>
-		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/funcionalidades.cpp">
-			<Option target="projeto1"/>
-		</Unit>
-		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/funcionalidades.h">
 			<Option target="projeto1"/>
 		</Unit>
 		<Unit filename="C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/passageiros.cpp">

@@ -21,7 +21,4 @@ public:
 
 };
 
-
-
-
 #endif //PROJETO1_PASSAGEIROS_H
