@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/projeto1.dir/Aeroporto/aviao.cpp.obj"
   "CMakeFiles/projeto1.dir/Aeroporto/bagagens.cpp.obj"
   "CMakeFiles/projeto1.dir/Aeroporto/bilhete.cpp.obj"
-  "CMakeFiles/projeto1.dir/Aeroporto/funcionalidades.cpp.obj"
   "CMakeFiles/projeto1.dir/Aeroporto/passageiros.cpp.obj"
   "CMakeFiles/projeto1.dir/Aeroporto/servico.cpp.obj"
   "CMakeFiles/projeto1.dir/Aeroporto/voo.cpp.obj"
