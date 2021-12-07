@@ -10,7 +10,7 @@ Voo::Voo(int lot) { //   : lotacao(lot)
     vagas = lot;
 }
 
-Voo::Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){
+Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){
     //ao fazermos assim o construtor de voo, estamos basicamente a incorporar o updater aqui dentro, não sei se está correto
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
@@ -28,12 +28,12 @@ void Voo::setNumVoo(int numVoo) {
     this->numVoo=numVoo;
 }
 
-int Voo::getDataPartida(){
+Data Voo::getDataPartida(){
     return dataPartida;
 }
 
-void Voo::setDataPartida(int dataPartida) {
-    this->dataPartida=dataPartida;
+void Voo::setDataPartida(Data dataPartida) {
+    this->dataPartida = dataPartida;
 }
 
 int Voo::getDuracao(){

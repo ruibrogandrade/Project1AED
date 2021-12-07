@@ -1,21 +1,23 @@
 #ifndef PROJETO1_SERVICO_H
 #define PROJETO1_SERVICO_H
 
+#include "Data.h"
+
 using namespace std;
 
-class servico{
+class servico : public Data{
 private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
-    string data;
+    Data data;
     string nomeFuncionario;
     bool feito;
 
 public:
-    servico(char tiposervico, int data, string nomeFuncionario, bool feito);
+    servico(char tiposervico, Data data, string nomeFuncionario, bool feito);
     char getTipoServico();
     void setTipoServico(char tiposervico);
-    int getData();
-    void setData(string data);
+    Data getData();
+    void setData(Data data);
     string getNomeFuncionario();
     void setNomeFuncionario(string nomeFuncionario);
     bool getFeito();

@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Rui\CLionProjects\Projeto1AED
+CMAKE_SOURCE_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\CMakeFiles" "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Rui\CLionProjects\Projeto1AED\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\barba\OneDrive\Ambiente de Trabalho\Projeto_AED\Projeto1AED\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,19 @@ AED_project1/fast:
 .PHONY : AED_project1/fast
 
 #=============================================================================
+# Target rules for targets named Doxygen
+
+# Build rule for target.
+Doxygen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Doxygen
+.PHONY : Doxygen
+
+# fast build rule for target.
+Doxygen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Doxygen.dir\build.make CMakeFiles/Doxygen.dir/build
+.PHONY : Doxygen/fast
+
+#=============================================================================
 # Target rules for targets named projeto1
 
 # Build rule for target.
@@ -140,6 +153,30 @@ projeto1: cmake_check_build_system
 projeto1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/build
 .PHONY : projeto1/fast
+
+Aeroporto/Data.obj: Aeroporto/Data.cpp.obj
+.PHONY : Aeroporto/Data.obj
+
+# target to build an object file
+Aeroporto/Data.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.obj
+.PHONY : Aeroporto/Data.cpp.obj
+
+Aeroporto/Data.i: Aeroporto/Data.cpp.i
+.PHONY : Aeroporto/Data.i
+
+# target to preprocess a source file
+Aeroporto/Data.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.i
+.PHONY : Aeroporto/Data.cpp.i
+
+Aeroporto/Data.s: Aeroporto/Data.cpp.s
+.PHONY : Aeroporto/Data.s
+
+# target to generate assembly for a file
+Aeroporto/Data.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\projeto1.dir\build.make CMakeFiles/projeto1.dir/Aeroporto/Data.cpp.s
+.PHONY : Aeroporto/Data.cpp.s
 
 Aeroporto/aviao.obj: Aeroporto/aviao.cpp.obj
 .PHONY : Aeroporto/aviao.obj
@@ -353,8 +390,12 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Doxygen
 	@echo ... AED_project1
 	@echo ... projeto1
+	@echo ... Aeroporto/Data.obj
+	@echo ... Aeroporto/Data.i
+	@echo ... Aeroporto/Data.s
 	@echo ... Aeroporto/aviao.obj
 	@echo ... Aeroporto/aviao.i
 	@echo ... Aeroporto/aviao.s

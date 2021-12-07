@@ -24,7 +24,7 @@ private:
 public:
     Aviao();
     Aviao(string matricula, int capacidade,list<Voo> listaVoo);
-    //list<Voo> getListaVoo() const;
+    list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
 };

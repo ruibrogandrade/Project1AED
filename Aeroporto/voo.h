@@ -6,25 +6,28 @@
 
 #include <iostream>
 #include <vector>
+#include "Data.h"
+
 using namespace std;
 
 
 class Voo{
 private: //estes atributos estariam tbm em protected para de alguma
     //maneira a classe Bilhete conseguir aceder?
-    int numVoo, dataPartida, duracao;
+    int numVoo, duracao;
     string origem, destino;
+    Data dataPartida;
 protected:
     int vagas;
     int lotacao; //const
 public:
     Voo();
     Voo(int lot);
-    Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, string destino);
+    Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
     int getNumVoo(); //Porque é que os getters eram const?
     void setNumVoo(int numVoo);
-    int getDataPartida();
-    void setDataPartida(int dataPartida);
+    Data getDataPartida();
+    void setDataPartida(Data dataPartida);
     int getDuracao();
     void setDuracao(int duracao);
     int getNumLugares();
