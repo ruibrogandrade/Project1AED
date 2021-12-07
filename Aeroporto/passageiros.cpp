@@ -4,7 +4,7 @@
 Passageiro::Passageiro() {}
 
 Passageiro::Passageiro(string nome, vector<Bilhete> bilhetes) : Voo() {
-    this-> nome = nome;
+    this->nome = nome;
     this->bilhetes = bilhetes;
 }
 

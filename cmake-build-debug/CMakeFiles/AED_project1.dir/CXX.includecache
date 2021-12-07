@@ -1,0 +1,62 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/aviao.cpp
+aviao.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/aviao.h
+servico.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/servico.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/aviao.h
+iostream
+-
+vector
+-
+list
+-
+queue
+-
+voo.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/voo.h
+servico.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/servico.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/bilhete.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/passageiros.cpp
+passageiros.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/passageiros.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/passageiros.h
+iostream
+-
+vector
+-
+list
+-
+voo.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/voo.h
+bilhete.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/bilhete.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/servico.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/voo.cpp
+voo.h
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/voo.h
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/Aeroporto/voo.h
+iostream
+-
+vector
+-
+
+C:/Users/Rui Andrade/CLionProjects/Projeto1AED/main.cpp
+iostream
+-
+
