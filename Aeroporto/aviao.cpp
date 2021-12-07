@@ -1,7 +1,3 @@
-//
-// Created by andre on 05/12/2021.
-//
-
 #include "aviao.h"
 
 using namespace std;
