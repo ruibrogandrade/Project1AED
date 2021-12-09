@@ -4,10 +4,24 @@
 using namespace std;
 
 
-Voo::Voo() {}
+Voo::Voo() {
+    this->numVoo = 0;
+    this->duracao = 0;
+    this->origem = ' ';
+    this->destino = ' ';
+    this->dataPartida = Data();
+    this->vagas = lotacao;
+    this->lotacao = 0;
+}
 
 Voo::Voo(int lot) { //   : lotacao(lot)
-    vagas = lot;
+    this->vagas = lot;
+    this->numVoo = 0;
+    this->duracao = 0;
+    this->origem = ' ';
+    this->destino = ' ';
+    this->dataPartida = Data();
+    this->lotacao = 0;
 }
 
 Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){

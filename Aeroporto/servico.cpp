@@ -49,7 +49,7 @@ bool servico::operator==(const servico &s) const {
 }
 
 void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
-    for(int i = 0; i < ns.size(); i++) servicos.push(ns[i]);
+    for(int i = 0; i < ns.size(); i++) servicos.push_back(ns[i]);
 }
 
 void Aviao::atualizarservicos(vector<servico> sc) { //sf = servicos concluídos
