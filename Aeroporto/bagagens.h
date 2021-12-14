@@ -1,7 +1,13 @@
-    #ifndef PROJETO1_BAGAGENS_H
+#ifndef PROJETO1_BAGAGENS_H
 #define PROJETO1_BAGAGENS_H
 
 #include "bagagem.h"
+#include <vector>
+#include <stack>
+#include <queue>
+
+using namespace std;
+
 //malas por ordem deslocadas num tapete rolante
 //vão para 1 carrinho
 //carrinho tem c carruagens
@@ -17,9 +23,8 @@ private:
     unsigned numMalas;
 
     queue<Bagagem> tapete;
-    vector<carruagem> carrinho;
-    vector<stack> carruagem;
-    stack<Bagagem> pilha;
+    vector<vector<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
+
 public:
     gestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas(); //????

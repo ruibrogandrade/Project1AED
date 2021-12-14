@@ -4,10 +4,12 @@
 
 #include "bagagem.h"
 
-Bagagem::Bagagem(int nb, float p) : numBilhete(nb){}
+Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p){}
 
 int Bagagem::getNumBilhete() const {
     return numBilhete;
 }
 
+float Bagagem::getPeso() const {
+    return peso;
 }

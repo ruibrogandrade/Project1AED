@@ -8,9 +8,11 @@
 
 class Bagagem {
     int numBilhete; //funciona como id
+    float peso;
 public:
     Bagagem(int nb, float p);
     int getNumBilhete() const;
+    float getPeso() const;
 };
 
 
