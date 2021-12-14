@@ -1,15 +1,11 @@
-
 #ifndef PROJETO1_VOO_H
 #define PROJETO1_VOO_H
-
-
 
 #include <iostream>
 #include <vector>
 #include "Data.h"
 
 using namespace std;
-
 
 class Voo{
 private: //estes atributos estariam tbm em protected para de alguma
@@ -18,7 +14,7 @@ private: //estes atributos estariam tbm em protected para de alguma
     string origem, destino;
     Data dataPartida;
 protected:
-    int vagas;
+    int vagas; //int vagas{}; porque é q puseram assim dantes?
     int lotacao; //const
 public:
     Voo();

@@ -20,7 +20,7 @@ private:
     string matricula;
     int capacidade;
     list<Voo> listaVoo;
-    queue<servico> servicos;
+    vector<servico> servicos;
 public:
     Aviao();
     Aviao(string matricula, int capacidade,list<Voo> listaVoo);
