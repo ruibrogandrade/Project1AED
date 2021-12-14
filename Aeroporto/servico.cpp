@@ -1,18 +1,18 @@
 #include <iostream>
 #include "servico.h"
 #include "aviao.h"
+#include "Data.h"
 
 using namespace std;
 
 
-servico::servico(char tiposervico, Data data, std::string nomeFuncionario, bool feito) {
+servico::servico(char tiposervico, int data, string nomeFuncionario) {
     this->tiposervico=tiposervico;
     this->data=data;
     this->nomeFuncionario=nomeFuncionario;
-    this->feito=feito;
 }
 
-char servico::getTipoServico() {
+char servico::getTipoServico() const {
     return tiposervico;
 }
 
@@ -20,7 +20,7 @@ void servico::setTipoServico(char tiposervico) {
     this->tiposervico=tiposervico;
 }
 
-Data servico::getData() {
+Data servico::getData() const{
     return data;
 }
 
@@ -28,20 +28,12 @@ void servico::setData(Data data) {
     this->data=data;
 }
 
-string servico::getNomeFuncionario() {
+string servico::getNomeFuncionario() const {
     return nomeFuncionario;
 }
 
 void servico::setNomeFuncionario(string nomeFuncionario) {
     this->nomeFuncionario=nomeFuncionario;
-}
-
-bool servico::getFeito() {
-    return feito;
-}
-
-void servico::setFeito(bool feito) {
-    this->feito=feito;
 }
 
 bool servico::operator==(const servico &s) const {
