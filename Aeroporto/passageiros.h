@@ -5,6 +5,7 @@
 #include <vector>
 #include <list>
 #include "voo.h"
+#include "bilhete.h"
 
 
 class Passageiro: public Voo{
@@ -19,8 +20,5 @@ public:
     void addBilhete(string & nome, Bilhete b);
 
 };
-
-
-
 
 #endif //PROJETO1_PASSAGEIROS_H

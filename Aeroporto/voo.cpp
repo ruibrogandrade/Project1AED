@@ -4,13 +4,28 @@
 using namespace std;
 
 
-Voo::Voo() {}
+Voo::Voo() {
+    this->numVoo = 0;
+    this->duracao = 0;
+    this->origem = ' ';
+    this->destino = ' ';
+    this->dataPartida = Data();
+    this->vagas = lotacao;
+    this->lotacao = 0;
+}
 
 Voo::Voo(int lot) { //   : lotacao(lot)
-    vagas = lot;
+    this->vagas = lot;
+    this->numVoo = 0;
+    this->duracao = 0;
+    this->origem = ' ';
+    this->destino = ' ';
+    this->dataPartida = Data();
+    this->lotacao = 0;
 }
 
 Voo::Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, string destino) : lotacao(lot){
+    //ao fazermos assim o construtor de voo, estamos basicamente a incorporar o updater aqui dentro, não sei se está correto
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
     this->duracao = duracao;
@@ -19,34 +34,61 @@ Voo::Voo(int numVoo, int dataPartida, int duracao, int lot, string origem, strin
     vagas = lot;
 }
 
-int Voo::getNumVoo() const {
-    return this->numVoo;
+int Voo::getNumVoo() const{
+    return numVoo;
 }
 
-int Voo::getDataPartida() const {
-    return this->dataPartida;
+void Voo::setNumVoo(int numVoo) {
+    this->numVoo=numVoo;
 }
 
-int Voo::getduracao() const {
-    return this->duracao;
+int Voo::getDataPartida() const{
+    return dataPartida;
 }
 
-int Voo::getNumLugares() const {
+void Voo::setDataPartida(int dataPartida) {
+    this->dataPartida=dataPartida;
+}
+
+int Voo::getDuracao() const{
+    return duracao;
+}
+void Voo::setDuracao(int duracao) {
+    this->duracao=duracao;
+}
+
+int Voo::getNumLugares() const{
     return lotacao;
 }
 
-int Voo::getNumLugaresOcupados() const {
+void Voo::setNumLugares(int lotacao) {
+    this->lotacao=lotacao;
+}
+
+int Voo::getNumLugaresOcupados() const{
     return lotacao - vagas;
 }
 
-int Voo::getVagas() {
+int Voo::getVagas() const{
     return vagas;
 }
 
-string Voo::getOrigem() const {
-    return this->origem;
+void Voo::setVagas(int vagas) {
+    this->vagas=vagas;
 }
 
-string Voo::getDestino() const {
-    return this->destino;
+string Voo::getOrigem() const{
+    return origem;
+}
+
+void Voo::setOrigem(string origem) {
+    this->origem=origem;
+}
+
+string Voo::getDestino() const{
+    return destino;
+}
+
+void Voo::setDestino(string destino) {
+    this->destino=destino;
 }
