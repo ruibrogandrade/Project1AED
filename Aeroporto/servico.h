@@ -9,7 +9,8 @@ private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
-
+    queue<servico> servicosPorFazer;
+    vector<servico> servicosFeitos;
 public:
     servico(char tiposervico, Data data, string nomeFuncionario);
     char getTipoServico() const;

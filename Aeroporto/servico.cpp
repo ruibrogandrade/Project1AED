@@ -40,18 +40,5 @@ bool servico::operator==(const servico &s) const {
     return tiposervico == s.tiposervico && data == s.data && nomeFuncionario == s.nomeFuncionario;
 }
 
-void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
-    for(int i = 0; i < ns.size(); i++) servicos.push_back(ns[i]);
-}
-
-void Aviao::atualizarservicos(vector<servico> sc) { //sf = servicos concluídos
-    while(!sc.empty()){
-        for(int i = 0; i < sc.size(); i++){
-            if(sc[i].getFeito() == false) {
-                sc[i].setFeito(true);
-            }
-        }
-    }
-}
 
 
