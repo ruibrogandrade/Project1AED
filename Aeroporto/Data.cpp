@@ -1,7 +1,3 @@
-//
-// Created by barba on 07/12/2021.
-//
-
 #include "Data.h"
 
 bool Data::operator<(Data d) const{

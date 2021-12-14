@@ -12,7 +12,7 @@ servico::servico(char tiposervico, Data data, std::string nomeFuncionario, bool 
     this->feito=feito;
 }
 
-char servico::getTipoServico() {
+char servico::getTipoServico() const{
     return tiposervico;
 }
 
@@ -20,7 +20,7 @@ void servico::setTipoServico(char tiposervico) {
     this->tiposervico=tiposervico;
 }
 
-Data servico::getData() {
+Data servico::getData() const{
     return data;
 }
 
@@ -28,7 +28,7 @@ void servico::setData(Data data) {
     this->data=data;
 }
 
-string servico::getNomeFuncionario() {
+string servico::getNomeFuncionario() const{
     return nomeFuncionario;
 }
 
@@ -36,7 +36,7 @@ void servico::setNomeFuncionario(string nomeFuncionario) {
     this->nomeFuncionario=nomeFuncionario;
 }
 
-bool servico::getFeito() {
+bool servico::getFeito() const{
     return feito;
 }
 
