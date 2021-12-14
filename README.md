@@ -1,0 +1,15 @@
+# Projeto1AED
+- "Considere que os serviços são criados por ordem cronológica" -> temos de ordenar as duas queues do tipo Servico por ordem cronológica;
+- Talvez mudar o int data para -> string data?
+- "Um passageiro pode adquirir um bilhete para determinado voo" -> parte privada da classe Bilhete tem de ter --> int numVoo? que será igual ao int numVoo que faz parte dos atributos privados da classe Voo;
+- "Na aquisição do bilhete deve ser considerada a inclusão de bagagem ou não" -> bool bagagem na parte privada da classe Bilhete?
+- Criar a classe bagagem.cpp e bagagem.h para fazer a parte das stacks (temos exemplo no enunciado);
+- Associar a classe Bagagem à classe Bilhete como com Voo;
+- "Para auxílio aos passageiros, a companhia aérea mantém informação sobre os locais de transporte terrestre nas proximidades de cada aeroporto de destino das suas rotas" -> temos de criar alguma classe Aeroporto? E introduzir lá a arvore binária de pesquisa?
+- "Um local de transporte terrestre é caracterizado, no mínimo, por tipo de transporte (metro, autocarro, comboio), distância ao aeroporto, horário." -> um local de transporte terrestre vai ser um nó da árvore? Temos de criar uma classe para colocar lá o tipo de transporte, distância ao aeroporto e horário?
+- "Implemente também outras funcionalidades que considere relevantes" -> implementar mais funções em todas as classes já feitas. Implementar também funções de pesquisa e ordenação para as classes ("Devem ser usados algoritmos de pesquisa e ordenação");
+- Trocar um vetor qualquer por uma lista, porque ainda não usamos nenhuma;
+- Comentar tudo o que achemos relevante para entender o código, quer pelo doxygen ou não;
+- "Guardar informação em ficheiros para uso futuro" -> Talvez implementar os ficheiros no main? 
+- "As listagens podem ser totais ou parciais com critérios a definir pelo utilizador" -> não sei a que se refere as "listagens";
+- " Elaboração de uma apresentação (diapositivos) para suporte à demonstração".
