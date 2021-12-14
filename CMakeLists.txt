@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(AED_project1 main.cpp Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/passageiros.cpp Aeroporto/passageiros.h)
 
-add_executable(projeto1 main.cpp Aeroporto/passageiros.cpp Aeroporto/passageiros.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/bagagens.cpp Aeroporto/bagagens.h Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/funcionalidades.cpp Aeroporto/funcionalidades.h Aeroporto/servico.cpp Aeroporto/servico.h Aeroporto/bilhete.cpp Aeroporto/bilhete.h Aeroporto/Data.cpp Aeroporto/Data.h)
+add_executable(projeto1 main.cpp Aeroporto/passageiros.cpp Aeroporto/passageiros.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/funcionalidades.cpp Aeroporto/funcionalidades.h Aeroporto/servico.cpp Aeroporto/servico.h Aeroporto/bilhete.cpp Aeroporto/bilhete.h Aeroporto/Data.cpp Aeroporto/Data.h Aeroporto/localTranspTerr.cpp Aeroporto/localTranspTerr.h)
 
 # Doxygen Build
 find_package(Doxygen)
