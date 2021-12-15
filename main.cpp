@@ -32,15 +32,17 @@ void ReadServico() {
     int mes;
     int ano;
     string nomeFuncionario;
-    ifstream infile("servicos.txt");
+    ifstream file("servicos.txt");
     string line;
+    string test;
     int i = 0;
-    while (getline(infile, line,','))
+    while (getline(file, line, ','))
     {
         switch(i){
             case(0):
                 tiposervico = line.c_str()[0];
-                i++;
+                cout << tiposervico;
+                break;
             case(1):
                 dia = stoi(line.substr(0,2));
                 mes = stoi(line.substr(3,5));
@@ -48,11 +50,15 @@ void ReadServico() {
                 data.setDia(dia);
                 data.setMes(mes);
                 data.setAno(ano);
-                i++;
+                cout << dia << mes << ano;
+                break;
             case(2):
                 nomeFuncionario = line;
+                cout << line;
+                i = 0;
+                break;
         }
-
+        i++;
     }
 }
 
@@ -65,4 +71,3 @@ int main() {
     ReadFiles();
     return 0;
 }
-
