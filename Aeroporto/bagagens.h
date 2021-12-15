@@ -1,4 +1,4 @@
-/*#ifndef PROJETO1_BAGAGENS_H
+#ifndef PROJETO1_BAGAGENS_H
 #define PROJETO1_BAGAGENS_H
 
 #include "bagagem.h"
@@ -32,4 +32,3 @@ public:
 /*
 adiciono bagagem à fila/tapete (no voo.cpp) -> despejo fila numa carruagem enquanto não tiver cheia -> que por sua vez despeja tudo numa pilha até estar cheia
  quando pilha encher passo a proxima, quando todas as pilhas tiverem cheias então carruagem esta cheia, passo para a proxima carruagem (recursao), quando tiver tudo cheio carrinho cheio
-*/
