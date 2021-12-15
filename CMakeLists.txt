@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
-project(projeto1)
+project(Projeto1AED)
 
 set(CMAKE_CXX_STANDARD 20)
 
-
-add_executable(AED_project1 main.cpp Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/passageiros.cpp Aeroporto/passageiros.h)
-
-add_executable(projeto1 main.cpp Aeroporto/passageiros.cpp Aeroporto/passageiros.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/bagagens.cpp Aeroporto/bagagens.h Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/servico.cpp Aeroporto/servico.h Aeroporto/bilhete.cpp Aeroporto/bilhete.h Aeroporto/bagagem.cpp Aeroporto/bagagem.h)
+add_executable(Projeto1AED main.cpp Aeroporto/passageiros.cpp Aeroporto/passageiros.h Aeroporto/voo.cpp Aeroporto/voo.h Aeroporto/bagagens.cpp Aeroporto/bagagem.cpp Aeroporto/bagagem.h Aeroporto/bagagens.h Aeroporto/aviao.cpp Aeroporto/aviao.h Aeroporto/servico.cpp Aeroporto/servico.h Aeroporto/bilhete.cpp Aeroporto/bilhete.h)
 
 # Doxygen Build
 find_package(Doxygen)
