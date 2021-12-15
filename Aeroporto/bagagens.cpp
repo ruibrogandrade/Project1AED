@@ -1,3 +1,4 @@
+/*
 #include "bagagens.h"
 
 gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m){}
@@ -22,3 +23,4 @@ void gestaoBagagens::colocarMalas() {
         }
     }
 }
+*/

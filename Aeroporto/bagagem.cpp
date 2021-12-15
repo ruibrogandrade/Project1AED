@@ -10,4 +10,3 @@ int Bagagem::getNumBilhete() const {
     return numBilhete;
 }
 
-}

@@ -7,7 +7,7 @@
 using namespace std;
 
 
-servico::servico(char tiposervico, int data, string nomeFuncionario) {
+servico::servico(char tiposervico, Data data, string nomeFuncionario) {
     this->tiposervico=tiposervico;
     this->data=data;
     this->nomeFuncionario=nomeFuncionario;

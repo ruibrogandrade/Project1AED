@@ -1,6 +1,7 @@
 #ifndef PROJETO1_SERVICO_H
 #define PROJETO1_SERVICO_H
 #include "Data.h"
+#include <queue>
 
 using namespace std;
 

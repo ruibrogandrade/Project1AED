@@ -13,7 +13,7 @@ public:
     Data();
     Data(int ano, int mes, int dia);
     int getDia();
-    void setDia(int day);
+    void setDia(int dia);
     int getMes();
     void setMes(int mes);
     int getAno();
