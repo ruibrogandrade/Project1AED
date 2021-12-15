@@ -71,3 +71,7 @@ string Voo::getDestino() const{
 void Voo::setDestino(string destino) {
     this->destino=destino;
 }
+
+Voo::Voo() {
+
+}

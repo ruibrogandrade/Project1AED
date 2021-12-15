@@ -2,12 +2,11 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "servico.h"
-#include "Data.h"
-#include "Globais.h"
+#include "Aeroporto/servico.h"
+#include "Aeroporto/data.h"
 
 using namespace std;
-
+/*
 bool MenorQueDataAtual(Data data) {
     Data DataAtual;
     DataAtual.setDia(15);
@@ -128,11 +127,13 @@ void checkTipoDeData() {
         ServicoInput(GlobalData::servicosFeitos, GlobalData::servicosPorFazer);
     }
 }
-
+*/
 int main() {
+    /*
     ReadFiles();
     checkTipoDeData();
     WriteServico(GlobalData::servicosFeitos, GlobalData::servicosPorFazer);
+     */
     return 0;
 }
 

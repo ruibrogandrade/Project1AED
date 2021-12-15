@@ -1,5 +1,5 @@
 #include "passageiros.h"
-//#include "voo.h"
+#include "voo.h"
 
 Passageiro::Passageiro() {}
 
