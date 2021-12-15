@@ -31,7 +31,6 @@ public:
     void retirarMalas(Bagagem b);
 };
 
-
 #endif //PROJETO1_BAGAGENS_H
 
 /*
