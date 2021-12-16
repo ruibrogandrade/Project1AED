@@ -22,7 +22,10 @@ public:
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
     bool operator == (const servico & s) const;
-
+    static bool MenorQueDataAtual(Data data);
+    static void WriteServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer);
+    static void ServicoInput(queue<servico> servicosFeitos, queue<servico> servicosPorFazer);
+    static void ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer);
 };
 
 #endif //PROJETO1_SERVICO_H
