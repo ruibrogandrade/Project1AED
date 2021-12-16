@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 #include "Aeroporto/servico.h"
-#include "Aeroporto/data.h"
+#include "Aeroporto/Data.h"
 
 using namespace std;
 
@@ -19,6 +19,24 @@ bool MenorQueDataAtual(Data data) {
     }
 }
 
+void WriteServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+    ofstream file;
+    file.open("servicos.txt");
+    queue<servico> tmp1 = servicosFeitos;
+    queue<servico> tmp2 = servicosPorFazer;
+    for(int i = 0; i < servicosFeitos.size();i++) {
+        file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
+             << tmp1.front().getData().getAno() << "," << tmp1.front().getNomeFuncionario() <<  "," << endl;
+        tmp2.pop();
+    }
+    for(int i = 0; i < servicosPorFazer.size();i++) {
+        file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
+             << tmp2.front().getData().getAno() << "," << tmp2.front().getNomeFuncionario() << "," << endl;
+        tmp2.pop();
+    }
+    file.close();
+}
+
 void ServicoInput(queue<servico> servicosFeitos,queue<servico> servicosPorFazer) {
     servico tmp;
     string input;
@@ -30,11 +48,11 @@ void ServicoInput(queue<servico> servicosFeitos,queue<servico> servicosPorFazer)
     string nomeFuncionario;
     cout << "Estrutura de Input de Servico: (C,DD/MM/YYYY,NOME)";
     cin >> input;
-    tipoServico = input.substr(0,1);
-    dia = stoi(input.substr(3,5));
-    mes = stoi(input.substr(6,10));
-    ano = stoi(input.substr(6,10));
-    nomeFuncionario = stoi(input.substr(6,10));
+    tipoServico = input.c_str()[0];
+    dia = stoi(input.substr(2,4));
+    mes = stoi(input.substr(5,7));
+    ano = stoi(input.substr(8,12));
+    nomeFuncionario = input.substr(13);
     tmp.setTipoServico(tipoServico);
     data.setDia(dia);
     data.setMes(mes);
@@ -46,20 +64,7 @@ void ServicoInput(queue<servico> servicosFeitos,queue<servico> servicosPorFazer)
     } else {
         servicosPorFazer.push(tmp);
     }
-}
-
-void WriteServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
-    ofstream file;
-    file.open("servicos.txt");
-    for(int i = 0; i < servicosFeitos.size();i++) {
-        file << servicosFeitos.front().getTipoServico() << ',' << servicosFeitos.front().getData().getDia() << "/" << servicosFeitos.front().getData().getMes() << "/"
-             << servicosFeitos.front().getData().getAno() << "," << servicosFeitos.front().getNomeFuncionario() << endl;
-    }
-    for(int i = 0; i < servicosFeitos.size();i++) {
-        file << servicosPorFazer.front().getTipoServico() << ',' << servicosPorFazer.front().getData().getDia() << "/" << servicosPorFazer.front().getData().getMes() << "/"
-             << servicosPorFazer.front().getData().getAno() << "," << servicosPorFazer.front().getNomeFuncionario() << endl;
-    }
-    file.close();
+    WriteServico(servicosFeitos,servicosPorFazer);
 }
 
 void ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
@@ -79,6 +84,7 @@ void ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer)
         switch(i){
             case(0):
                 tiposervico = line.c_str()[0];
+                tmp.setTipoServico(tiposervico);
                 break;
             case(1):
                 dia = stoi(line.substr(0,2));
@@ -87,22 +93,20 @@ void ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer)
                 data.setDia(dia);
                 data.setMes(mes);
                 data.setAno(ano);
+                tmp.setData(data);
                 break;
             case(2):
                 nomeFuncionario = line;
-                i = 0;
+                tmp.setNomeFuncionario(nomeFuncionario);
+                i = -1;
+                if (MenorQueDataAtual(data)) {
+                    servicosFeitos.push(tmp);
+                } else {
+                    servicosPorFazer.push(tmp);
+                }
                 break;
         }
-
         i++;
-        tmp.setTipoServico(tiposervico);
-        tmp.setNomeFuncionario(nomeFuncionario);
-        tmp.setData(data);
-        if (MenorQueDataAtual(data)) {
-            servicosFeitos.push(tmp);
-        } else {
-            servicosPorFazer.push(tmp);
-        }
     }
 }
 
@@ -133,7 +137,6 @@ int main() {
     queue<servico> servicosPorFazer;
     ReadFiles(servicosFeitos, servicosPorFazer);
     checkTipoDeData(servicosFeitos, servicosPorFazer);
-    WriteServico(servicosFeitos, servicosPorFazer);
     return 0;
 }
 

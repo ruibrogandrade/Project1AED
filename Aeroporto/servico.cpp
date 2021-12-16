@@ -5,6 +5,7 @@
 #include "Data.h"
 
 using namespace std;
+servico::servico() {}
 
 
 servico::servico(char tiposervico, Data data, string nomeFuncionario) {

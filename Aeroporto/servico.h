@@ -13,6 +13,7 @@ private:
     queue<servico> servicosPorFazer;
     vector<servico> servicosFeitos;
 public:
+    servico();
     servico(char tiposervico, Data data, string nomeFuncionario);
     char getTipoServico() const;
     void setTipoServico(char tiposervico);
