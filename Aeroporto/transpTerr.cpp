@@ -1,7 +1,11 @@
 #include "transpTerr.h"
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
 
-Transporte::Transporte(string tipoT, list<int> hor, int dist) :
-        tipoTransp(tipoT), horario(hor), distancia(dist){}
+Transporte::Transporte(string tipoT, int dist) :
+        tipoTransp(tipoT), distancia(dist){}
 
 string Transporte::getTipoTransp() const {
     return this->tipoTransp;
@@ -49,18 +53,22 @@ BST<Transporte> OpcoesTransporte::getTransportes() const {
     return transportes;
 }
 
-//falta ver como fazer os ficheiros
-void OpcoesTransporte::readFile(ifstream &f) {
-    //...
-}
-//exemplo de como lidar com files:
-/*void Dictionary::readFile(ifstream &f) {
-    string fst, sec;
-    while(getline(f,fst)){
-        getline(f,sec);
-        words.insert(WordMean(fst,sec));
+void OpcoesTransporte::readFile(ifstream& f) {
+    //nao sei se tenho de fazer isto do nome do ficheiro ou nao
+    string filename;
+    cout << "Enter file name: " << endl,
+    cin >> filename;
+    f.open(filename);
+    string tipoT, strDist;
+    int dist;
+    stringstream toInt(strDist);
+    while (getline(f, tipoT)){
+        getline(f, strDist);
+        toInt >> dist; // Now the variable dist holds the value of strDist
+        transportes.insert(Transporte(tipoT, dist));
     }
-}*/
+    f.close();
+}
 
 //Transporte OpcoesTransporte::chooseTransporte retorna os transportes que
 // se encontram disponiveis para o utente que estejam a pelo menos dist do aeroporto
