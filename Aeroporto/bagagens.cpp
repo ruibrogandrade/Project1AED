@@ -1,6 +1,7 @@
 #include "bagagens.h"
 
-gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
+gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m){}
+
 
 void gestaoBagagens::colocarMalas() {
 
@@ -86,4 +87,5 @@ void gestaoBagagens::retirarMalas(Bagagem b) {
         }
     }
 }
+<<<<<<< HEAD
 */

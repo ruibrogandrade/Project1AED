@@ -18,22 +18,21 @@ protected:
     int lotacao; //const
 public:
     Voo();
-    Voo(int lot);
     Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
-    int getNumVoo(); //Porque é que os getters eram const?
+    int getNumVoo() const; //Porque é que os getters eram const?
     void setNumVoo(int numVoo);
-    Data getDataPartida();
+    Data getDataPartida() const;
     void setDataPartida(Data dataPartida);
-    int getDuracao();
+    int getDuracao() const;
     void setDuracao(int duracao);
-    int getNumLugares();
+    int getNumLugares() const;
     void setNumLugares(int lotacao);
-    int getNumLugaresOcupados();
-    int getVagas();
+    int getNumLugaresOcupados() const;
+    int getVagas() const;
     void setVagas(int vagas);
-    string getOrigem();
+    string getOrigem() const;
     void setOrigem(string origem);
-    string getDestino();
+    string getDestino() const;
     void setDestino(string destino);
 };
 

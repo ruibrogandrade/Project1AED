@@ -27,6 +27,8 @@ public:
     list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
+
+    void atualizarservicos(queue<servico> spf, vector<servico> sf);
 };
 
 

@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 class gestaoBagagens {
 private:
     unsigned numCarruagens;
@@ -20,7 +19,7 @@ private:
 
 public:
     gestaoBagagens(unsigned c, unsigned n, unsigned m);
-    void colocarMalas(); //????
+    void colocarMalas();
     void retirarMalas(Bagagem b);
 };
 
