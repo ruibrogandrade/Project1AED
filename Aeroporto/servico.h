@@ -10,8 +10,8 @@ private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
-    static queue<servico> servicosPorFazer;
-    static queue<servico> servicosFeitos;
+    queue<servico> servicosPorFazer;
+    queue<servico> servicosFeitos;
 public:
     servico();
     servico(char tiposervico, Data data, string nomeFuncionario);
@@ -23,9 +23,9 @@ public:
     void setNomeFuncionario(string nomeFuncionario);
     bool operator == (const servico & s) const;
     static bool MenorQueDataAtual(Data data);
-    static void WriteServico();
-    static void ServicoInput();
-    static void ReadServico();
+    static void WriteServico(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
+    static void ServicoInput(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
+    static void ReadServico(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
 };
 
 #endif //PROJETO1_SERVICO_H

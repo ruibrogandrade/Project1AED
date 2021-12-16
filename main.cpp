@@ -7,7 +7,7 @@
 
 using namespace std;
 void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
-    servico::ReadServico(servicosFeitos,servicosPorFazer);
+    servico::ReadServico();
 }
 
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
@@ -24,7 +24,7 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 
     }
     if(TipoDeDataClasse == "Servico") {
-        servico::ServicoInput(servicosFeitos, servicosPorFazer);
+        servico::ServicoInput();
     }
 }
 
