@@ -6,7 +6,7 @@
 #include "Aeroporto/data.h"
 
 using namespace std;
-/*
+
 bool MenorQueDataAtual(Data data) {
     Data DataAtual;
     DataAtual.setDia(15);
@@ -30,7 +30,7 @@ void ServicoInput(queue<servico> servicosFeitos,queue<servico> servicosPorFazer)
     string nomeFuncionario;
     cout << "Estrutura de Input de Servico: (C,DD/MM/YYYY,NOME)";
     cin >> input;
-    tipoServico = stoi(input.substr(0,1));
+    tipoServico = input.substr(0,1);
     dia = stoi(input.substr(3,5));
     mes = stoi(input.substr(6,10));
     ano = stoi(input.substr(6,10));
@@ -106,11 +106,11 @@ void ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer)
     }
 }
 
-void ReadFiles() {
-    ReadServico(GlobalData::servicosFeitos,GlobalData::servicosPorFazer);
+void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+    ReadServico(servicosFeitos,servicosPorFazer);
 }
 
-void checkTipoDeData() {
+void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
     string TipoDeDataClasse;
     cout << "What Type of Data do you want to Submit?" << endl;
     cin >> TipoDeDataClasse;
@@ -124,16 +124,16 @@ void checkTipoDeData() {
 
     }
     if(TipoDeDataClasse == "Servico") {
-        ServicoInput(GlobalData::servicosFeitos, GlobalData::servicosPorFazer);
+        ServicoInput(servicosFeitos, servicosPorFazer);
     }
 }
-*/
+
 int main() {
-    /*
-    ReadFiles();
-    checkTipoDeData();
-    WriteServico(GlobalData::servicosFeitos, GlobalData::servicosPorFazer);
-     */
+    queue<servico> servicosFeitos;
+    queue<servico> servicosPorFazer;
+    ReadFiles(servicosFeitos, servicosPorFazer);
+    checkTipoDeData(servicosFeitos, servicosPorFazer);
+    WriteServico(servicosFeitos, servicosPorFazer);
     return 0;
 }
 
