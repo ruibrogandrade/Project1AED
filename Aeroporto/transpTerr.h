@@ -34,6 +34,7 @@ public:
     void readFile(ifstream& f);
     vector<Transporte> chooseTransporte(int dist) const;
     void updateHorario(Transporte t, int horaAtual, int horaNova);
+    void print() const;
 };
 
 

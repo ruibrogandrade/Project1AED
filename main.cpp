@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 void ReadTransporteFile(OpcoesTransporte ot) {
     ifstream f("transpTerr.txt");
     string tipoT, strDist;
@@ -16,14 +17,27 @@ void ReadTransporteFile(OpcoesTransporte ot) {
         toInt >> dist; // Now the variable dist holds the value of strDist
         ot.getTransportes().insert(Transporte(tipoT, dist));
     }
+
 }
 
-void ReadFiles(OpcoesTransporte ot) {
-    ReadTransporteFile(ot);
+void printTrans(OpcoesTransporte ot) {
+    for (auto it = ot.getTransportes().begin(); it != ot.getTransportes().end(); it++) {
+        cout << (*it).getTipoTransp() << endl;
+        cout << (*it).getDistancia() << endl;
+    }
 }
+
 
 int main(){
     OpcoesTransporte ot;
-    ReadFiles(ot);
+    ReadTransporteFile(ot);
+    ot.getTransportes().insert(Transporte("bus", 4)); //não imprime nada :/
+    printTrans(ot);
+    //cout << "test if it works"; //isto imprime
+
+
+
 }
+
+
 

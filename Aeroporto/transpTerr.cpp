@@ -92,3 +92,10 @@ void OpcoesTransporte::updateHorario(Transporte t, int horaAtual, int horaNova) 
     }
 }
 
+void OpcoesTransporte::print() const {
+    for (auto i = transportes.begin(); i != transportes.end(); i++) {
+        cout << (*i).getTipoTransp() << endl;
+        cout << (*i).getDistancia() << endl;
+    }
+}
+
