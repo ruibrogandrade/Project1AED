@@ -18,7 +18,6 @@ public:
     Passageiro(string nome, vector<Bilhete> bilhetes);
     string getNome();
     void addBilhete(string & nome, Bilhete b);
-
 };
 
 #endif //PROJETO1_PASSAGEIROS_H

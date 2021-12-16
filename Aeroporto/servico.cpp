@@ -56,7 +56,7 @@ bool servico::MenorQueDataAtual(Data data) {
     }
 }
 
-void servico::WriteServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void servico::WriteServico() {
     ofstream file;
     file.open("servicos.txt");
     queue<servico> tmp1 = servicosFeitos;
@@ -74,7 +74,7 @@ void servico::WriteServico(queue<servico> servicosFeitos, queue<servico> servico
     file.close();
 }
 
-void servico::ServicoInput(queue<servico> servicosFeitos,queue<servico> servicosPorFazer) {
+void servico::ServicoInput() {
     servico tmp;
     string input;
     char tipoServico;
@@ -101,10 +101,10 @@ void servico::ServicoInput(queue<servico> servicosFeitos,queue<servico> servicos
     } else {
         servicosPorFazer.push(tmp);
     }
-    WriteServico(servicosFeitos,servicosPorFazer);
+    WriteServico();
 }
 
-void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void servico::ReadServico() {
     char tiposervico;
     servico tmp;
     Data data;
