@@ -62,6 +62,7 @@ public:
     iteratorBST<Comparable> begin() const;
     iteratorBST<Comparable> end() const;
     int size(const Comparable& el) const;   //new
+    BST();
 };
 
 // Note that all "matching" is based on the < method.
@@ -465,5 +466,6 @@ template <class Comparable>
 int BST<Comparable>::size(const Comparable& el) const {
     return -1;
 }
+
 
 #endif

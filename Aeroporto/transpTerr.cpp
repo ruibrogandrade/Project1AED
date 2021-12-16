@@ -53,7 +53,8 @@ BST<Transporte> OpcoesTransporte::getTransportes() const {
     return transportes;
 }
 
-void OpcoesTransporte::readFile(ifstream& f) {
+void OpcoesTransporte::readFile() {
+    ifstream f;
     f.open("transTerr.txt");
     string tipoT, strDist, hor;
     int dist;
@@ -70,7 +71,7 @@ void OpcoesTransporte::readFile(ifstream& f) {
         ot.transportes.insert(Transporte(tipoT, dist, listHor));
     }
     f.close();
-    print(ot);
+    //OpcoesTransporte::WriteBST(transportes);
 
 }
 
@@ -96,6 +97,15 @@ void OpcoesTransporte::updateHorario(Transporte t, int horaAtual, int horaNova) 
     }
 }
 
+void OpcoesTransporte::WriteBST(BST<Transporte> transportes) {
+    ofstream file;
+    file.open("transTerr.txt");
+    for( auto it = transportes.begin(); it != transportes.end(); it++){
+        file << (*it).getTipoTransp() << ',' << (*it).getDistancia() /*<< ',' << (*it).getHorario()*/ << endl;
+    }
+    file.close();
+}
+
 void OpcoesTransporte::print(OpcoesTransporte ot) {
     for (auto i = ot.transportes.begin(); i != ot.transportes.end(); i++) {
         cout << (*i).getTipoTransp() << endl;
@@ -105,4 +115,6 @@ void OpcoesTransporte::print(OpcoesTransporte ot) {
         }
     }
 }
+
+
 

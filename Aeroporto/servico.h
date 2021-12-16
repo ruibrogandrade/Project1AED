@@ -10,19 +10,21 @@ private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
-    bool feito;
 
 public:
-    servico(char tiposervico, Data data, string nomeFuncionario, bool feito);
+    servico(){};
+    servico(char tiposervico, Data data, string nomeFuncionario);
     char getTipoServico() const;
     void setTipoServico(char tiposervico);
     Data getData() const;
     void setData(Data data);
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
-    bool getFeito() const;
-    void setFeito(bool feito);
     bool operator == (const servico & s) const;
+    static bool MenorQueDataAtual(Data data);
+    static void WriteServico();
+    static void ServicoInput();
+    static void ReadServico();
 };
 
 #endif //PROJETO1_SERVICO_H

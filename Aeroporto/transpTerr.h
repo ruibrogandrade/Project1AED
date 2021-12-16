@@ -32,12 +32,12 @@ class OpcoesTransporte {
 public:
     OpcoesTransporte() : transportes(Transporte()){};
     BST<Transporte> getTransportes() const;
-    static void readFile(ifstream& f); //tornei static para conseguir aceder atraves do main.cpp
+    static void readFile(); //tornei static para conseguir aceder atraves do main.cpp
     vector<Transporte> chooseTransporte(int dist) const;
     void updateHorario(Transporte t, int horaAtual, int horaNova);
+    static void WriteBST(BST<Transporte> transportes);
     static void print(OpcoesTransporte ot);
 };
-
 
 #endif //PROJETO1_LOCALTRANSPTERR_H
 

@@ -6,10 +6,12 @@
 
 using namespace std;
 
-
 int main(){
-    ifstream file;
-    OpcoesTransporte::readFile(file);
+    /*
+    OpcoesTransporte::readFile();
+    BST<Transporte> transportes;
+    OpcoesTransporte::WriteBST(transportes);
+     */
 
 }
 

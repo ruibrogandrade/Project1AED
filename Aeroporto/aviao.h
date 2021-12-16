@@ -1,7 +1,3 @@
-//
-// Created by andre on 05/12/2021.
-//
-
 #ifndef PROJETO1_AVIAO_H
 #define PROJETO1_AVIAO_H
 
@@ -27,8 +23,7 @@ public:
     list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
+    void atualizarservicos(queue<servico> spf, vector<servico> sf);
 };
-
-
 
 #endif //PROJETO1_AVIAO_H
