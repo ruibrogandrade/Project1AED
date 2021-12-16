@@ -52,7 +52,7 @@ void Transporte::setDistancia(int dist) {
 BST<Transporte> OpcoesTransporte::getTransportes() const {
     return transportes;
 }
-/*
+
 void OpcoesTransporte::readFile(ifstream& f) {
     //nao sei se tenho de fazer isto do nome do ficheiro ou nao
     string filename;
@@ -69,7 +69,7 @@ void OpcoesTransporte::readFile(ifstream& f) {
     }
     f.close();
 }
-*/
+
 //Transporte OpcoesTransporte::chooseTransporte retorna os transportes que
 // se encontram disponiveis para o utente que estejam a pelo menos dist do aeroporto
 vector<Transporte> OpcoesTransporte::chooseTransporte(int dist) const {

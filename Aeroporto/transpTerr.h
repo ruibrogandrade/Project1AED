@@ -31,7 +31,7 @@ class OpcoesTransporte {
 public:
     OpcoesTransporte() : transportes(Transporte("", 0)){};
     BST<Transporte> getTransportes() const;
-    //void readFile(ifstream& f);
+    void readFile(ifstream& f);
     vector<Transporte> chooseTransporte(int dist) const;
     void updateHorario(Transporte t, int horaAtual, int horaNova);
 };

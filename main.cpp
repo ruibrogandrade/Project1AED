@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void ReadTransporteFile(BST<Transporte> transportes) {
+void ReadTransporteFile(OpcoesTransporte ot) {
     ifstream f("transpTerr.txt");
     string tipoT, strDist;
     int dist;
@@ -14,16 +14,16 @@ void ReadTransporteFile(BST<Transporte> transportes) {
     while (getline(f, tipoT)){
         getline(f, strDist);
         toInt >> dist; // Now the variable dist holds the value of strDist
-        transportes.insert(Transporte(tipoT, dist));
+        ot.getTransportes().insert(Transporte(tipoT, dist));
     }
 }
 
-void ReadFiles(BST<Transporte> transportes) {
-    ReadTransporteFile(transportes);
+void ReadFiles(OpcoesTransporte ot) {
+    ReadTransporteFile(ot);
 }
 
 int main(){
-    BST<Transporte> transportes;
-    ReadFiles(transportes);
+    OpcoesTransporte ot;
+    ReadFiles(ot);
 }
 
