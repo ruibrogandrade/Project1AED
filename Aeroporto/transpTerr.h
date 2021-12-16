@@ -11,9 +11,10 @@ using namespace std;
 class Transporte {
     string tipoTransp;
     int distancia;
+    list<int> horario;
 public:
-    list<int> horario; //pus no public para a class OpcoesTransporte conseguir aceder
-    Transporte(string tipoTransp, int distancia);
+    Transporte() : tipoTransp(""), distancia(0), horario(0){};
+    Transporte(string tipoTransp, int distancia, list<int> horario);
     string getTipoTransp() const;
     list<int> getHorario() const;
     int getDistancia() const;
@@ -29,12 +30,12 @@ public:
 class OpcoesTransporte {
     BST<Transporte> transportes;
 public:
-    OpcoesTransporte() : transportes(Transporte("", 0)){};
+    OpcoesTransporte() : transportes(Transporte()){};
     BST<Transporte> getTransportes() const;
-    void readFile(ifstream& f);
+    static void readFile(ifstream& f); //tornei static para conseguir aceder atraves do main.cpp
     vector<Transporte> chooseTransporte(int dist) const;
     void updateHorario(Transporte t, int horaAtual, int horaNova);
-    void print() const;
+    static void print(OpcoesTransporte ot);
 };
 
 

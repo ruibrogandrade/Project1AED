@@ -4,8 +4,8 @@
 #include <sstream>
 #include <string>
 
-Transporte::Transporte(string tipoT, int dist) :
-        tipoTransp(tipoT), distancia(dist){}
+Transporte::Transporte(string tipoT, int dist, list<int> hor) :
+        tipoTransp(tipoT), distancia(dist), horario(hor){}
 
 string Transporte::getTipoTransp() const {
     return this->tipoTransp;
@@ -54,20 +54,24 @@ BST<Transporte> OpcoesTransporte::getTransportes() const {
 }
 
 void OpcoesTransporte::readFile(ifstream& f) {
-    //nao sei se tenho de fazer isto do nome do ficheiro ou nao
-    string filename;
-    cout << "Enter file name: " << endl,
-    cin >> filename;
-    f.open(filename);
-    string tipoT, strDist;
+    f.open("transTerr.txt");
+    string tipoT, strDist, hor;
     int dist;
     stringstream toInt(strDist);
+    list<int> listHor;
+    OpcoesTransporte ot;
     while (getline(f, tipoT)){
         getline(f, strDist);
         toInt >> dist; // Now the variable dist holds the value of strDist
-        transportes.insert(Transporte(tipoT, dist));
+        while(cin >> hor){
+            if(hor.substr(2,1) != ":") break;
+            listHor.push_back(stoi(hor));
+        }
+        ot.transportes.insert(Transporte(tipoT, dist, listHor));
     }
     f.close();
+    print(ot);
+
 }
 
 //Transporte OpcoesTransporte::chooseTransporte retorna os transportes que
@@ -84,7 +88,7 @@ vector<Transporte> OpcoesTransporte::chooseTransporte(int dist) const {
 
 void OpcoesTransporte::updateHorario(Transporte t, int horaAtual, int horaNova) {
     list<int>::iterator it;
-    for(it = t.horario.begin(); it != t.horario.end() ; it++){
+    for(it = t.getHorario().begin(); it != t.getHorario().end() ; it++){
         if ((*it) == horaAtual){
             (*it) = horaNova;
             break;
@@ -92,10 +96,13 @@ void OpcoesTransporte::updateHorario(Transporte t, int horaAtual, int horaNova) 
     }
 }
 
-void OpcoesTransporte::print() const {
-    for (auto i = transportes.begin(); i != transportes.end(); i++) {
+void OpcoesTransporte::print(OpcoesTransporte ot) {
+    for (auto i = ot.transportes.begin(); i != ot.transportes.end(); i++) {
         cout << (*i).getTipoTransp() << endl;
         cout << (*i).getDistancia() << endl;
+        for( auto it = (*i).getHorario().begin(); it != (*i).getHorario().end(); it++ ){
+            cout << (*it) << endl;
+        }
     }
 }
 
