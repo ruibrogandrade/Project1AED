@@ -18,16 +18,16 @@ class Aviao{
 private:
     //vector<string> matricula;
     string matricula;
+    string tipo;
     int capacidade;
     list<Voo> listaVoo;
     vector<servico> servicos;
 public:
     Aviao();
-    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
+    Aviao(string matricula, string tipo, int capacidade,list<Voo> listaVoo);
     list<Voo> getListaVoo() const;
     void novoservico(vector<servico> ns);
     void atualizarservicos(vector<servico> sf);
-
     void atualizarservicos(queue<servico> spf, vector<servico> sf);
 };
 

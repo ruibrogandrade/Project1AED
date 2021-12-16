@@ -1,7 +1,17 @@
 #include "bagagens.h"
 
+/**
+ * Construtor que inicializa valores para bagagens
+ * @param c número de carruagens
+ * @param n número de pilhas
+ * @param m número de malas
+ */
+
 gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m){}
 
+/**
+ *Retira malas da fila do tapete rolante para o carrinho
+ */
 
 void gestaoBagagens::colocarMalas() {
 
@@ -24,6 +34,11 @@ void gestaoBagagens::colocarMalas() {
         }
     }
 }
+
+/**
+ * Procura mala que é preciso tirar do carrinho e devolve ao cliente
+ * @param b mal
+ */
 
 void gestaoBagagens::retirarMalas(Bagagem b) {
     for(auto it = carrinho.begin(); it != carrinho.end(); it++) {
