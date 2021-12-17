@@ -24,6 +24,7 @@ public:
     void setNumVoo(int numVoo);
     int getBagagem() const;
     void setBagagem(bool bagagem);
+
 };
 
 #endif //PROJETO1_BILHETE_H

@@ -1,13 +1,14 @@
 #include <fstream>
 #include <sstream>
 #include "passageiros.h"
-//#include "voo.h"
+#include "bilhete.h"
+#include "voo.h"
 
 Passageiro::Passageiro() {}
 
-Passageiro::Passageiro(string nome, vector<Bilhete> bilhetes) : Voo() {
+Passageiro::Passageiro(string nome, Bilhete b)  {
     this->nome = nome;
-    this->bilhetes = bilhetes;
+    bilhetes.push_back(b);
 }
 
 string Passageiro::getNome() {

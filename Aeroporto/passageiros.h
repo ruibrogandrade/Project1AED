@@ -15,7 +15,7 @@ private:
     int numBilhetesAdquiridos = bilhetes.size();
 public:
     Passageiro();
-    Passageiro(string nome, vector<Bilhete> bilhetes);
+    Passageiro(string nome, Bilhete b);
     string getNome();
     void addBilhete(string & nome, Bilhete b);
     static void BilheteInput();

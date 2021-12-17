@@ -1,6 +1,12 @@
 #include "bilhete.h"
 
-Bilhete::Bilhete() {}
+Bilhete::Bilhete() { //inicializei com valores para ver se eliminava o erro: undefined reference to `Passageiro::bilhetes'
+    //mas nao resultou :(
+    this->numBilhete = 0;
+    this->quantBagagem = 0;
+    this->numVoo = 0;
+    this->bagagem = false;
+}
 
 int Bilhete::getBagagem() const{
     return bagagem;
@@ -25,3 +31,5 @@ int Bilhete::getNumBilhete() const {
 void Bilhete::setNumBilhete(int numBilhete) {
     this->numBilhete=numBilhete;
 }
+
+

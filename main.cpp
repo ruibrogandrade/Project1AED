@@ -5,7 +5,7 @@
 #include "Aeroporto/servico.h"
 #include "Aeroporto/Data.h"
 #include "Aeroporto/aviao.h"
-#include "Aeroporto/aviao.cpp"
+//#include "Aeroporto/aviao.cpp"
 
 using namespace std;
 //codigo rui
@@ -41,7 +41,6 @@ int main() {
 }
 */
 int main(){
-    Aviao::WriteVoo();
 
     return 0;
 }
