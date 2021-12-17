@@ -20,3 +20,27 @@ Data::Data(int ano, int mes, int dia) {
     this->mes = mes;
     this->dia = dia;
 }
+
+int Data::getDia() {
+    return dia;
+}
+
+void Data::setDia(int dia) {
+    this->dia=dia;
+}
+
+int Data::getMes() {
+    return mes;
+}
+
+void Data::setMes(int mes) {
+    this->mes=mes;
+}
+
+int Data::getAno() {
+    return ano;
+}
+
+void Data::setAno(int ano) {
+    this->ano=ano;
+}

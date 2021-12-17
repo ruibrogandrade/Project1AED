@@ -113,8 +113,7 @@ void servico::ReadServico() {
     string line;
     string test;
     int i = 0;
-    while (getline(file, line, ','))
-    {
+    while (getline(file, line, ',')){
         switch(i){
             case(0):
                 tiposervico = line.c_str()[0];

@@ -2,6 +2,7 @@
 #define PROJETO1_SERVICO_H
 
 #include "Data.h"
+#include <queue>
 
 using namespace std;
 
@@ -10,6 +11,8 @@ private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
+    static queue<servico> servicosPorFazer;
+    static queue<servico> servicosFeitos;
 
 public:
     servico(){};
