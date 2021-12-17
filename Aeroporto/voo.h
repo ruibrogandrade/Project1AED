@@ -18,7 +18,8 @@ protected:
     int lotacao; //const
 public:
     Voo();
-    Voo(int lot);
+    Voo(int nrVoo){this->numVoo = nrVoo;};
+    //Voo(int lot);
     Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
     int getNumVoo() const; //Porque é que os getters eram const?
     void setNumVoo(int numVoo);

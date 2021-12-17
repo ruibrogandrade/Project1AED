@@ -4,8 +4,12 @@
 #include <string>
 #include "Aeroporto/servico.h"
 #include "Aeroporto/Data.h"
+#include "Aeroporto/aviao.h"
+#include "Aeroporto/aviao.cpp"
 
 using namespace std;
+//codigo rui
+/*
 void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
     servico::ReadServico(servicosFeitos,servicosPorFazer);
 }
@@ -33,5 +37,11 @@ int main() {
     queue<servico> servicosPorFazer;
     ReadFiles(servicosFeitos, servicosPorFazer);
     checkTipoDeData(servicosFeitos, servicosPorFazer);
+    return 0;
+}
+*/
+int main(){
+    Aviao::WriteVoo();
+
     return 0;
 }

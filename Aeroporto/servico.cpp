@@ -141,5 +141,6 @@ void servico::ReadServico() {
         }
         i++;
     }
+    file.close();
 }
 
