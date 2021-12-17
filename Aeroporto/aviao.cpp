@@ -17,8 +17,8 @@ Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
     this->listaVoo = listaVoo;
 }
 
-void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
-    for(int i = 0; i < ns.size(); i++) servicos.push_back(ns[i]);
+void Aviao::novoservico(queue<servico> servicos, servico novo) { //ns = novos servicos
+    servicos.push(novo);
 }
 
 
@@ -30,4 +30,12 @@ void Aviao::atualizarservicos(queue<servico> spf, vector<servico> sf) { //spf = 
             spf.pop();
         }
     }
+}
+
+string Aviao::getMatricula() const {
+    return matricula;
+}
+
+void Aviao::setMatricula() {
+
 }

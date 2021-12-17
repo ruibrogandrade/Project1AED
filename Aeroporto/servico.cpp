@@ -43,6 +43,13 @@ bool servico::operator==(const servico &s) const {
     return tiposervico == s.tiposervico && data == s.data && nomeFuncionario == s.nomeFuncionario;
 }
 
+void servico::setMatriculaAviao(string matriculaAviao) {
+    this->matriculaAviao=matriculaAviao;
+}
+
+string servico::getMatriculaAviao() const{
+    return matriculaAviao;
+}
 
 bool servico::MenorQueDataAtual(Data data) {
     Data DataAtual;
@@ -64,7 +71,7 @@ void servico::WriteServico(queue<servico> servicosFeitos, queue<servico> servico
     for(int i = 0; i < servicosFeitos.size();i++) {
         file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
              << tmp1.front().getData().getAno() << "," << tmp1.front().getNomeFuncionario() <<  "," << endl;
-        tmp2.pop();
+        tmp1.pop();
     }
     for(int i = 0; i < servicosPorFazer.size();i++) {
         file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
@@ -112,6 +119,8 @@ void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicos
     int mes;
     int ano;
     string nomeFuncionario;
+    int matriculaAviao;
+    list<Aviao>::iterator it;
     ifstream file("servicos.txt");
     string line;
     string test;
@@ -135,15 +144,30 @@ void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicos
             case(2):
                 nomeFuncionario = line;
                 tmp.setNomeFuncionario(nomeFuncionario);
-                i = -1;
+                i++;
+                break;
+            case(3):
+                matriculaAviao = stoi(line);
+                tmp.setMatriculaAviao(matriculaAviao);
+                i=-1;
                 if (MenorQueDataAtual(data)) {
                     servicosFeitos.push(tmp);
                 } else {
                     servicosPorFazer.push(tmp);
                 }
+                it = findAviao(listAviao, matriculaAviao);
+                it->novoservico(tmp);
                 break;
         }
         i++;
     }
 }
 
+ list<Aviao>::iterator servico::findAviao(list<Aviao> listAviao, string matriculaAviao) {
+    list<Aviao>::iterator it;
+    for(it = listAviao.begin(); it != listAviao.end(); it++) {
+        if(it->getMatricula() == matriculaAviao) {
+            return (it);
+        }
+    }
+}

@@ -19,16 +19,16 @@ private:
     //vector<string> matricula;
     string matricula;
     int capacidade;
+    list<Aviao> listAviao;
     list<Voo> listaVoo;
-    vector<servico> servicos;
+    queue<servico> servicos;
 public:
     Aviao();
     Aviao(string matricula, int capacidade,list<Voo> listaVoo);
     list<Voo> getListaVoo() const;
-    void novoservico(vector<servico> ns);
-    void atualizarservicos(vector<servico> sf);
-
-    void atualizarservicos(queue<servico> spf, vector<servico> sf);
+    string getMatricula() const;
+    void setMatricula();
+    void novoservico(queue<servico> servicos, servico novo);
 };
 
 
