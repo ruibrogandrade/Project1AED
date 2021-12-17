@@ -11,13 +11,16 @@
 class Passageiro: public Voo{
 private:
     string nome;
-    vector<Bilhete> bilhetes;
+    static vector<Bilhete> bilhetes;
     int numBilhetesAdquiridos = bilhetes.size();
 public:
     Passageiro();
     Passageiro(string nome, vector<Bilhete> bilhetes);
     string getNome();
     void addBilhete(string & nome, Bilhete b);
+    static void BilheteInput();
+    static void WriteBilhete();
+    static void ReadBilhete();
 
 };
 

@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//acrescentava aqui uma lista de passageiros
 class Voo{
 private: //estes atributos estariam tbm em protected para de alguma
     //maneira a classe Bilhete conseguir aceder?
