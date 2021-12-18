@@ -16,7 +16,6 @@ private:
     int capacidade;
     list<Voo> listaVoo;
     list<Aviao> listAviao;
-    vector<servico> servicos;
 public:
     Aviao();
     Aviao(string matric, int cap){
@@ -28,10 +27,7 @@ public:
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
     list<Aviao> getListAviao() const;
-    void setListAviao();
-    void novoservico(vector<servico> ns);
-    //void atualizarservicos(vector<servico> sf);
-    void atualizarservicos(queue<servico> spf, vector<servico> sf);
+    void setListAviao(list<Aviao> listAvio);
      void VooInput();
      void WriteVoo();
      void ReadVoo();

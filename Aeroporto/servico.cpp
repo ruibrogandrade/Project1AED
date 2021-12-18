@@ -4,7 +4,7 @@
 #include "servico.h"
 #include "aviao.h"
 #include "Data.h"
-
+/*
 using namespace std;
 servico::servico() {}
 
@@ -201,3 +201,4 @@ void servico::setServicosFeitos(queue<servico> servicosFeitos) {
 queue<servico> servico::getServicosFeitos()  const{
     return servicosFeitos;
 }
+*/

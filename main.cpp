@@ -7,11 +7,10 @@
 
 using namespace std;
 void ReadFiles() {
-    servico s;
-    s.ReadServico();
-
+    Aviao a;
+    a.ReadAviao();
 }
-
+/*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
     servico s;
     string TipoDeDataClasse;
@@ -30,11 +29,9 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
         s.ServicoInput();
     }
 }
-
+*/
 int main() {
     ReadFiles();
-
-    checkTipoDeData();
     return 0;
 }
 

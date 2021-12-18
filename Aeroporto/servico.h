@@ -3,7 +3,7 @@
 #include "Data.h"
 #include <queue>
 #include "aviao.h"
-
+/*
 using namespace std;
 
 class servico{
@@ -36,5 +36,5 @@ public:
     void ReadServico();
     list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
 };
-
+*/
 #endif //PROJETO1_SERVICO_H
