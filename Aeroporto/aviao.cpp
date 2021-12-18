@@ -6,23 +6,23 @@
 using namespace std;
 
 
-
 Aviao::Aviao() {
     //não sei se faz sentido criar um Aviao vazio (?)
 }
 
-Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
+Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo, string tipo) {
     this->matricula = matricula;
     this->capacidade = capacidade;
     this->listaVoo = listaVoo;
+    //string tipo nao é usada?!
 }
 
 list<Voo> Aviao::getListaVoo() const {
     return listaVoo;
 }
 
-void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
-    for(int i = 0; i < ns.size(); i++) servicos.push_back(ns[i]);
+void Aviao::novoservico(Servico novo) { //ns = novos servicos
+    servicos.push(novo);
 }
 
 /*void Aviao::atualizarservicos(vector<servico> sc) { //sf = servicos concluídos
@@ -33,7 +33,7 @@ void Aviao::novoservico(vector<servico> ns) { //ns = novos servicos
             }
         }
     }
-}*/
+}
 void Aviao::atualizarservicos(queue<servico> spf, vector<servico> sf) { //spf = servicos por fazer, sf = servicos ja feitos
     while(!spf.empty()){
         for(int i = 0; i < spf.size(); i++){
@@ -41,7 +41,8 @@ void Aviao::atualizarservicos(queue<servico> spf, vector<servico> sf) { //spf = 
             spf.pop();
         }
     }
-}
+}*/
+
 //só fiz para o nr do voo
 void Aviao::WriteVoo() {
     ofstream file;

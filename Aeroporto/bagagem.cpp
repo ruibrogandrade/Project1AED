@@ -3,7 +3,6 @@
 #include "bagagem.h"
 
 /*
-
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
 
 int Bagagem::getNumBilhete() const {
