@@ -63,7 +63,9 @@ bool servico::MenorQueDataAtual(Data data) {
     }
 }
 
-void servico::WriteServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void servico::WriteServico() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
     ofstream file;
     file.open("servicos.txt");
     queue<servico> tmp1 = servicosFeitos;
@@ -81,7 +83,9 @@ void servico::WriteServico(queue<servico> servicosFeitos, queue<servico> servico
     file.close();
 }
 
-void servico::ServicoInput(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void servico::ServicoInput() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
     servico tmp;
     string input;
     char tipoServico;
@@ -108,10 +112,15 @@ void servico::ServicoInput(queue<servico> servicosFeitos, queue<servico> servico
     } else {
         servicosPorFazer.push(tmp);
     }
+    setServicosFeitos(servicosFeitos);
+    setServicosPorFazer(servicosPorFazer);
     WriteServico();
 }
 
-void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void servico::ReadServico() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
+    list<Aviao> listAviao = Aviao::getListAviao();
     char tiposervico;
     servico tmp;
     Data data;
@@ -119,7 +128,7 @@ void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicos
     int mes;
     int ano;
     string nomeFuncionario;
-    int matriculaAviao;
+    string matriculaAviao;
     list<Aviao>::iterator it;
     ifstream file("servicos.txt");
     string line;
@@ -161,6 +170,8 @@ void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicos
         }
         i++;
     }
+    setServicosFeitos(servicosFeitos);
+    setServicosPorFazer(servicosPorFazer);
 }
 
  list<Aviao>::iterator servico::findAviao(list<Aviao> listAviao, string matriculaAviao) {
@@ -170,4 +181,20 @@ void servico::ReadServico(queue<servico> servicosFeitos, queue<servico> servicos
             return (it);
         }
     }
+}
+
+void servico::setServicosPorFazer(queue<servico> servicosPorFazer) {
+    this->servicosPorFazer=servicosPorFazer;
+}
+
+queue<servico> servico::getServicosPorFazer() const{
+    return servicosPorFazer;
+}
+
+void servico::setServicosFeitos(queue<servico> servicosFeitos) {
+    this->servicosFeitos=servicosFeitos;
+}
+
+queue<servico> servico::getServicosFeitos()  const{
+    return servicosFeitos;
 }

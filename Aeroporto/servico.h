@@ -11,9 +11,9 @@ private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
-    queue<servico> servicosPorFazer;
-    queue<servico> servicosFeitos;
     string matriculaAviao;
+    queue<servico> servicosFeitos;
+    queue<servico> servicosPorFazer;
 public:
     servico();
     servico(char tiposervico, Data data, string nomeFuncionario);
@@ -25,11 +25,15 @@ public:
     void setNomeFuncionario(string nomeFuncionario);
     string getMatriculaAviao() const;
     void setMatriculaAviao(string matriculaAviao);
+    void setServicosPorFazer(queue<servico> servicosFeitos);
+    queue<servico> getServicosPorFazer() const;
+    void setServicosFeitos(queue<servico> servicosFeitos);
+    queue<servico> getServicosFeitos() const;
     bool operator == (const servico & s) const;
     static bool MenorQueDataAtual(Data data);
-    static void WriteServico(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
-    static void ServicoInput(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
-    static void ReadServico(queue<servico> servicosPorFazer, queue<servico> servicosFeitos);
+    void WriteServico();
+    void ServicoInput();
+    void ReadServico();
     list<Aviao>::std::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
 };
 

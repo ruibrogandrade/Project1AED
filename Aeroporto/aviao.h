@@ -16,7 +16,6 @@ using namespace std;
 
 class Aviao{
 private:
-    //vector<string> matricula;
     string matricula;
     int capacidade;
     list<Aviao> listAviao;
@@ -28,6 +27,8 @@ public:
     list<Voo> getListaVoo() const;
     string getMatricula() const;
     void setMatricula();
+    static list<Aviao> getListAviao() const;
+    list<Aviao> setListAviao(list<Aviao> listAviao);
     void novoservico(queue<servico> servicos, servico novo);
 };
 

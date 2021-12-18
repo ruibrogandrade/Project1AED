@@ -37,5 +37,13 @@ string Aviao::getMatricula() const {
 }
 
 void Aviao::setMatricula() {
+    this->matricula=matricula;
+}
 
+list<Aviao> Aviao::getListAviao() const {
+    return listAviao;
+}
+
+list<Aviao> Aviao::setListAviao(list<Aviao> listAviao) {
+    this->listAviao=listAviao;
 }
