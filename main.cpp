@@ -6,9 +6,10 @@
 #include "Aeroporto/Data.h"
 
 using namespace std;
-void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+void ReadFiles() {
     servico s;
     s.ReadServico();
+
 }
 
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
@@ -31,10 +32,9 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 }
 
 int main() {
-    queue<servico> servicosFeitos;
-    queue<servico> servicosPorFazer;
-    ReadFiles(servicosFeitos, servicosPorFazer);
-    checkTipoDeData(servicosFeitos, servicosPorFazer);
+    ReadFiles();
+
+    checkTipoDeData();
     return 0;
 }
 
