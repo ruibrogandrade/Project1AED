@@ -29,7 +29,7 @@ public:
     string getMatricula() const;
     void setMatricula();
     list<Aviao> getListAviao();
-    list<Aviao> setListAviao(list<Aviao> listAviao);
+    void setListAviao(list<Aviao> listAviao);
     void novoservico(servico novo);
 };
 

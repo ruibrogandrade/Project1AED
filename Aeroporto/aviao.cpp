@@ -46,6 +46,6 @@ list<Aviao> Aviao::getListAviao() {
     return listAviao;
 }
 
-list<Aviao> Aviao::setListAviao(list<Aviao> listAviao) {
+void Aviao::setListAviao(list<Aviao> listAviao) {
     this->listAviao=listAviao;
 }
