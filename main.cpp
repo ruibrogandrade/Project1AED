@@ -7,10 +7,12 @@
 
 using namespace std;
 void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
-    servico::ReadServico();
+    servico s;
+    s.ReadServico();
 }
 
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+    servico s;
     string TipoDeDataClasse;
     cout << "What Type of Data do you want to Submit?" << endl;
     cin >> TipoDeDataClasse;
@@ -24,7 +26,7 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 
     }
     if(TipoDeDataClasse == "Servico") {
-        servico::ServicoInput();
+        s.ServicoInput();
     }
 }
 
