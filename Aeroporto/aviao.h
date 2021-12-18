@@ -18,7 +18,8 @@ class Aviao{
 private:
     string matricula;
     int capacidade;
-    list<Aviao> listAviao;
+    string tipo;
+    static list<Aviao> listAviao;
     list<Voo> listaVoo;
     queue<servico> servicos;
 public:
@@ -27,9 +28,9 @@ public:
     list<Voo> getListaVoo() const;
     string getMatricula() const;
     void setMatricula();
-    static list<Aviao> getListAviao() const;
+    list<Aviao> getListAviao();
     list<Aviao> setListAviao(list<Aviao> listAviao);
-    void novoservico(queue<servico> servicos, servico novo);
+    void novoservico(servico novo);
 };
 
 

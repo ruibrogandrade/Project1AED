@@ -34,7 +34,7 @@ public:
     void WriteServico();
     void ServicoInput();
     void ReadServico();
-    list<Aviao>::std::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
+    list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
 };
 
 #endif //PROJETO1_SERVICO_H

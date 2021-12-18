@@ -120,7 +120,8 @@ void servico::ServicoInput() {
 void servico::ReadServico() {
     queue<servico> servicosPorFazer = getServicosPorFazer();
     queue<servico> servicosFeitos = getServicosFeitos();
-    list<Aviao> listAviao = Aviao::getListAviao();
+    Aviao a;
+    list<Aviao> listAviao = a.getListAviao();
     char tiposervico;
     servico tmp;
     Data data;

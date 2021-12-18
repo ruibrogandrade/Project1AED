@@ -17,12 +17,13 @@ Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
     this->listaVoo = listaVoo;
 }
 
-void Aviao::novoservico(queue<servico> servicos, servico novo) { //ns = novos servicos
+void Aviao::novoservico(servico novo) { //ns = novos servicos
     servicos.push(novo);
 }
 
 
 //Os servicos que deveram ser atualizados para feitos já deverão ser filtrados antes da chamada a esta função
+/*
 void Aviao::atualizarservicos(queue<servico> spf, vector<servico> sf) { //spf = servicos por fazer, sf = servicos ja feitos
     while(!spf.empty()){
         for(int i = 0; i < spf.size(); i++){
@@ -31,6 +32,7 @@ void Aviao::atualizarservicos(queue<servico> spf, vector<servico> sf) { //spf = 
         }
     }
 }
+*/
 
 string Aviao::getMatricula() const {
     return matricula;
@@ -40,7 +42,7 @@ void Aviao::setMatricula() {
     this->matricula=matricula;
 }
 
-list<Aviao> Aviao::getListAviao() const {
+list<Aviao> Aviao::getListAviao() {
     return listAviao;
 }
 
