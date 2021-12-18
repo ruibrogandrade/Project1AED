@@ -76,15 +76,15 @@ void Aviao::ReadVoo(){
 //só implementei para a matricula e para a capacidade
 void Aviao::AviaoInput() {
     //valores para testar
-    avioes.emplace_back("37-FP-45", 1500);
-    avioes.push_back(Aviao("81-TM-05", 1250));
+    listAviao.emplace_back("37-FP-45", 1500);
+    listAviao.push_back(Aviao("81-TM-05", 1250));
 }
 
 void Aviao::WriteAviao() {
     ofstream file;
     file.open("");
     //list<Voo> tmp = listaVoo;
-    for (auto it = avioes.begin(); it != avioes.end(); it++){
+    for (auto it = listAviao.begin(); it != listAviao.end(); it++){
         file << (*it).getMatricula() << ','<< (*it).getCapacidade() << endl;
     }
     file.close();
@@ -112,8 +112,16 @@ void Aviao::ReadAviao() {
                 break;
         }
         i++;
-        avioes.push_back(a);
+        listAviao.push_back(a);
     }
     file.close();
+}
+
+list<Aviao> Aviao::getListAviao() const {
+    return listAviao;
+}
+
+void Aviao::setListAviao() {
+    this->listAviao=listAviao;
 }
 

@@ -2,6 +2,8 @@
 #include <sstream>
 #include "bagagem.h"
 
+/*
+
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
 
 int Bagagem::getNumBilhete() const {
@@ -31,7 +33,7 @@ void gestaoBagagens::colocarMalas(){
         if (i == carrinho.size() - 1) break; //se o carrinho estiver cheio -> termina
     }                                        // a inserção de bagagem!
 }
-/*//funçao para vetores
+//funçao para vetores
 void gestaoBagagens::colocarMalas() {
     if (tapeteInserir.size() > numCarruagens * numMalas * numPilhas)
         throw "carrinho não pode carregar tanta bagagem";
@@ -50,7 +52,7 @@ void gestaoBagagens::colocarMalas() {
         }
         if (i == carrinho.size() - 1) break; //se o carrinho estiver cheio -> termina
     }                                        // a inserção de bagagem!
-}*/
+}
 
 //funçao para listas
 void gestaoBagagens::retirarMalas(){
@@ -63,7 +65,7 @@ void gestaoBagagens::retirarMalas(){
         }
     }
 }
-/*//função para vetores, mas nao vi se esta estava certa
+//função para vetores, mas nao vi se esta estava certa
 void gestaoBagagens::retirarMalas(Bagagem b) { //provavelmete não esta bem tbm => REVER
     for (int i = 0; i < carrinho[i].size(); i++) {
         for (int j = 0; carrinho[i][j].size(); j++) {
@@ -72,7 +74,7 @@ void gestaoBagagens::retirarMalas(Bagagem b) { //provavelmete não esta bem tbm 
             }
         }
     }
-}*/
+}
 
 void gestaoBagagens::TapeteInput() {
     //valores para testar
@@ -129,7 +131,7 @@ void gestaoBagagens::WriteCarrinho() {
 void gestaoBagagens::ReadCarrinho() {
 
 }
-
+*/
 
 
 

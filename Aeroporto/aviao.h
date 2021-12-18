@@ -14,7 +14,8 @@ class Aviao{
 private:
     string matricula;
     int capacidade;
-    static list<Voo> listaVoo;
+    list<Voo> listaVoo;
+    list<Aviao> listAviao;
     vector<servico> servicos;
 public:
     Aviao();
@@ -23,19 +24,20 @@ public:
         this->capacidade = cap;
     };
     Aviao(string matricula, int capacidade,list<Voo> listaVoo);
-    static list<Aviao> avioes;
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
+    list<Aviao> getListAviao() const;
+    void setListAviao();
     void novoservico(vector<servico> ns);
     //void atualizarservicos(vector<servico> sf);
     void atualizarservicos(queue<servico> spf, vector<servico> sf);
-    static void VooInput();
-    static void WriteVoo();
-    static void ReadVoo();
-    static void AviaoInput();
-    static void WriteAviao();
-    static void ReadAviao();
+     void VooInput();
+     void WriteVoo();
+     void ReadVoo();
+     void AviaoInput();
+     void WriteAviao();
+     void ReadAviao();
 
 };
 

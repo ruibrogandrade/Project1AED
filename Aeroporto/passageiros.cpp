@@ -26,19 +26,22 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
 }
 
 void Passageiro::BilheteInput() {
+    vector<Bilhete> bilhetes = getBilhetes();
     bilhetes.emplace_back(14,50, 109);
     bilhetes.push_back(Bilhete(15,40, 63));
     bilhetes.push_back(Bilhete(18,75, 31));
+    setBilhetes(bilhetes);
 }
 
 void Passageiro::WriteBilhete() {
     ofstream file;
+    vector<Bilhete> bilhetes = getBilhetes();
     file.open("");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
         file << (*it).getNumBilhete() << ',' << (*it).getBagagem() << ',' <<(*it).getNumVoo() << endl;
     }
     file.close();
-
+    setBilhetes(bilhetes);
 }
 
 void Passageiro::ReadBilhete() {
@@ -47,6 +50,7 @@ void Passageiro::ReadBilhete() {
     string line;
     stringstream toInt(line);
     Bilhete b;
+    vector<Bilhete> bilhetes;
     int i = 0;
     while (getline(file, line, ',')){
         switch (i) {
@@ -68,5 +72,13 @@ void Passageiro::ReadBilhete() {
         bilhetes.push_back(b);
     }
     file.close();
+    setBilhetes(bilhetes);
+}
 
+vector<Bilhete> Passageiro::getBilhetes() const{
+    return bilhetes;
+}
+
+void Passageiro::setBilhetes(vector<Bilhete> bilhetes) {
+    this->bilhetes=bilhetes;
 }
