@@ -5,7 +5,7 @@
 #include <stack>
 #include <queue>
 #include <list>
-/*
+
 using namespace std;
 
 
@@ -48,5 +48,5 @@ public:
 
 };
 
-*/
+
 #endif //PROJETO1AED_BAGAGEM_H

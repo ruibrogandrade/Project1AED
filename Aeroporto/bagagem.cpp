@@ -2,7 +2,7 @@
 #include <sstream>
 #include "bagagem.h"
 
-/*
+
 
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
 
@@ -131,7 +131,7 @@ void gestaoBagagens::WriteCarrinho() {
 void gestaoBagagens::ReadCarrinho() {
 
 }
-*/
+
 
 
 

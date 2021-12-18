@@ -4,11 +4,15 @@
 #include <string>
 #include "Aeroporto/servico.h"
 #include "Aeroporto/Data.h"
+#include "Aeroporto/passageiros.h"
 
 using namespace std;
 void ReadFiles() {
     Aviao a;
     a.ReadAviao();
+    Voo v;
+    Passageiro p;
+    p.ReadBilhete();
 }
 /*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {

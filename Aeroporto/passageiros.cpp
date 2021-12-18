@@ -38,7 +38,7 @@ void Passageiro::WriteBilhete() {
     vector<Bilhete> bilhetes = getBilhetes();
     file.open("");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
-        file << (*it).getNumBilhete() << ',' << (*it).getBagagem() << ',' <<(*it).getNumVoo() << endl;
+        file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' <<(*it).getNumVoo() << endl;
     }
     file.close();
     setBilhetes(bilhetes);
@@ -46,30 +46,29 @@ void Passageiro::WriteBilhete() {
 
 void Passageiro::ReadBilhete() {
     int nrBilh, quantBag, nrVoo;
-    ifstream file("");
+    ifstream file("passageiros.txt");
     string line;
-    stringstream toInt(line);
     Bilhete b;
     vector<Bilhete> bilhetes;
     int i = 0;
     while (getline(file, line, ',')){
         switch (i) {
             case (0):
-                toInt >> nrBilh;
+                nrBilh = stoi(line);
                 b.setNumBilhete(nrBilh);
                 break;
             case (1):
-                toInt >> quantBag;
-                b.setBagagem(quantBag);
+                quantBag = stoi(line);
+                b.setQuantBagagem(quantBag);
                 break;
             case (2):
-                toInt >> nrVoo;
+                nrVoo = stoi(line);
                 b.setNumVoo(nrVoo);
+                bilhetes.push_back(b);
                 i = -1;
                 break;
         }
         i++;
-        bilhetes.push_back(b);
     }
     file.close();
     setBilhetes(bilhetes);

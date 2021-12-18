@@ -85,20 +85,10 @@ void Aviao::ReadAviao() {
                 capacidade = stoi(line);
                 a.capacidade = capacidade;
                 listAviao.push_back(a);
-                setListAviao(listAviao);
-                i--;
+                i = -1;
                 break;
         }
         i++;
     }
     file.close();
 }
-
-list<Aviao> Aviao::getListAviao() const {
-    return listAviao;
-}
-
-void Aviao::setListAviao(list<Aviao> listAviao) {
-    this->listAviao=listAviao;
-}
-

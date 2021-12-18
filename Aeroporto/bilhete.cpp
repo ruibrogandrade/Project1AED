@@ -5,15 +5,14 @@ Bilhete::Bilhete() { //inicializei com valores para ver se eliminava o erro: und
     this->numBilhete = 0;
     this->quantBagagem = 0;
     this->numVoo = 0;
-    this->bagagem = false;
 }
 
-int Bilhete::getBagagem() const{
-    return bagagem;
+int Bilhete::getQuantBagagem() const{
+    return quantBagagem;
 }
 
-void Bilhete::setBagagem(bool bagagem) {
-    this->bagagem=bagagem;
+void Bilhete::setQuantBagagem(int quantBagagem) {
+    this->quantBagagem=quantBagagem;
 }
 
 int Bilhete::getNumVoo() const {
