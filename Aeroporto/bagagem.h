@@ -4,7 +4,8 @@
 #include <vector>
 #include <stack>
 #include <queue>
-
+#include <list>
+/*
 using namespace std;
 
 
@@ -12,9 +13,16 @@ class Bagagem {
     int numBilhete; //funciona como id
     float peso;
 public:
+    Bagagem(){
+        this->numBilhete = 0;
+        this->peso = 0;
+    };
     Bagagem(int nb, float p);
     int getNumBilhete() const;
     float getPeso() const;
+    void setNumBilhete(int nrBilh){
+        this->numBilhete = nrBilh;
+    };
 };
 
 
@@ -24,14 +32,21 @@ private:
     unsigned numPilhas;
     unsigned numMalas;
 
-    queue<Bagagem> tapete;
-    vector<vector<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
-
+    static queue<Bagagem> tapeteInserir;
+    static queue<Bagagem> tapeteRetirar;
+    list<list<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
 public:
     gestaoBagagens(unsigned c, unsigned n, unsigned m);
-    void colocarMalas(); //????
-    void retirarMalas(Bagagem b);
+    void colocarMalas();
+    void retirarMalas();
+    static void TapeteInput();
+    static void WriteTapete();
+    static void ReadTapete();
+    void CarrinhoInput();
+    static void WriteCarrinho();
+    static void ReadCarrinho();
+
 };
 
-
+*/
 #endif //PROJETO1AED_BAGAGEM_H

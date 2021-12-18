@@ -15,9 +15,15 @@ private:
     int numBilhetesAdquiridos = bilhetes.size();
 public:
     Passageiro();
-    Passageiro(string nome, vector<Bilhete> bilhetes);
+    Passageiro(string nome, Bilhete b);
     string getNome();
+    vector<Bilhete> getBilhetes() const;
+    void setBilhetes(vector<Bilhete> bilhetes);
     void addBilhete(string & nome, Bilhete b);
+    void BilheteInput();
+    void WriteBilhete();
+    void ReadBilhete();
+
 };
 
 #endif //PROJETO1_PASSAGEIROS_H

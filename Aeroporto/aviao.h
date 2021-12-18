@@ -1,7 +1,3 @@
-//
-// Created by andre on 05/12/2021.
-//
-
 #ifndef PROJETO1_AVIAO_H
 #define PROJETO1_AVIAO_H
 
@@ -18,21 +14,31 @@ class Aviao{
 private:
     string matricula;
     int capacidade;
-    string tipo;
-    static list<Aviao> listAviao;
     list<Voo> listaVoo;
-    queue<servico> servicos;
+    list<Aviao> listAviao;
+    vector<servico> servicos;
 public:
     Aviao();
-    Aviao(string matricula, int capacidade,list<Voo> listaVoo, string tipo);
+    Aviao(string matric, int cap){
+        this->matricula = matric;
+        this->capacidade = cap;
+    };
+    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
     list<Voo> getListaVoo() const;
-    string getMatricula() const;
-    void setMatricula();
-    list<Aviao> getListAviao();
-    void setListAviao(list<Aviao> listAviao);
-    void novoservico(servico novo);
+    string getMatricula() const {return matricula;};
+    int getCapacidade() const {return capacidade;};
+    list<Aviao> getListAviao() const;
+    void setListAviao();
+    void novoservico(vector<servico> ns);
+    //void atualizarservicos(vector<servico> sf);
+    void atualizarservicos(queue<servico> spf, vector<servico> sf);
+     void VooInput();
+     void WriteVoo();
+     void ReadVoo();
+     void AviaoInput();
+     void WriteAviao();
+     void ReadAviao();
+
 };
-
-
 
 #endif //PROJETO1_AVIAO_H
