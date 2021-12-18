@@ -24,7 +24,7 @@ private:
     queue<servico> servicos;
 public:
     Aviao();
-    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
+    Aviao(string matricula, int capacidade,list<Voo> listaVoo, string tipo);
     list<Voo> getListaVoo() const;
     string getMatricula() const;
     void setMatricula();

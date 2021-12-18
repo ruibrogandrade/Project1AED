@@ -11,7 +11,7 @@ Aviao::Aviao() {
     //não sei se faz sentido criar um Aviao vazio (?)
 }
 
-Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
+Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo, string tipo) {
     this->matricula = matricula;
     this->capacidade = capacidade;
     this->listaVoo = listaVoo;

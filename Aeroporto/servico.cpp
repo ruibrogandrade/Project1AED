@@ -9,7 +9,7 @@ using namespace std;
 servico::servico() {}
 
 
-servico::servico(char tiposervico, Data data, string nomeFuncionario) {
+servico::servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao) {
     this->tiposervico=tiposervico;
     this->data=data;
     this->nomeFuncionario=nomeFuncionario;
@@ -72,12 +72,12 @@ void servico::WriteServico() {
     queue<servico> tmp2 = servicosPorFazer;
     for(int i = 0; i < servicosFeitos.size();i++) {
         file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
-             << tmp1.front().getData().getAno() << "," << tmp1.front().getNomeFuncionario() <<  "," << endl;
+             << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() << "," << endl;
         tmp1.pop();
     }
     for(int i = 0; i < servicosPorFazer.size();i++) {
         file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
-             << tmp2.front().getData().getAno() << "," << tmp2.front().getNomeFuncionario() << "," << endl;
+             << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() << "," << endl;
         tmp2.pop();
     }
     file.close();
@@ -100,12 +100,14 @@ void servico::ServicoInput() {
     dia = stoi(input.substr(2,4));
     mes = stoi(input.substr(5,7));
     ano = stoi(input.substr(8,12));
-    nomeFuncionario = input.substr(13);
+    matriculaAviao = (input.substr(13,19));
+    nomeFuncionario = input.substr(20);
     tmp.setTipoServico(tipoServico);
     data.setDia(dia);
     data.setMes(mes);
     data.setAno(ano);
     tmp.setData(data);
+    tmp.setMatriculaAviao(matriculaAviao);
     tmp.setNomeFuncionario(nomeFuncionario);
     if (MenorQueDataAtual(data)) {
         servicosFeitos.push(tmp);

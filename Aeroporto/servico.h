@@ -16,7 +16,7 @@ private:
     queue<servico> servicosPorFazer;
 public:
     servico();
-    servico(char tiposervico, Data data, string nomeFuncionario);
+    servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao);
     char getTipoServico() const;
     void setTipoServico(char tiposervico);
     Data getData() const;
