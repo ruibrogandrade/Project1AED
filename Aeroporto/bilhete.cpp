@@ -3,7 +3,13 @@
 /**
  * Construtor de bilhete
  */
-Bilhete::Bilhete() {}
+Bilhete::Bilhete() {
+    this->numBilhete = 0;
+    this->quantBagagem = 0;
+    this->numVoo = 0;
+    this->bagagem = false;
+
+}
 
 /**
  * Getter para a baggagem

@@ -7,7 +7,15 @@ using namespace std;
  * Construtor padrão de voo
  */
 
-Voo::Voo() {}
+Voo::Voo() {
+    this->numVoo = 0;
+    this->duracao = 0;
+    this->origem = ' ';
+    this->destino = ' ';
+    this->dataPartida = Data();
+    this->vagas = lotacao;
+    this->lotacao = 0;
+}
 
 /**
  * Construtor que cria um voo com os seus atributos

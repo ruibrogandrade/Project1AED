@@ -6,6 +6,8 @@
 #include <list>
 #include "voo.h"
 #include "bilhete.h"
+#include <fstream>
+#include <sstream>
 
 
 class Passageiro: public Voo{
