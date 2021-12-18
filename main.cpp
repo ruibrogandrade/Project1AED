@@ -8,39 +8,13 @@
 //#include "Aeroporto/aviao.cpp"
 
 using namespace std;
-//codigo rui
-/*
-void ReadFiles(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
-    servico::ReadServico(servicosFeitos,servicosPorFazer);
+
+void readFiles(){
+
 }
 
-void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
-    string TipoDeDataClasse;
-    cout << "What Type of Data do you want to Submit?" << endl;
-    cin >> TipoDeDataClasse;
-    if(TipoDeDataClasse == "Voo") {
-
-    }
-    if(TipoDeDataClasse == "Bagagem") {
-
-    }
-    if(TipoDeDataClasse == "Passageiro") {
-
-    }
-    if(TipoDeDataClasse == "Servico") {
-        servico::ServicoInput(servicosFeitos, servicosPorFazer);
-    }
-}
-
-int main() {
-    queue<servico> servicosFeitos;
-    queue<servico> servicosPorFazer;
-    ReadFiles(servicosFeitos, servicosPorFazer);
-    checkTipoDeData(servicosFeitos, servicosPorFazer);
-    return 0;
-}
-*/
 int main(){
-
+    Aviao a;
+    a.ReadAviao();
     return 0;
 }

@@ -4,7 +4,7 @@
 #include "Data.h"
 #include "aviao.h"
 #include <queue>
-
+/*
 using namespace std;
 
 class Servico{
@@ -38,5 +38,6 @@ public:
     static void ReadServico();
     list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao); //new
 };
+ */
 
 #endif //PROJETO1_SERVICO_H

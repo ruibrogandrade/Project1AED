@@ -6,7 +6,7 @@
 
 using namespace std;
 
-
+/*
 Servico::Servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao) {
     this->tiposervico=tiposervico;
     this->data=data;
@@ -200,3 +200,4 @@ void Servico::ReadServico() {
     setServicosPorFazer(servicosPorFazer);
 }
 
+*/

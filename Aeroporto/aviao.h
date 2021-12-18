@@ -12,12 +12,11 @@ using namespace std;
 
 class Aviao {
 private:
+    //string tipo;
+    list<Voo> listaVoo;
     string matricula;
     int capacidade;
-    string tipo;
-    list<Voo> listaVoo;
-    static list<Aviao> listAviao;
-    queue<Servico> servicos;
+
 public:
     Aviao();
     Aviao(string matric, int cap){
@@ -28,18 +27,16 @@ public:
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
-    list<Aviao> getListAviao() const;
-    void setListAviao();
-    void novoservico(servico novo); //new
-    //void atualizarservicos(vector<servico> sf);
-    //void atualizarservicos(queue<servico> spf, vector<servico> sf);
     void VooInput();
     void WriteVoo();
     void ReadVoo();
-    void AviaoInput();
+    //void AviaoInput();
     void WriteAviao();
     void ReadAviao();
 
+
 };
+
+static list<Aviao> listAviao;
 
 #endif //PROJETO1_AVIAO_H
