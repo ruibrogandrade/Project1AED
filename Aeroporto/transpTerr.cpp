@@ -24,8 +24,7 @@ void Transporte::setTipoTransp(string tipoTransporte) {
 }
 
 void Transporte::addHoraExtra(int horaExtra) {
-    list<int>::iterator it;
-    for(it = horario.begin(); it != horario.end() ; it++){
+    for(auto it = horario.begin(); it != horario.end() ; it++){
         if ((*it) < horaExtra){
             it++;
             if ((*it) > horaExtra && it != horario.end()){
@@ -56,23 +55,49 @@ BST<Transporte> OpcoesTransporte::getTransportes() const {
 void OpcoesTransporte::readFile() {
     ifstream f;
     f.open("transTerr.txt");
-    string tipoT, strDist, hor;
-    int dist;
-    stringstream toInt(strDist);
+    string tipoT, strDist, line;
+    int dist, hor;
     list<int> listHor;
-    OpcoesTransporte ot;
-    while (getline(f, tipoT)){
-        getline(f, strDist);
-        toInt >> dist; // Now the variable dist holds the value of strDist
-        while(cin >> hor){
-            if(hor.substr(2,1) != ":") break;
-            listHor.push_back(stoi(hor));
+    Transporte t;
+    int i = 0;
+    while (getline(f, line, ';')){
+        switch (i) {
+            case (0):
+                tipoT = line;
+                t.setTipoTransp(tipoT);
+                break;
+            case (1):
+                dist = stoi(line);
+                t.setDistancia(dist);
+                break;
+            case (2):
+                while(getline(f, line, ',')){
+                    hor = stoi(line);
+                    t.addHoraExtra(hor);
+                }
+                t.setHorario(listHor);
+                transportes.insert(t);
+                /*//é preciso eu meter por ordem?
+                //--------------------------------------------------------------------------
+                iteratorBST<Transporte> et;
+                for (auto it = transportes.begin(); it != transportes.end();it++) {
+                    if((*it).getDistancia() < dist) {
+                        et = it;
+                        it++;
+                        if ((*it).getDistancia() > dist) { //falta fazer para o ==
+                            transportes.insert(t);
+                            break;
+                        }
+                    }
+                }*/
+                //---------------------------------------------------------------------------
+                i = -1;
+                break;
         }
-        ot.transportes.insert(Transporte(tipoT, dist, listHor));
+        i++;
     }
     f.close();
-    //OpcoesTransporte::WriteBST(transportes);
-
+    printThis();
 }
 
 //Transporte OpcoesTransporte::chooseTransporte retorna os transportes que
@@ -116,5 +141,14 @@ void OpcoesTransporte::print(OpcoesTransporte ot) {
     }
 }
 
+void OpcoesTransporte::printThis() {
+    for (auto i = transportes.begin(); i != transportes.end(); i++) {
+        cout << (*i).getTipoTransp() << endl;
+        cout << (*i).getDistancia() << endl;
+        for( auto it = (*i).getHorario().begin(); it != (*i).getHorario().end(); it++ ){
+            cout << (*it) << endl;
+        }
+    }
+}
 
 

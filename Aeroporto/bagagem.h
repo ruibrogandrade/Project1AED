@@ -23,9 +23,9 @@ public:
         this->numBilhete = nrBilh;
     };
     float getPeso() const;
-    float setPeso(float peso) {
+    void setPeso(float peso) {
         this->peso = peso;
-    }
+    };
 };
 
 
@@ -47,11 +47,6 @@ public:
     void TapeteInput();
     void WriteTapete();
     void ReadTapete();
-
-    //acho que nao faz sentido implementar estas:
-    void CarrinhoInput();
-    void WriteCarrinho();
-    void ReadCarrinho();
 
 };
 

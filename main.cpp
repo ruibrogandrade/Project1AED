@@ -7,6 +7,8 @@
 #include "Aeroporto/Data.h"
 #include "Aeroporto/aviao.h"
 #include "Aeroporto/bagagem.h"
+#include "Aeroporto/transpTerr.h"
+#include "Aeroporto/bst.h"
 
 using namespace std;
 
@@ -15,12 +17,16 @@ void readFiles(){
 }
 
 int main(){
-    Aviao a;
+    /*Aviao a;
     a.ReadAviao();
     Voo v;
     Passageiro p;
     p.ReadBilhete();
-    GestaoBagagens bg;
-    bg.ReadTapete();
+    GestaoBagagens g;
+    g.ReadTapete();
+*///se comentar as 2 linhas seguintes, não há erros
+    OpcoesTransporte o;
+    o.readFile();
+
     return 0;
 }

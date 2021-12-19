@@ -109,14 +109,13 @@ void GestaoBagagens::ReadTapete() {
                 b.setNumBilhete(nrBilh);
                 break;
             case(1):
-                pes = stof(line);
+                pes = stoi(line);
                 b.setPeso(pes); //o peso fica como int! :(
                 tapeteInserir.push(b);
                 i = -1;
                 break;
         }
         i++;
-
     }
     file.close();
 
@@ -125,22 +124,4 @@ void GestaoBagagens::ReadTapete() {
         tapeteInserir.pop();
     }
 }
-
-void GestaoBagagens::CarrinhoInput() {
-    //colocarMalas();
-}
-
-void GestaoBagagens::WriteCarrinho() {
-    //retirarMalas();
-}
-
-void GestaoBagagens::ReadCarrinho() {
-
-
-}
-
-
-
-
-
 
