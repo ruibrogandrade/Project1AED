@@ -36,7 +36,7 @@ void Passageiro::BilheteInput() {
 void Passageiro::WriteBilhete() {
     ofstream file;
     vector<Bilhete> bilhetes = getBilhetes();
-    file.open("");
+    file.open("passageiros.txt");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
         file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' <<(*it).getNumVoo() << endl;
     }
