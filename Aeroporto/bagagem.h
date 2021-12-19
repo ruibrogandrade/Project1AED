@@ -5,7 +5,7 @@
 #include <stack>
 #include <queue>
 #include <list>
-/*
+
 using namespace std;
 
 
@@ -32,21 +32,21 @@ private:
     unsigned numPilhas;
     unsigned numMalas;
 
-    static queue<Bagagem> tapeteInserir;
-    static queue<Bagagem> tapeteRetirar;
+    queue<Bagagem> tapeteInserir;
+    queue<Bagagem> tapeteRetirar;
     list<list<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
 public:
     gestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas();
     void retirarMalas();
-    static void TapeteInput();
-    static void WriteTapete();
-    static void ReadTapete();
+    void TapeteInput();
+    void WriteTapete();
+    void ReadTapete();
     void CarrinhoInput();
-    static void WriteCarrinho();
-    static void ReadCarrinho();
+    void WriteCarrinho();
+    void ReadCarrinho();
 
 };
 
-*/
+
 #endif //PROJETO1AED_BAGAGEM_H
