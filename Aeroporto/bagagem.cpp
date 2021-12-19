@@ -1,5 +1,6 @@
 #include <fstream>
 #include <sstream>
+#include <iostream>
 #include "bagagem.h"
 
 
@@ -13,10 +14,10 @@ float Bagagem::getPeso() const {
     return peso;
 }
 
-gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
+GestaoBagagens::GestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
 
 //função para listas
-void gestaoBagagens::colocarMalas(){
+void GestaoBagagens::colocarMalas(){
     static int i = 0;
     while (!tapeteInserir.empty()) {
         for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
@@ -34,7 +35,7 @@ void gestaoBagagens::colocarMalas(){
 }
 //funçao para vetores
 /*
-void gestaoBagagens::colocarMalas() {
+void GestaoBagagens::colocarMalas() {
     if (tapeteInserir.size() > numCarruagens * numMalas * numPilhas)
         throw "carrinho não pode carregar tanta bagagem";
     //se lançar a exceção executa o código a seguir?
@@ -55,7 +56,7 @@ void gestaoBagagens::colocarMalas() {
 }
 */
 //funçao para listas
-void gestaoBagagens::retirarMalas(){
+void GestaoBagagens::retirarMalas(){
     Bagagem b;
     for (auto it = carrinho.begin(); it != carrinho.end(); it++){
         for(auto et = (*it).begin(); et != (*it).end(); et++){
@@ -67,7 +68,7 @@ void gestaoBagagens::retirarMalas(){
 }
 //função para vetores, mas nao vi se esta estava certa
 /*
-void gestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm => REVER
+void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm => REVER
     for (int i = 0; i < carrinho[i].size(); i++) {
         for (int j = 0; carrinho[i][j].size(); j++) {
             if (b.getNumBilhete() == carrinho[i][j].top().getNumBilhete()) {
@@ -77,14 +78,14 @@ void gestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm
     }
 }*/
 
-void gestaoBagagens::TapeteInput() {
+void GestaoBagagens::TapeteInput() {
     //valores para testar
     tapeteInserir.push(Bagagem(12,30));
     tapeteInserir.push(Bagagem(13,20));
     tapeteInserir.push(Bagagem(14,45));
 }
 
-void gestaoBagagens::WriteTapete() {
+void GestaoBagagens::WriteTapete() {
     ofstream file;
     file.open("");
     while (!tapeteInserir.empty()){
@@ -94,41 +95,47 @@ void gestaoBagagens::WriteTapete() {
     file.close();
 }
 
-void gestaoBagagens::ReadTapete() {
+void GestaoBagagens::ReadTapete() {
     int nrBilh;
     float pes;
-    ifstream file("");
+    ifstream file("tapete.txt");
     string line;
-    stringstream toInt(line);
     Bagagem b;
     int i = 0;
     while (getline(file, line, ',')){
         switch (i) {
             case (0):
-                toInt >> nrBilh;
+                nrBilh = stoi(line);
                 b.setNumBilhete(nrBilh);
                 break;
             case(1):
-                toInt >> pes;
-                b.setNumBilhete(pes);
+                pes = stof(line);
+                b.setPeso(pes); //o peso fica como int! :(
+                tapeteInserir.push(b);
                 i = -1;
                 break;
         }
         i++;
-        tapeteInserir.push(b);
+
     }
     file.close();
+
+    for(int i = 0; i < 2; i++){
+        cout << tapeteInserir.front().getPeso() << endl;
+        tapeteInserir.pop();
+    }
 }
 
-void gestaoBagagens::CarrinhoInput() {
+void GestaoBagagens::CarrinhoInput() {
     //colocarMalas();
 }
 
-void gestaoBagagens::WriteCarrinho() {
+void GestaoBagagens::WriteCarrinho() {
     //retirarMalas();
 }
 
-void gestaoBagagens::ReadCarrinho() {
+void GestaoBagagens::ReadCarrinho() {
+
 
 }
 

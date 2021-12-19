@@ -19,14 +19,17 @@ public:
     };
     Bagagem(int nb, float p);
     int getNumBilhete() const;
-    float getPeso() const;
     void setNumBilhete(int nrBilh){
         this->numBilhete = nrBilh;
     };
+    float getPeso() const;
+    float setPeso(float peso) {
+        this->peso = peso;
+    }
 };
 
 
-class gestaoBagagens {
+class GestaoBagagens {
 private:
     unsigned numCarruagens;
     unsigned numPilhas;
@@ -34,14 +37,18 @@ private:
 
     queue<Bagagem> tapeteInserir;
     queue<Bagagem> tapeteRetirar;
-    list<list<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
+    list<list<stack<Bagagem>>> carrinho;
 public:
-    gestaoBagagens(unsigned c, unsigned n, unsigned m);
+    GestaoBagagens(){};
+    GestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas();
     void retirarMalas();
+
     void TapeteInput();
     void WriteTapete();
     void ReadTapete();
+
+    //acho que nao faz sentido implementar estas:
     void CarrinhoInput();
     void WriteCarrinho();
     void ReadCarrinho();

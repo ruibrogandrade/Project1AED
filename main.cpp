@@ -6,7 +6,7 @@
 #include "Aeroporto/passageiros.h"
 #include "Aeroporto/Data.h"
 #include "Aeroporto/aviao.h"
-//#include "Aeroporto/aviao.cpp"
+#include "Aeroporto/bagagem.h"
 
 using namespace std;
 
@@ -20,5 +20,7 @@ int main(){
     Voo v;
     Passageiro p;
     p.ReadBilhete();
+    GestaoBagagens bg;
+    bg.ReadTapete();
     return 0;
 }
