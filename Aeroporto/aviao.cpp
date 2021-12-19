@@ -1,20 +1,19 @@
 #include <fstream>
 #include <sstream>
 #include "aviao.h"
-#include "servico.h"
 
 using namespace std;
+
 
 
 Aviao::Aviao() {
     //não sei se faz sentido criar um Aviao vazio (?)
 }
 
-Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo, string tipo) {
+Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
     this->matricula = matricula;
     this->capacidade = capacidade;
     this->listaVoo = listaVoo;
-    //string tipo nao é usada?!
 }
 
 list<Voo> Aviao::getListaVoo() const {
@@ -31,17 +30,17 @@ void Aviao::WriteVoo() {
     }
     file.close();
 }
-
+/*
 void Aviao::VooInput() {
     //valores para testar
     listaVoo.emplace_back(12);
     listaVoo.push_back(Voo(19));
     listaVoo.push_back(Voo(5));
 }
-
+*/
 void Aviao::ReadVoo(){
     int nrVoo;
-    ifstream file("aviao.txt");
+    ifstream file("");
     string line;
     stringstream toInt(line);
     Voo v;
@@ -51,13 +50,13 @@ void Aviao::ReadVoo(){
     }
     file.close();
 }
-/*
+
 //só implementei para a matricula e para a capacidade
 void Aviao::AviaoInput() {
     //valores para testar
     listAviao.emplace_back("37-FP-45", 1500);
     listAviao.push_back(Aviao("81-TM-05", 1250));
-}*/
+}
 
 void Aviao::WriteAviao() {
     ofstream file;
@@ -92,10 +91,4 @@ void Aviao::ReadAviao() {
         i++;
     }
     file.close();
-    for(auto it = listAviao.begin(); it != listAviao.end(); it++){
-        cout << (*it).matricula << endl;
-    }
 }
-
-
-

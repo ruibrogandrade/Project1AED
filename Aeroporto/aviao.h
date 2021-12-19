@@ -10,30 +10,27 @@
 
 using namespace std;
 
-class Aviao {
+class Aviao{
 private:
-    //string tipo;
-    list<Voo> listaVoo;
     string matricula;
     int capacidade;
-
+    list<Voo> listaVoo;
 public:
     Aviao();
     Aviao(string matric, int cap){
         this->matricula = matric;
         this->capacidade = cap;
     };
-    Aviao(string matricula, int capacidade, list<Voo> listaVoo, string tipo);
+    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
     void VooInput();
     void WriteVoo();
     void ReadVoo();
-    //void AviaoInput();
+    void AviaoInput();
     void WriteAviao();
     void ReadAviao();
-
 
 };
 

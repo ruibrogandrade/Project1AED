@@ -7,7 +7,6 @@
 
 using namespace std;
 
-//acrescentava aqui uma lista de passageiros
 class Voo{
 private: //estes atributos estariam tbm em protected para de alguma
     //maneira a classe Bilhete conseguir aceder?
@@ -19,8 +18,6 @@ protected:
     int lotacao; //const
 public:
     Voo();
-    Voo(int nrVoo){this->numVoo = nrVoo;};
-    //Voo(int lot);
     Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
     int getNumVoo() const; //Porque é que os getters eram const?
     void setNumVoo(int numVoo);

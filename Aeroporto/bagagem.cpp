@@ -1,7 +1,7 @@
 #include <fstream>
 #include <sstream>
-#include <iostream>
 #include "bagagem.h"
+
 
 
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
@@ -14,15 +14,15 @@ float Bagagem::getPeso() const {
     return peso;
 }
 
-GestaoBagagens::GestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
+gestaoBagagens::gestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
 
-//função para listas
-void GestaoBagagens::colocarMalas(){
+//função para listas (ainda nao comecei a fazer)
+void gestaoBagagens::colocarMalas(){
     static int i = 0;
     while (!tapeteInserir.empty()) {
-        for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
-            for (auto et = (*it).begin(); et != (*it).end(); et++) {
-                stack<Bagagem> st = (*et);
+        for (i = 0; i < tapeteInserir.size(); i++) {
+            for (int j = 0; j < numPilhas; j++) {
+                stack<Bagagem> st = carrinho[i][j];
                 while (st.size() < numMalas) {
                     Bagagem b = tapeteInserir.front();
                     st.push(b);
@@ -34,8 +34,7 @@ void GestaoBagagens::colocarMalas(){
     }                                        // a inserção de bagagem!
 }
 //funçao para vetores
-/*
-void GestaoBagagens::colocarMalas() {
+void gestaoBagagens::colocarMalas() {
     if (tapeteInserir.size() > numCarruagens * numMalas * numPilhas)
         throw "carrinho não pode carregar tanta bagagem";
     //se lançar a exceção executa o código a seguir?
@@ -54,9 +53,9 @@ void GestaoBagagens::colocarMalas() {
         if (i == carrinho.size() - 1) break; //se o carrinho estiver cheio -> termina
     }                                        // a inserção de bagagem!
 }
-*/
+
 //funçao para listas
-void GestaoBagagens::retirarMalas(){
+void gestaoBagagens::retirarMalas(){
     Bagagem b;
     for (auto it = carrinho.begin(); it != carrinho.end(); it++){
         for(auto et = (*it).begin(); et != (*it).end(); et++){
@@ -67,8 +66,7 @@ void GestaoBagagens::retirarMalas(){
     }
 }
 //função para vetores, mas nao vi se esta estava certa
-/*
-void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm => REVER
+void gestaoBagagens::retirarMalas(Bagagem b) { //provavelmete não esta bem tbm => REVER
     for (int i = 0; i < carrinho[i].size(); i++) {
         for (int j = 0; carrinho[i][j].size(); j++) {
             if (b.getNumBilhete() == carrinho[i][j].top().getNumBilhete()) {
@@ -76,16 +74,16 @@ void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm
             }
         }
     }
-}*/
+}
 
-void GestaoBagagens::TapeteInput() {
+void gestaoBagagens::TapeteInput() {
     //valores para testar
     tapeteInserir.push(Bagagem(12,30));
     tapeteInserir.push(Bagagem(13,20));
     tapeteInserir.push(Bagagem(14,45));
 }
 
-void GestaoBagagens::WriteTapete() {
+void gestaoBagagens::WriteTapete() {
     ofstream file;
     file.open("");
     while (!tapeteInserir.empty()){
@@ -95,33 +93,47 @@ void GestaoBagagens::WriteTapete() {
     file.close();
 }
 
-void GestaoBagagens::ReadTapete() {
+void gestaoBagagens::ReadTapete() {
     int nrBilh;
     float pes;
-    ifstream file("tapete.txt");
+    ifstream file("");
     string line;
+    stringstream toInt(line);
     Bagagem b;
     int i = 0;
     while (getline(file, line, ',')){
         switch (i) {
             case (0):
-                nrBilh = stoi(line);
+                toInt >> nrBilh;
                 b.setNumBilhete(nrBilh);
                 break;
             case(1):
-                pes = stoi(line);
-                b.setPeso(pes); //o peso fica como int! :(
-                tapeteInserir.push(b);
+                toInt >> pes;
+                b.setNumBilhete(pes);
                 i = -1;
                 break;
         }
         i++;
+        tapeteInserir.push(b);
     }
     file.close();
-
-    for(int i = 0; i < 2; i++){
-        cout << tapeteInserir.front().getPeso() << endl;
-        tapeteInserir.pop();
-    }
 }
+
+void gestaoBagagens::CarrinhoInput() {
+    colocarMalas();
+}
+
+void gestaoBagagens::WriteCarrinho() {
+    retirarMalas();
+
+}
+
+void gestaoBagagens::ReadCarrinho() {
+
+}
+
+
+
+
+
 

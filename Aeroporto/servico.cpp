@@ -1,55 +1,57 @@
+
 #include <iostream>
 #include <fstream>
 #include "servico.h"
 #include "aviao.h"
 #include "Data.h"
-
-using namespace std;
-
 /*
-Servico::Servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao) {
+using namespace std;
+servico::servico() {}
+
+
+servico::servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao) {
     this->tiposervico=tiposervico;
     this->data=data;
     this->nomeFuncionario=nomeFuncionario;
 }
 
-char Servico::getTipoServico() const{
+char servico::getTipoServico() const {
     return tiposervico;
 }
 
-void Servico::setTipoServico(char tiposervico) {
+void servico::setTipoServico(char tiposervico) {
     this->tiposervico=tiposervico;
 }
 
-Data Servico::getData() const{
+Data servico::getData() const{
     return data;
 }
 
-void Servico::setData(Data data) {
+void servico::setData(Data data) {
     this->data=data;
 }
 
-string Servico::getNomeFuncionario() const{
+string servico::getNomeFuncionario() const {
     return nomeFuncionario;
 }
 
-void Servico::setNomeFuncionario(string nomeFuncionario) {
+void servico::setNomeFuncionario(string nomeFuncionario) {
     this->nomeFuncionario=nomeFuncionario;
 }
 
-void Servico::setMatriculaAviao(string matriculaAviao) {
-    this->matriculaAviao=matriculaAviao;
-}
-
-string Servico::getMatriculaAviao() const{
-    return matriculaAviao;
-}
-
-bool Servico::operator==(const Servico &s) const {
+bool servico::operator==(const servico &s) const {
     return tiposervico == s.tiposervico && data == s.data && nomeFuncionario == s.nomeFuncionario;
 }
 
-bool Servico::MenorQueDataAtual(Data data) {
+void servico::setMatriculaAviao(string matriculaAviao) {
+    this->matriculaAviao=matriculaAviao;
+}
+
+string servico::getMatriculaAviao() const{
+    return matriculaAviao;
+}
+
+bool servico::MenorQueDataAtual(Data data) {
     Data DataAtual;
     DataAtual.setDia(15);
     DataAtual.setMes(12);
@@ -61,38 +63,13 @@ bool Servico::MenorQueDataAtual(Data data) {
     }
 }
 
-list<Aviao>::iterator Servico::findAviao(list<Aviao> listAviao, string matriculaAviao) {
-    list<Aviao>::iterator it;
-    for(it = listAviao.begin(); it != listAviao.end(); it++) {
-        if(it->getMatricula() == matriculaAviao) {
-            return (it);
-        }
-    }
-}
-
-void Servico::setServicosPorFazer(queue<Servico> servicosPorFazer) {
-    this->servicosPorFazer=servicosPorFazer;
-}
-
-queue<Servico> Servico::getServicosPorFazer() const{
-    return servicosPorFazer;
-}
-
-void Servico::setServicosFeitos(queue<Servico> servicosFeitos) {
-    this->servicosFeitos=servicosFeitos;
-}
-
-queue<Servico> Servico::getServicosFeitos()  const{
-    return servicosFeitos;
-}
-
-void Servico::WriteServico() {
-    queue<Servico> servicosPorFazer = getServicosPorFazer();
-    queue<Servico> servicosFeitos = getServicosFeitos();
+void servico::WriteServico() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
     ofstream file;
     file.open("servicos.txt");
-    queue<Servico> tmp1 = servicosFeitos;
-    queue<Servico> tmp2 = servicosPorFazer;
+    queue<servico> tmp1 = servicosFeitos;
+    queue<servico> tmp2 = servicosPorFazer;
     for(int i = 0; i < servicosFeitos.size();i++) {
         file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
              << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() << "," << endl;
@@ -106,10 +83,10 @@ void Servico::WriteServico() {
     file.close();
 }
 
-void Servico::ServicoInput() {
-    queue<Servico> servicosPorFazer = getServicosPorFazer();
-    queue<Servico> servicosFeitos = getServicosFeitos();
-    Servico tmp;
+void servico::ServicoInput() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
+    servico tmp;
     string input;
     char tipoServico;
     int dia;
@@ -142,13 +119,13 @@ void Servico::ServicoInput() {
     WriteServico();
 }
 
-void Servico::ReadServico() {
-    queue<Servico> servicosPorFazer = getServicosPorFazer();
-    queue<Servico> servicosFeitos = getServicosFeitos();
+void servico::ReadServico() {
+    queue<servico> servicosPorFazer = getServicosPorFazer();
+    queue<servico> servicosFeitos = getServicosFeitos();
     Aviao a;
     list<Aviao> listAviao = a.getListAviao();
     char tiposervico;
-    Servico tmp;
+    servico tmp;
     Data data;
     int dia;
     int mes;
@@ -200,4 +177,28 @@ void Servico::ReadServico() {
     setServicosPorFazer(servicosPorFazer);
 }
 
+ list<Aviao>::iterator servico::findAviao(list<Aviao> listAviao, string matriculaAviao) {
+    list<Aviao>::iterator it;
+    for(it = listAviao.begin(); it != listAviao.end(); it++) {
+        if(it->getMatricula() == matriculaAviao) {
+            return (it);
+        }
+    }
+}
+
+void servico::setServicosPorFazer(queue<servico> servicosPorFazer) {
+    this->servicosPorFazer=servicosPorFazer;
+}
+
+queue<servico> servico::getServicosPorFazer() const{
+    return servicosPorFazer;
+}
+
+void servico::setServicosFeitos(queue<servico> servicosFeitos) {
+    this->servicosFeitos=servicosFeitos;
+}
+
+queue<servico> servico::getServicosFeitos()  const{
+    return servicosFeitos;
+}
 */

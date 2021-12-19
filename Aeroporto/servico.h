@@ -1,43 +1,40 @@
 #ifndef PROJETO1_SERVICO_H
 #define PROJETO1_SERVICO_H
-
 #include "Data.h"
-#include "aviao.h"
 #include <queue>
+#include "aviao.h"
 /*
 using namespace std;
 
-class Servico{
+class servico{
 private:
     char tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
     string matriculaAviao;
-    queue<Servico> servicosPorFazer;
-    queue<Servico> servicosFeitos;
-
+    queue<servico> servicosFeitos;
+    queue<servico> servicosPorFazer;
 public:
-    Servico(){};
-    Servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao); //new
+    servico();
+    servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao);
     char getTipoServico() const;
     void setTipoServico(char tiposervico);
     Data getData() const;
     void setData(Data data);
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
-    string getMatriculaAviao() const; //new
-    void setMatriculaAviao(string matriculaAviao); //new
-    void setServicosPorFazer(queue<Servico> servicosFeitos); //new
-    queue<Servico> getServicosPorFazer() const; //new
-    void setServicosFeitos(queue<Servico> servicosFeitos); //new
-    queue<Servico> getServicosFeitos() const; //new
-    bool operator == (const Servico & s) const;
+    string getMatriculaAviao() const;
+    void setMatriculaAviao(string matriculaAviao);
+    void setServicosPorFazer(queue<servico> servicosFeitos);
+    queue<servico> getServicosPorFazer() const;
+    void setServicosFeitos(queue<servico> servicosFeitos);
+    queue<servico> getServicosFeitos() const;
+    bool operator == (const servico & s) const;
     static bool MenorQueDataAtual(Data data);
-    static void WriteServico();
+    void WriteServico();
     void ServicoInput();
-    static void ReadServico();
-    list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao); //new
+    void ReadServico();
+    list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
 };
- */
-
+*/
 #endif //PROJETO1_SERVICO_H

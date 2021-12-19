@@ -3,30 +3,39 @@
 #include <sstream>
 #include <string>
 #include "Aeroporto/servico.h"
-#include "Aeroporto/passageiros.h"
 #include "Aeroporto/Data.h"
-#include "Aeroporto/aviao.h"
-#include "Aeroporto/bagagem.h"
-#include "Aeroporto/transpTerr.h"
-#include "Aeroporto/bst.h"
+#include "Aeroporto/passageiros.h"
 
 using namespace std;
-
-void readFiles(){
-
-}
-
-int main(){
-    /*Aviao a;
+void ReadFiles() {
+    Aviao a;
     a.ReadAviao();
     Voo v;
     Passageiro p;
     p.ReadBilhete();
-    GestaoBagagens g;
-    g.ReadTapete();
-*///se comentar as 2 linhas seguintes, não há erros
-    OpcoesTransporte o;
-    o.readFile();
+}
+/*
+void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
+    servico s;
+    string TipoDeDataClasse;
+    cout << "What Type of Data do you want to Submit?" << endl;
+    cin >> TipoDeDataClasse;
+    if(TipoDeDataClasse == "Voo") {
 
+    }
+    if(TipoDeDataClasse == "Bagagem") {
+
+    }
+    if(TipoDeDataClasse == "Passageiro") {
+
+    }
+    if(TipoDeDataClasse == "Servico") {
+        s.ServicoInput();
+    }
+}
+*/
+int main() {
+    ReadFiles();
     return 0;
 }
+
