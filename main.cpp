@@ -11,7 +11,10 @@ using namespace std;
 void ReadFiles() {
     Aviao a;
     a.ReadAviao();
+    a.WriteAviao();
     Voo v;
+    v.ReadVoo();
+    v.WriteVoo();
     Passageiro p;
     p.ReadBilhete();
     GestaoBagagens g;

@@ -71,13 +71,25 @@ void servico::WriteServico() {
     queue<servico> tmp1 = servicosFeitos;
     queue<servico> tmp2 = servicosPorFazer;
     for(int i = 0; i < servicosFeitos.size();i++) {
-        file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
-             << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() <<  ",";
+        file << tmp1.front().getTipoServico() << ',';
+        if (tmp1.front().getData().getDia() < 10) file << "0" << tmp1.front().getData().getDia();
+        else file << tmp1.front().getData().getDia();
+        file <<'/';
+        if (tmp1.front().getData().getMes() < 10) file << "0" << tmp1.front().getData().getMes();
+        else file << tmp1.front().getData().getMes();
+        file << "/"
+        << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() <<  ",";
         tmp1.pop();
     }
     for(int i = 0; i < servicosPorFazer.size();i++) {
-        file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
-             << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() <<  ",";
+        file << tmp2.front().getTipoServico() << ',';
+        if (tmp2.front().getData().getDia() < 10) file << "0" << tmp2.front().getData().getDia();
+        else file << tmp2.front().getData().getDia();
+        file <<'/';
+        if (tmp2.front().getData().getMes() < 10) file << "0" << tmp2.front().getData().getMes();
+        else file << tmp2.front().getData().getMes();
+        file << "/"
+        << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() <<  ",";
         tmp2.pop();
     }
     file.close();
@@ -186,7 +198,7 @@ void servico::ListagemParcialServicos() {
     if (parametro == "tipoServico") {
         cout << "Que tipo de serviço deseja ver?";
         cin >> tiposervico;
-        
+
     }
 }
 

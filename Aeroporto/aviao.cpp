@@ -61,9 +61,8 @@ void Aviao::AviaoInput() {
 void Aviao::WriteAviao() {
     ofstream file;
     file.open("");
-    //list<Voo> tmp = listaVoo;
     for (auto it = listAviao.begin(); it != listAviao.end(); it++){
-        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << endl;
+        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << "," << endl;
     }
     file.close();
 }

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include "Data.h"
 
 using namespace std;
@@ -34,8 +35,10 @@ public:
     void setOrigem(string origem);
     string getDestino() const;
     void setDestino(string destino);
+    void ReadVoo();
+    void WriteVoo();
 };
 
-
+static list<Voo> listVoos;
 
 #endif //PROJETO1_VOO_H
