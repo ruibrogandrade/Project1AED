@@ -31,9 +31,9 @@ public:
 
 class GestaoBagagens {
 private:
-    unsigned numCarruagens;
-    unsigned numPilhas;
-    unsigned numMalas;
+    unsigned numCarruagens = 2;
+    unsigned numPilhas = 3;
+    unsigned numMalas = 4;
 
     queue<Bagagem> tapeteInserir;
     queue<Bagagem> tapeteRetirar;

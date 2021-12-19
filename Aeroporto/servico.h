@@ -3,38 +3,40 @@
 #include "Data.h"
 #include <queue>
 #include "aviao.h"
-/*
+
 using namespace std;
 
 class servico{
 private:
-    char tiposervico; //'m' = manutenção && 'l' = limpeza
+    string tiposervico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
     string matriculaAviao;
-    queue<servico> servicosFeitos;
-    queue<servico> servicosPorFazer;
 public:
     servico();
     servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao);
-    char getTipoServico() const;
-    void setTipoServico(char tiposervico);
+    string getTipoServico() const;
+    void setTipoServico(string tiposervico);
     Data getData() const;
     void setData(Data data);
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
     string getMatriculaAviao() const;
     void setMatriculaAviao(string matriculaAviao);
-    void setServicosPorFazer(queue<servico> servicosFeitos);
-    queue<servico> getServicosPorFazer() const;
-    void setServicosFeitos(queue<servico> servicosFeitos);
-    queue<servico> getServicosFeitos() const;
+    //void setServicosPorFazer(queue<servico> servicosFeitos);
+    //queue<servico> getServicosPorFazer() const;
+    //void setServicosFeitos(queue<servico> servicosFeitos);
+    //queue<servico> getServicosFeitos() const;
     bool operator == (const servico & s) const;
     static bool MenorQueDataAtual(Data data);
     void WriteServico();
     void ServicoInput();
     void ReadServico();
-    list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
+    void ListagemServicos();
+    void ListagemParcialServicos();
+    bool operator == (servico s) const;
 };
-*/
+
+static queue<servico> servicosFeitos;
+static queue<servico> servicosPorFazer;
 #endif //PROJETO1_SERVICO_H

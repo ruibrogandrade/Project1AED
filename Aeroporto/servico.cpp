@@ -4,7 +4,7 @@
 #include "servico.h"
 #include "aviao.h"
 #include "Data.h"
-/*
+
 using namespace std;
 servico::servico() {}
 
@@ -15,11 +15,11 @@ servico::servico(char tiposervico, Data data, string nomeFuncionario, string mat
     this->nomeFuncionario=nomeFuncionario;
 }
 
-char servico::getTipoServico() const {
+string servico::getTipoServico() const {
     return tiposervico;
 }
 
-void servico::setTipoServico(char tiposervico) {
+void servico::setTipoServico(string tiposervico) {
     this->tiposervico=tiposervico;
 }
 
@@ -40,7 +40,7 @@ void servico::setNomeFuncionario(string nomeFuncionario) {
 }
 
 bool servico::operator==(const servico &s) const {
-    return tiposervico == s.tiposervico && data == s.data && nomeFuncionario == s.nomeFuncionario;
+    return tiposervico == s.tiposervico || data == s.data || nomeFuncionario == s.nomeFuncionario;
 }
 
 void servico::setMatriculaAviao(string matriculaAviao) {
@@ -64,31 +64,31 @@ bool servico::MenorQueDataAtual(Data data) {
 }
 
 void servico::WriteServico() {
-    queue<servico> servicosPorFazer = getServicosPorFazer();
-    queue<servico> servicosFeitos = getServicosFeitos();
+    //queue<servico> servicosPorFazer = getServicosPorFazer();
+    //queue<servico> servicosFeitos = getServicosFeitos();
     ofstream file;
     file.open("servicos.txt");
     queue<servico> tmp1 = servicosFeitos;
     queue<servico> tmp2 = servicosPorFazer;
     for(int i = 0; i < servicosFeitos.size();i++) {
         file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
-             << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() << "," << endl;
+             << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() <<  ",";
         tmp1.pop();
     }
     for(int i = 0; i < servicosPorFazer.size();i++) {
         file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
-             << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() << "," << endl;
+             << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() <<  ",";
         tmp2.pop();
     }
     file.close();
 }
 
 void servico::ServicoInput() {
-    queue<servico> servicosPorFazer = getServicosPorFazer();
-    queue<servico> servicosFeitos = getServicosFeitos();
+    //queue<servico> servicosPorFazer = getServicosPorFazer();
+    //queue<servico> servicosFeitos = getServicosFeitos();
     servico tmp;
     string input;
-    char tipoServico;
+    string tipoServico;
     int dia;
     int mes;
     int ano;
@@ -114,17 +114,15 @@ void servico::ServicoInput() {
     } else {
         servicosPorFazer.push(tmp);
     }
-    setServicosFeitos(servicosFeitos);
-    setServicosPorFazer(servicosPorFazer);
+    //setServicosFeitos(servicosFeitos);
+    //setServicosPorFazer(servicosPorFazer);
     WriteServico();
 }
 
 void servico::ReadServico() {
-    queue<servico> servicosPorFazer = getServicosPorFazer();
-    queue<servico> servicosFeitos = getServicosFeitos();
-    Aviao a;
-    list<Aviao> listAviao = a.getListAviao();
-    char tiposervico;
+    //queue<servico> servicosPorFazer = getServicosPorFazer();
+    //queue<servico> servicosFeitos = getServicosFeitos();
+    string tiposervico;
     servico tmp;
     Data data;
     int dia;
@@ -141,7 +139,7 @@ void servico::ReadServico() {
     {
         switch(i){
             case(0):
-                tiposervico = line.c_str()[0];
+                tiposervico = line;
                 tmp.setTipoServico(tiposervico);
                 break;
             case(1):
@@ -154,38 +152,47 @@ void servico::ReadServico() {
                 tmp.setData(data);
                 break;
             case(2):
-                nomeFuncionario = line;
-                tmp.setNomeFuncionario(nomeFuncionario);
-                i++;
+                matriculaAviao = line;
+                tmp.setMatriculaAviao(matriculaAviao);
                 break;
             case(3):
-                matriculaAviao = stoi(line);
-                tmp.setMatriculaAviao(matriculaAviao);
+                nomeFuncionario = line;
+                tmp.setNomeFuncionario(nomeFuncionario);
                 i=-1;
                 if (MenorQueDataAtual(data)) {
                     servicosFeitos.push(tmp);
                 } else {
                     servicosPorFazer.push(tmp);
                 }
-                it = findAviao(listAviao, matriculaAviao);
-                it->novoservico(tmp);
                 break;
         }
         i++;
     }
-    setServicosFeitos(servicosFeitos);
-    setServicosPorFazer(servicosPorFazer);
+    //setServicosFeitos(servicosFeitos);
+    //setServicosPorFazer(servicosPorFazer);
 }
 
- list<Aviao>::iterator servico::findAviao(list<Aviao> listAviao, string matriculaAviao) {
-    list<Aviao>::iterator it;
-    for(it = listAviao.begin(); it != listAviao.end(); it++) {
-        if(it->getMatricula() == matriculaAviao) {
-            return (it);
-        }
+void servico::ListagemServicos() {
+    std::ifstream f("servicos.txt");
+
+    if (f.is_open())
+        std::cout << f.rdbuf();
+}
+
+void servico::ListagemParcialServicos() {
+    string parametro;
+    cout << "Que parametro deseja filtrar?";
+    cin >> parametro;
+    if (parametro == "tipoServico") {
+        cout << "Que tipo de serviço deseja ver?";
+        cin >> tiposervico;
+        
     }
 }
 
+
+
+/*
 void servico::setServicosPorFazer(queue<servico> servicosPorFazer) {
     this->servicosPorFazer=servicosPorFazer;
 }

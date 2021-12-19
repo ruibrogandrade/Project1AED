@@ -5,6 +5,7 @@
 #include "Aeroporto/servico.h"
 #include "Aeroporto/Data.h"
 #include "Aeroporto/passageiros.h"
+#include "Aeroporto/bagagem.h"
 
 using namespace std;
 void ReadFiles() {
@@ -13,6 +14,11 @@ void ReadFiles() {
     Voo v;
     Passageiro p;
     p.ReadBilhete();
+    GestaoBagagens g;
+    g.ReadTapete();
+    g.colocarMalas();
+    servico s;
+    s.ReadServico();
 }
 /*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
@@ -36,6 +42,8 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 */
 int main() {
     ReadFiles();
+    servico s;
+    s.ListagemServicos();
     return 0;
 }
 

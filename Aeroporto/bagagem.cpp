@@ -18,20 +18,39 @@ GestaoBagagens::GestaoBagagens(unsigned int c, unsigned int n, unsigned int m) :
 
 //função para listas
 void GestaoBagagens::colocarMalas(){
+    stack<Bagagem> pilhaBagagemVazia;
+    Bagagem bagagemVazia;
     static int i = 0;
+
+    for(int i = 0; i < numCarruagens; i++) {
+        list<stack<Bagagem>> novaCarruagemVazia;
+        for(int j = 0; j < numPilhas; j++) {
+            novaCarruagemVazia.push_back(pilhaBagagemVazia);
+            for(int k = 0; k < numMalas; k++) {
+                pilhaBagagemVazia.push(bagagemVazia);
+            }
+        }
+        carrinho.push_back(novaCarruagemVazia);
+    }
+
+
     while (!tapeteInserir.empty()) {
         for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
             for (auto et = (*it).begin(); et != (*it).end(); et++) {
-                stack<Bagagem> st = (*et);
+                stack<Bagagem> st;
                 while (st.size() < numMalas) {
+                    if (tapeteInserir.empty()) break;
                     Bagagem b = tapeteInserir.front();
+                    //cout << tapeteInserir.front().getNumBilhete() << endl;
                     st.push(b);
                     tapeteInserir.pop(); //pop deleta o front
                 }
+                (*et) = st;
             }
         }
         if (i == carrinho.size() - 1) break; //se o carrinho estiver cheio -> termina
-    }                                        // a inserção de bagagem!
+    }   // a inserção de bagagem!
+
 }
 //funçao para vetores
 /*
@@ -119,11 +138,6 @@ void GestaoBagagens::ReadTapete() {
 
     }
     file.close();
-
-    for(int i = 0; i < 2; i++){
-        cout << tapeteInserir.front().getPeso() << endl;
-        tapeteInserir.pop();
-    }
 }
 
 void GestaoBagagens::CarrinhoInput() {
