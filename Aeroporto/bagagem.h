@@ -36,7 +36,7 @@ private:
 
     static queue<Bagagem> tapeteInserir;
     static queue<Bagagem> tapeteRetirar;
-    list<list<stack<Bagagem>>> carrinho; //carrinho[i] = carruagem, carrinho[i][j] = stack
+    list<list<stack<Bagagem>>> carrinho;
 public:
     gestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas();

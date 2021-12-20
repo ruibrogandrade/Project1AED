@@ -7,15 +7,7 @@ using namespace std;
  * Construtor padrão de voo
  */
 
-Voo::Voo() {
-    this->numVoo = 0;
-    this->duracao = 0;
-    this->origem = ' ';
-    this->destino = ' ';
-    this->dataPartida = Data();
-    this->vagas = lotacao;
-    this->lotacao = 0;
-}
+Voo::Voo() {}
 
 /**
  * Construtor que cria um voo com os seus atributos
@@ -98,6 +90,7 @@ void Voo::setDuracao(int duracao) {
 int Voo::getNumLugares() const{
     return lotacao;
 }
+
 /**
  *Setter para o número de lugares do voo
  * @param lotacao
@@ -112,7 +105,7 @@ void Voo::setNumLugares(int lotacao) {
  * @return lugares ocupados
  */
 
-int Voo::getNumLugaresOcupados() const{
+int Voo::getNumLugaresOcupados() const {
     return lotacao - vagas;
 }
 
@@ -169,5 +162,90 @@ string Voo::getDestino() const{
 void Voo::setDestino(string destino) {
     this->destino=destino;
 }
+
+/*
+ void Servico::WriteServico() {
+    queue<Servico> servicosPorFazer = getServicosPorFazer();
+    queue<Servico> servicosFeitos = getServicosFeitos();
+    ofstream file;
+    file.open("servicos.txt");
+    queue<Servico> tmp1 = servicosFeitos;
+    queue<Servico> tmp2 = servicosPorFazer;
+    for(int i = 0; i < servicosFeitos.size();i++) {
+        file << tmp1.front().getTipoServico() << ',' << tmp1.front().getData().getDia() << "/" << tmp1.front().getData().getMes() << "/"
+             << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() << "," << endl;
+        tmp1.pop();
+    }
+    for(int i = 0; i < servicosPorFazer.size();i++) {
+        file << tmp2.front().getTipoServico() << ',' << tmp2.front().getData().getDia() << "/" << tmp2.front().getData().getMes() << "/"
+             << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() << "," << endl;
+        tmp2.pop();
+    }
+    file.close();
+}
+
+ */
+
+void Voo::WriteVoo() {
+    ofstream file;
+    Voo tmp;
+    file.open("voo.txt");
+    file << tmp.getNumVoo() << ',' << tmp.getDataPartida().getDia() << '/' << tmp.getDataPartida().getMes() << "/"
+    << tmp.getDataPartida().getAno() << ',' << tmp.getDuracao() << ',' << tmp.getNumLugares() << ',' << tmp.getOrigem() << ',' << tmp.getDestino() << ',';
+    file.close();
+}
+
+
+void Voo::ReadVoo() {
+    ifstream file("servicos.txt");
+    string line;
+    Voo v;
+    int numVoo;
+    Voo tmp;
+    Data dataDePartida;
+    int duracao;
+    int dia;
+    int mes;
+    int ano;
+    int lot;
+    string origem;
+    string destino;
+    int i = 0;
+    while(getline(file,line,',')) {
+        switch(i) {
+            case (0):
+                numVoo = stoi(line);
+                tmp.setNumVoo(numVoo);
+                break;
+            case (1):
+                dia = stoi(line.substr(0, 2));
+                mes = stoi(line.substr(3, 5));
+                ano = stoi(line.substr(6, 10));
+                dataDePartida.setDia(dia);
+                dataDePartida.setMes(mes);
+                dataDePartida.setAno(ano);
+                tmp.setDataPartida(dataDePartida);
+                break;
+            case (2):
+                duracao = stoi(line);
+                tmp.setDuracao(duracao);
+                break;
+            case (3):
+                lot = stoi(line);
+                tmp.setVagas(lot);
+                break;
+            case (4):
+                origem = stoi(line);
+                tmp.setOrigem(origem);
+                break;
+            case (5):
+                destino = stoi(line);
+                tmp.setDestino(destino);
+                break;
+        } i++;
+    }
+}
+
+
 
 

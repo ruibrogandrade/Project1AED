@@ -22,7 +22,6 @@ public:
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
     bool operator == (const servico & s) const;
-
 };
 
 #endif //PROJETO1_SERVICO_H

@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
 #include "Data.h"
 
 using namespace std;
@@ -37,6 +39,8 @@ public:
     void setOrigem(string origem);
     string getDestino() const;
     void setDestino(string destino);
+    void ReadVoo();
+    void WriteVoo();
 };
 
 
