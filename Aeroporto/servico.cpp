@@ -156,8 +156,8 @@ void servico::ReadServico() {
                 break;
             case(1):
                 dia = stoi(line.substr(0,2));
-                mes = stoi(line.substr(3,5));
-                ano = stoi(line.substr(6,10));
+                mes = stoi(line.substr(3,2));
+                ano = stoi(line.substr(6,4));
                 data.setDia(dia);
                 data.setMes(mes);
                 data.setAno(ano);

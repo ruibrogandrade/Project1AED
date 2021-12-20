@@ -98,8 +98,8 @@ void Voo::ReadVoo() {
                 break;
             case (1):
                 dia = stoi(line.substr(0, 2));
-                mes = stoi(line.substr(3, 5));
-                ano = stoi(line.substr(6, 10));
+                mes = stoi(line.substr(3, 2));
+                ano = stoi(line.substr(6, 4));
                 dataDePartida.setDia(dia);
                 dataDePartida.setMes(mes);
                 dataDePartida.setAno(ano);
