@@ -23,10 +23,6 @@ public:
     void setNomeFuncionario(string nomeFuncionario);
     string getMatriculaAviao() const;
     void setMatriculaAviao(string matriculaAviao);
-    //void setServicosPorFazer(queue<Servico> ServicosFeitos);
-    //queue<Servico> getServicosPorFazer() const;
-    //void setServicosFeitos(queue<Servico> ServicosFeitos);
-    //queue<Servico> getServicosFeitos() const;
     bool operator == (const Servico & s) const;
     static bool MenorQueDataAtual(Data data);
     void WriteServico();

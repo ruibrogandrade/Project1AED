@@ -193,6 +193,7 @@ void Servico::ReadServico() {
     }
 }
 */
+
 void Servico::ListagemServicos() {
     std::ifstream f("servicos.txt");
 
@@ -210,18 +211,3 @@ void Servico::ListagemParcialServicos() {
 
     }
 }
-
-/*
-void servico::setServicosPorFazer(queue<servico> servicosPorFazer) {
-    this->servicosPorFazer=servicosPorFazer;
-}
-queue<servico> servico::getServicosPorFazer() const{
-    return servicosPorFazer;
-}
-void servico::setServicosFeitos(queue<servico> servicosFeitos) {
-    this->servicosFeitos=servicosFeitos;
-}
-queue<servico> servico::getServicosFeitos()  const{
-    return servicosFeitos;
-}
-*/
