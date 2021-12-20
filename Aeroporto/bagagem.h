@@ -39,20 +39,16 @@ private:
     queue<Bagagem> tapeteRetirar;
     list<list<stack<Bagagem>>> carrinho;
 public:
-    GestaoBagagens(){};
+    GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas();
     void retirarMalas();
-
     void TapeteInput();
     void WriteTapete();
     void ReadTapete();
+    void ListagemTotal();
 
-    //acho que nao faz sentido implementar estas:
-    void CarrinhoInput();
-    void WriteCarrinho();
-    void ReadCarrinho();
-
+    void ListagemParcial();
 };
 
 

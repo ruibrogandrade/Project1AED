@@ -196,6 +196,7 @@ void servico::ListagemServicos() {
         std::cout << f.rdbuf();
 }
 
+
 void servico::ListagemParcialServicos() {
     string parametro;
     string tipo;

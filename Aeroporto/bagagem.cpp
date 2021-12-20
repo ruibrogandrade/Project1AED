@@ -52,28 +52,6 @@ void GestaoBagagens::colocarMalas(){
     }   // a inserção de bagagem!
 
 }
-//funçao para vetores
-/*
-void GestaoBagagens::colocarMalas() {
-    if (tapeteInserir.size() > numCarruagens * numMalas * numPilhas)
-        throw "carrinho não pode carregar tanta bagagem";
-    //se lançar a exceção executa o código a seguir?
-    static int i = 0;
-    while (!tapeteInserir.empty()) {
-        for (i = 0; i < tapeteInserir.size(); i++) {
-            for (int j = 0; j < numPilhas; j++) {
-                stack<Bagagem> st = carrinho[i][j];
-                while (st.size() < numMalas) {
-                    Bagagem b = tapeteInserir.front();
-                    st.push(b);
-                    tapeteInserir.pop(); //pop deleta o front
-                }
-            }
-        }
-        if (i == carrinho.size() - 1) break; //se o carrinho estiver cheio -> termina
-    }                                        // a inserção de bagagem!
-}
-*/
 //funçao para listas
 void GestaoBagagens::retirarMalas(){
     Bagagem b;
@@ -85,17 +63,6 @@ void GestaoBagagens::retirarMalas(){
         }
     }
 }
-//função para vetores, mas nao vi se esta estava certa
-/*
-void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm => REVER
-    for (int i = 0; i < carrinho[i].size(); i++) {
-        for (int j = 0; carrinho[i][j].size(); j++) {
-            if (b.getNumBilhete() == carrinho[i][j].top().getNumBilhete()) {
-                //devolver mala ao cliente
-            }
-        }
-    }
-}*/
 
 void GestaoBagagens::TapeteInput() {
     //valores para testar
@@ -140,21 +107,40 @@ void GestaoBagagens::ReadTapete() {
     file.close();
 }
 
-void GestaoBagagens::CarrinhoInput() {
-    //colocarMalas();
+void GestaoBagagens::ListagemTotal() {
+    std::ifstream f("tapete.txt");
+    if (f.is_open())
+        std::cout << f.rdbuf();
 }
 
-void GestaoBagagens::WriteCarrinho() {
-    //retirarMalas();
+void GestaoBagagens::ListagemParcial() {
+    string parametro;
+    int num;
+    float p;
+    cout << "Que parâmetro deseja filtrar?" << endl;
+    cin >> parametro;
+    if(parametro == "numero do bilhete"){
+        cout << "Qual o bilhete associado à bagagem?" << endl;
+        cin >> num;
+        list<Bagagem> bagagemAssociada;
+        while(!tapeteRetirar.empty()) {
+            if(tapeteRetirar.front().getNumBilhete() == num) {
+                bagagemAssociada.push_back(tapeteRetirar.front());
+                tapeteRetirar.pop();
+            }
+        }
+        cout << "O cliente tem " << bagagemAssociada.size() << "bagagens associadas.";
+        }
+    if(parametro == "peso") {
+        cout << "Pretende encontrar bagagens com peso superior a quantos kgs?" << endl;
+        cin >> p;
+    }
+    list<Bagagem> aux;
+    while(!tapeteRetirar.empty()) {
+        if (tapeteRetirar.front().getPeso() >= p) {
+            aux.push_back(tapeteRetirar.front());
+            tapeteRetirar.pop();
+        }
+    }
+    cout << "Há" << aux.size() << "malas com peso superior a" << p << "kgs";
 }
-
-void GestaoBagagens::ReadCarrinho() {
-
-
-}
-
-
-
-
-
-
