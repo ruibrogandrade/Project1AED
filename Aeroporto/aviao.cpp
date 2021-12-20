@@ -117,6 +117,7 @@ void Aviao::ReadVoo(){
                 break;
             case (3):
                 lot = stoi(line); //por vagas tbm que ele nao faz a ligação
+                tmp.setVagas(lot);
                 tmp.setNumLugares(lot);
                 break;
             case (4):
@@ -240,7 +241,7 @@ void Aviao::listagemIncompleta() {
         string origem;
         cin >> origem;
         cout << "Defina o local de destino: " << endl;
-        cout << ">0";
+        cout << ">";
         string destino;
         cin >> destino;
         bool flag2 = false;
@@ -254,6 +255,23 @@ void Aviao::listagemIncompleta() {
             }
         }
         if(!flag2) cout << "---> Nao existem voos disponiveis de " << origem << " para " << destino <<"." << endl;
+        cout << endl << endl;
+    }
+    if (escolha == 3){
+        cout << endl << endl;
+        cout << "Voos com bilhetes disponiveis: " << endl;
+        cout << endl;
+        bool flag3 = false;
+        for (auto it = listVoos.begin(); it != listVoos.end(); it++){
+            if ((*it).getNumLugaresOcupados() != (*it).getVagas()){
+                flag3 = true;
+                cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getDia() << "/"
+                     << (*it).getDataPartida().getMes() << "/" <<  (*it).getDataPartida().getAno()
+                     << ',' << (*it).getDuracao() << ',' << (*it).getNumLugares() << ','
+                     << (*it).getOrigem() << ',' << (*it).getDestino() << ',' << endl;
+            }
+        }
+        if(!flag3) cout << "---> Nao existem voos com vagas disponiveis."  << endl;
         cout << endl << endl;
     }
     file.close();
