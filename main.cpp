@@ -31,6 +31,11 @@ void ReadFiles() {
     g.ReadTapete();
     g.TapeteInput();
     g.WriteTapete();
+    g.definirCarrinho();
+    g.colocarMalas();
+
+    //g.TapeteInput();
+    //g.WriteTapete();
 
     //g.colocarMalas();
 

@@ -41,6 +41,7 @@ private:
 public:
     GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
+    void definirCarrinho();
     void colocarMalas();
     void retirarMalas();
 
