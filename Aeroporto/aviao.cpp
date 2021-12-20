@@ -182,3 +182,14 @@ void Aviao::ReadAviao() {
     file.close();
 }
 
+void Aviao::listagemCompletaVoos() {
+    cout << endl;
+    ifstream file("voo.txt");
+    string line;
+    cout << "Conteudo do ficheiro de voos:" << endl;
+    cout << endl;
+    while (getline(file, line)){
+        cout << line << endl;
+    }
+}
+

@@ -25,6 +25,7 @@ public:
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
+    void listagemCompletaVoos();
 
     void VooInput();
     void WriteVoo();

@@ -15,7 +15,8 @@ void ReadFiles() {
     a.ReadVoo();
     a.VooInput();
     a.WriteVoo();
-     */
+    a.listagemCompletaVoos();
+    */
     /*
     Voo v;
     v.ReadVoo();
