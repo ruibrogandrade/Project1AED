@@ -26,22 +26,44 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
 }
 
 void Passageiro::BilheteInput() {
-    vector<Bilhete> bilhetes = getBilhetes();
-    bilhetes.emplace_back(14,50, 109);
-    bilhetes.push_back(Bilhete(15,40, 63));
-    bilhetes.push_back(Bilhete(18,75, 31));
-    setBilhetes(bilhetes);
+    cout << "Quantos bilhetes deseja adicionar? ";
+    cout << endl;
+    int quant;
+    cin >> quant;
+    if (quant == 0) { cout << "Nao vai ser adicionado nenhum bilhete." << endl;}
+    if (quant == 1) {cout << "Vamos adicionar um novo Bilhete." << endl;}
+    if (quant > 1) {cout << "Vamos adicionar " << quant << " novos Bilhetes." << endl;}
+    cout << endl;
+    while(quant != 0){
+        cout << "Insira o nr de Bilhete: " << endl;
+        int nrBilhete;
+        cin >> nrBilhete;
+        cout << "Insira o numero de bagagens associadas ao Bilhete: " <<  endl;
+        int nrBagagens;
+        cin >> nrBagagens;
+        cout << "Insira o numero do Voo associado ao Bilhete: " <<  endl;
+        int nrVoo;
+        cin >> nrVoo;
+        Bilhete b = Bilhete(nrBilhete, nrBagagens, nrVoo);
+        bilhetes.push_back(b);
+        cout << endl;
+        quant--;
+        if(quant != 0) {
+            cout << "(Proximo Bilhete)";
+            cout << endl;
+        }
+    }
 }
 
 void Passageiro::WriteBilhete() {
     ofstream file;
-    vector<Bilhete> bilhetes = getBilhetes();
     file.open("passageiros.txt");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
-        file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' <<(*it).getNumVoo() << endl;
+        file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << ',';
+        if (next(it) == bilhetes.end()) continue;
+        else file << endl;
     }
     file.close();
-    setBilhetes(bilhetes);
 }
 
 void Passageiro::ReadBilhete() {
@@ -49,7 +71,6 @@ void Passageiro::ReadBilhete() {
     ifstream file("passageiros.txt");
     string line;
     Bilhete b;
-    vector<Bilhete> bilhetes;
     int i = 0;
     while (getline(file, line, ',')){
         switch (i) {
@@ -71,7 +92,10 @@ void Passageiro::ReadBilhete() {
         i++;
     }
     file.close();
-    setBilhetes(bilhetes);
+    /*
+    for(auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+        cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << endl;
+    }*/
 }
 
 vector<Bilhete> Passageiro::getBilhetes() const{

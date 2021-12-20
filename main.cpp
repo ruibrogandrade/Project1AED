@@ -10,20 +10,21 @@
 
 using namespace std;
 void ReadFiles() {
+    /*
     //já funciona!
     Aviao a;
     a.ReadVoo();
     a.VooInput();
     a.WriteVoo();
     a.listagemCompletaVoos();
-    a.listagemIncompleta(); //só o ponto 1) é que está implementado
-
-    /*
-    Voo v;
-    v.ReadVoo();
-    v.WriteVoo();
+    a.listagemIncompleta();
+    */
     Passageiro p;
     p.ReadBilhete();
+    p.BilheteInput();
+    p.WriteBilhete();
+
+     /*
     GestaoBagagens g;
     g.ReadTapete();
     g.colocarMalas();

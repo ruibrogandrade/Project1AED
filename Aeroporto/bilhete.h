@@ -11,11 +11,7 @@ private:
     int numVoo;
 public:
     Bilhete();
-    Bilhete(int nrBilh, int quantBag, int nrVoo) {
-        this->numBilhete = nrBilh;
-        this->quantBagagem = quantBag;
-        this->numVoo = nrVoo;
-    };
+    Bilhete(int nrBilh, int quantBag, int nrVoo);
     int getNumBilhete() const;
     void setNumBilhete(int numBilhete);
     int getNumVoo() const;

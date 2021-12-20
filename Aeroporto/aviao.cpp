@@ -22,7 +22,6 @@ list<Voo> Aviao::getListaVoo() const {
 
 void Aviao::WriteVoo() {
     ofstream file;
-    Voo tmp;
     file.open("voo.txt");
     for(auto it = listVoos.begin(); it != listVoos.end(); it++) {
         file << (*it).getNumVoo() << ',';
@@ -44,8 +43,9 @@ void Aviao::VooInput() {
     cout << endl;
     int quant;
     cin >> quant;
-    if(quant == 1) {cout << "Vamos adicionar um novo Voo." << endl;}
-    else{cout << "Vamos adicionar " << quant << " novos Voo." << endl; }
+    if (quant == 0) {cout << "Nao vai ser adicionado nenhum Voo." << endl;}
+    if (quant == 1) {cout << "Vamos adicionar um novo Voo." << endl;}
+    if (quant > 1){cout << "Vamos adicionar " << quant << " novos Voo." << endl; }
     cout << endl;
     while(quant != 0){
         cout << "Insira o nr de Voo: ";
@@ -137,50 +137,6 @@ void Aviao::ReadVoo(){
     for (auto it = listVoos.begin(); it != listVoos.end(); it++){
         cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getMes() << ',' << (*it).getDestino() << endl;
     }*/
-}
-
-
-
-//só implementei para a matricula e para a capacidade
-void Aviao::AviaoInput() {
-    //valores para testar
-    listAviao.emplace_back("37-FP-45", 1500);
-    listAviao.push_back(Aviao("81-TM-05", 1250));
-}
-
-void Aviao::WriteAviao() {
-    ofstream file;
-    file.open("");
-    //list<Voo> tmp = listaVoo;
-    for (auto it = listAviao.begin(); it != listAviao.end(); it++){
-        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << endl;
-    }
-    file.close();
-}
-
-void Aviao::ReadAviao() {
-    string matricula;
-    int capacidade;
-    //list<Voo> listaVoo;
-    ifstream file("aviao.txt");
-    string line;
-    int i = 0;
-    Aviao a;
-    while (getline(file, line, ',')){
-        switch(i){
-            case(0):
-                a.matricula = line;
-                break;
-            case(1):
-                capacidade = stoi(line);
-                a.capacidade = capacidade;
-                listAviao.push_back(a);
-                i = -1;
-                break;
-        }
-        i++;
-    }
-    file.close();
 }
 
 void Aviao::listagemCompletaVoos() {
@@ -275,6 +231,46 @@ void Aviao::listagemIncompleta() {
         cout << endl << endl;
     }
     file.close();
-
 }
 
+//só implementei para a matricula e para a capacidade
+void Aviao::AviaoInput() {
+    //valores para testar
+    listAviao.emplace_back("37-FP-45", 1500);
+    listAviao.push_back(Aviao("81-TM-05", 1250));
+}
+
+void Aviao::WriteAviao() {
+    ofstream file;
+    file.open("");
+    //list<Voo> tmp = listaVoo;
+    for (auto it = listAviao.begin(); it != listAviao.end(); it++){
+        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << endl;
+    }
+    file.close();
+}
+
+void Aviao::ReadAviao() {
+    string matricula;
+    int capacidade;
+    //list<Voo> listaVoo;
+    ifstream file("aviao.txt");
+    string line;
+    int i = 0;
+    Aviao a;
+    while (getline(file, line, ',')){
+        switch(i){
+            case(0):
+                a.matricula = line;
+                break;
+            case(1):
+                capacidade = stoi(line);
+                a.capacidade = capacidade;
+                listAviao.push_back(a);
+                i = -1;
+                break;
+        }
+        i++;
+    }
+    file.close();
+}
