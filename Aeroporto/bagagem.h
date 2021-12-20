@@ -39,7 +39,7 @@ private:
     queue<Bagagem> tapeteRetirar;
     list<list<stack<Bagagem>>> carrinho;
 public:
-    GestaoBagagens(){};
+    GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
     void colocarMalas();
     void retirarMalas();

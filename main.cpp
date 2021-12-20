@@ -26,13 +26,17 @@ void ReadFiles() {
     p.listagemCompleta();
     p.listagemIncompleta();
     */
-    /*
+
     GestaoBagagens g;
     g.ReadTapete();
-    g.colocarMalas();
+    g.TapeteInput();
+    g.WriteTapete();
+
+    //g.colocarMalas();
+
+    /*
     Servico s;
     s.ReadServico();
-    */
     /*
     OpcoesTransporte o;
     o.readFile();

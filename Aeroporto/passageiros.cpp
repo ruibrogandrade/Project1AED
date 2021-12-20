@@ -27,7 +27,8 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
 }
 
 void Passageiro::BilheteInput() {
-    cout << "Quantos bilhetes deseja adicionar? ";
+    cout << "Quantos bilhetes deseja adicionar? " << endl;
+    cout << '>';
     cout << endl;
     int quant;
     cin >> quant;
@@ -37,12 +38,15 @@ void Passageiro::BilheteInput() {
     cout << endl;
     while(quant != 0){
         cout << "Insira o nr de Bilhete: " << endl;
+        cout << '>';
         int nrBilhete;
         cin >> nrBilhete;
         cout << "Insira o numero de bagagens associadas ao Bilhete: " <<  endl;
+        cout << '>';
         int nrBagagens;
         cin >> nrBagagens;
         cout << "Insira o numero do Voo associado ao Bilhete: " <<  endl;
+        cout << '>';
         int nrVoo;
         cin >> nrVoo;
         Bilhete b = Bilhete(nrBilhete, nrBagagens, nrVoo);
