@@ -124,7 +124,7 @@ void Passageiro::listagemIncompleta() {
     cout << endl;
     cout << "1) " << "Visualizar bilhetes com numero de bagagens superior a <?>." << endl;
     cout << "2) " << "Visualizar bilhetes pertencentes ao voo numero <?>." << endl;
-    cout << "3) " << "Visualizar bilhetes ordenados pelo numero de bilhete." << endl;
+    cout << "3) " << "Visualizar bilhetes ordenados por um parâmetro específico." << endl;
     cout << ">";
     int escolha;
     cin >> escolha;
@@ -134,19 +134,118 @@ void Passageiro::listagemIncompleta() {
         cout << "Deseja visualizar os bilhetes associados a mais que 0, 1, 2, 3... bagagens? "
                 "(Insira o numero de bagagens pretendido): " << endl;
         cout << ">";
-        string nrBagagens;
+        int nrBagagens;
         cin >> nrBagagens;
-        bool flag1 = false;
+        bool flag = false;
         for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
-            if((*it).getQuantBagagem() > stoi(nrBagagens)){
-                flag1 = true;
+            if((*it).getQuantBagagem() > nrBagagens){
+                flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
                 << (*it).getNumVoo() << ','  << endl;
             }
         }
-        if(!flag1) cout << "---> Nao existem bilhetes com mais que esse numero de bagagens." << endl;
+        if(!flag) cout << "---> Nao existem bilhetes com mais que esse numero de bagagens." << endl;
         cout << endl << endl;
     }
+    if (escolha == 2){
+        cout << "Deseja visualizar os bilhetes associados ao voo numero? (Insira o respetivo numero de voo): " << endl;
+        cout << ">";
+        int nrVoo;
+        cin >> nrVoo;
+        bool flag = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+            if((*it).getNumVoo() == nrVoo){
+                flag = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                     << (*it).getNumVoo() << ','  << endl;
+            }
+        }
+        if(!flag) cout << "---> Nao existem bilhetes associados a esse voo." << endl;
+        cout << endl << endl;
+    }
+    if (escolha == 3){
+        cout << endl;
+        cout << "Deseja visualizar os bilhetes ordenados pelo.. " << endl;
+        cout << "(A) Numero de bilhete;" << endl;
+        cout << "(B) Quantidade de bagagem;" << endl;
+        cout << "(C) Numero de voo." << endl;
+        cout << ">";
+        char opcao;
+        cin >> opcao;
+        bool flag = false;
+        vector<Bilhete> aux = bilhetes;
+        if (opcao == 'A'){
+            for (auto it = aux.begin(); it != aux.end(); it++){
+                //Selection Sort
+                if (aux.size() > 1) {
+                    for (int i = 0; i < aux.size(); i++) {
+                        for (unsigned i = 0; i < aux.size() - 1; i++) {
+                            unsigned imin = i;
+                            for (int j = i + 1; j < aux.size(); j++)
+                                if (aux[j].getNumBilhete() < aux[imin].getNumBilhete())
+                                    imin = j;
+                            swap(aux[i], aux[imin]);
+                        }
+                    }
+                }
+            }
+            for (auto it = aux.begin(); it != aux.end(); it++){
+                flag = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                     << (*it).getNumVoo() << ','  << endl;
+            }
+            if(!flag) cout << "---> Nao existem bilhetes." << endl;
+            cout << endl << endl;
+        }
+        if (opcao == 'B') {
+            for (auto it = aux.begin(); it != aux.end(); it++) {
+                //Selection Sort
+                if (aux.size() > 1) {
+                    for (int i = 0; i < aux.size(); i++) {
+                        for (unsigned i = 0; i < aux.size() - 1; i++) {
+                            unsigned imin = i;
+                            for (int j = i + 1; j < aux.size(); j++)
+                                if (aux[j].getQuantBagagem() < aux[imin].getQuantBagagem())
+                                    imin = j;
+                            swap(aux[i], aux[imin]);
+                        }
+                    }
+                }
+            }
+            for (auto it = aux.begin(); it != aux.end(); it++) {
+                flag = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                     << (*it).getNumVoo() << ',' << endl;
+            }
+            if (!flag) cout << "---> Nao existem bilhetes." << endl;
+            cout << endl << endl;
+        }
+        if (opcao == 'C') {
+            for (auto it = aux.begin(); it != aux.end(); it++) {
+                //Selection Sort
+                if (aux.size() > 1) {
+                    for (int i = 0; i < aux.size(); i++) {
+                        for (unsigned i = 0; i < aux.size() - 1; i++) {
+                            unsigned imin = i;
+                            for (int j = i + 1; j < aux.size(); j++)
+                                if (aux[j].getNumVoo() < aux[imin].getNumVoo())
+                                    imin = j;
+                            swap(aux[i], aux[imin]);
+                        }
+                    }
+                }
+            }
+            for (auto it = aux.begin(); it != aux.end(); it++) {
+                flag = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                     << (*it).getNumVoo() << ',' << endl;
+            }
+            if (!flag) cout << "---> Nao existem bilhetes." << endl;
+            cout << endl << endl;
+        }
+    }
+
+    file.close();
 
 
 }
