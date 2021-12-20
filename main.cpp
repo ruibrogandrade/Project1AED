@@ -16,14 +16,15 @@ void ReadFiles() {
     a.ReadVoo();
     a.VooInput();
     a.WriteVoo();
-    a.listagemCompletaVoos();
+    a.listagemCompleta();
     a.listagemIncompleta();
     */
     Passageiro p;
     p.ReadBilhete();
-    p.BilheteInput();
-    p.WriteBilhete();
-
+    //p.BilheteInput();
+    //p.WriteBilhete();
+    //p.listagemCompleta();
+    p.listagemIncompleta();
      /*
     GestaoBagagens g;
     g.ReadTapete();

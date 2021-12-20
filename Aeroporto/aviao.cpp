@@ -139,7 +139,7 @@ void Aviao::ReadVoo(){
     }*/
 }
 
-void Aviao::listagemCompletaVoos() {
+void Aviao::listagemCompleta() {
     cout << endl;
     ifstream file("voo.txt");
     string line;

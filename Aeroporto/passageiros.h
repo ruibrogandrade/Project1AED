@@ -23,6 +23,8 @@ public:
     void BilheteInput();
     void WriteBilhete();
     void ReadBilhete();
+    void listagemCompleta();
+    void listagemIncompleta();
 
 };
 

@@ -57,7 +57,7 @@ void Passageiro::BilheteInput() {
 
 void Passageiro::WriteBilhete() {
     ofstream file;
-    file.open("passageiros.txt");
+    file.open("bilhete.txt");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
         file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << ',';
         if (next(it) == bilhetes.end()) continue;
@@ -68,7 +68,7 @@ void Passageiro::WriteBilhete() {
 
 void Passageiro::ReadBilhete() {
     int nrBilh, quantBag, nrVoo;
-    ifstream file("passageiros.txt");
+    ifstream file("bilhete.txt");
     string line;
     Bilhete b;
     int i = 0;
@@ -104,4 +104,49 @@ vector<Bilhete> Passageiro::getBilhetes() const{
 
 void Passageiro::setBilhetes(vector<Bilhete> bilhetes) {
     this->bilhetes=bilhetes;
+}
+
+void Passageiro::listagemCompleta() {
+    cout << endl;
+    ifstream file("bilhete.txt");
+    string line;
+    cout << "Conteudo do ficheiro de bilhetes:" << endl;
+    cout << endl;
+    while (getline(file, line)){
+        cout << line << endl;
+    }
+
+}
+
+void Passageiro::listagemIncompleta() {
+    cout << endl << endl;
+    cout << "Escolha uma opcao para visualizar os Bilhetes:" << endl;
+    cout << endl;
+    cout << "1) " << "Visualizar bilhetes com numero de bagagens superior a <?>." << endl;
+    cout << "2) " << "Visualizar bilhetes pertencentes ao voo numero <?>." << endl;
+    cout << "3) " << "Visualizar bilhetes ordenados pelo numero de bilhete." << endl;
+    cout << ">";
+    int escolha;
+    cin >> escolha;
+    ifstream file("bilhete.txt");
+    string line;
+    if(escolha == 1){
+        cout << "Deseja visualizar os bilhetes associados a mais que 0, 1, 2, 3... bagagens? "
+                "(Insira o numero de bagagens pretendido): " << endl;
+        cout << ">";
+        string nrBagagens;
+        cin >> nrBagagens;
+        bool flag1 = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+            if((*it).getQuantBagagem() > stoi(nrBagagens)){
+                flag1 = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                << (*it).getNumVoo() << ','  << endl;
+            }
+        }
+        if(!flag1) cout << "---> Nao existem bilhetes com mais que esse numero de bagagens." << endl;
+        cout << endl << endl;
+    }
+
+
 }
