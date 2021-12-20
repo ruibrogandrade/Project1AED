@@ -16,6 +16,7 @@ void ReadFiles() {
     a.VooInput();
     a.WriteVoo();
     a.listagemCompletaVoos();
+    a.listagemIncompleta(); //só o ponto 1) é que está implementado
     */
     /*
     Voo v;
@@ -28,11 +29,11 @@ void ReadFiles() {
     g.colocarMalas();
     Servico s;
     s.ReadServico();
-     */
+    */
     /*
     OpcoesTransporte o;
     o.readFile();
-     */
+    */
 }
 /*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {

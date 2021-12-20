@@ -26,6 +26,7 @@ public:
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
     void listagemCompletaVoos();
+    void listagemIncompleta();
 
     void VooInput();
     void WriteVoo();

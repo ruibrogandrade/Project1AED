@@ -14,7 +14,8 @@ public:
     void setMes(int mes);
     int getAno();
     void setAno(int ano);
-    bool operator < (Data d) const;
+    bool compararMenor(Data d, Data d2) const;
+    bool operator <(Data d) const;
     bool operator == (Data d) const;
 
 };

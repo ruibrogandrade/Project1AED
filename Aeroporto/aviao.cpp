@@ -132,10 +132,10 @@ void Aviao::ReadVoo(){
         } i++;
     }
     file.close();
-
+    /*
     for (auto it = listVoos.begin(); it != listVoos.end(); it++){
         cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getMes() << ',' << (*it).getDestino() << endl;
-    }
+    }*/
 }
 
 
@@ -191,5 +191,56 @@ void Aviao::listagemCompletaVoos() {
     while (getline(file, line)){
         cout << line << endl;
     }
+}
+
+void Aviao::listagemIncompleta() {
+    cout << "Escolha uma opcao para visualizar os voos:" << endl;
+    cout << endl;
+    cout << "1) " << "Visualizar voos com data de partida especificada." << endl;
+    cout << "2) " << "Visualizar voos com uma determinada origem e destino." << endl;
+    cout << "3) " << "Visualizar voos que ainda tenham bilhetes disponiveis." << endl; //???
+    cout << ">";
+    int escolha;
+    cin >> escolha;
+    ifstream file("voo.txt");
+    string line;
+    switch (escolha) {
+        case (1):
+            cout << "Defina a data de partida do voo: " << endl;
+            int dia, mes, ano;
+            string data;
+            cin >> data;
+            dia = stoi(data.substr(0,2));
+            mes = stoi(data.substr(3,2));
+            ano = stoi(data.substr(6,4));
+            cout << endl;
+            cout << "Voos disponiveis a partir dessa data: " << endl;
+            cout << endl;
+            bool flag = false;
+            //um upgrade que podiamos dar a isto era ordenar os voos cronologicamente por datas!
+            for (auto it = listVoos.begin(); it != listVoos.end(); it++){
+                if((*it).getDataPartida().getAno() >= ano) {
+                    if( (*it).getDataPartida().getMes() >= mes){
+                        if( (*it).getDataPartida().getDia() >= dia){
+                            flag = true;
+                            cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getDia() << "/"
+                                 << (*it).getDataPartida().getMes() << "/" <<  (*it).getDataPartida().getAno()
+                                 << ',' << (*it).getDuracao() << ',' << (*it).getNumLugares() << ','
+                                 << (*it).getOrigem() << ',' << (*it).getDestino() << ',' << endl;
+                        }
+                    }
+                }
+            }
+            if(!flag) cout << "---> Nao existem voos disponiveis :(" << endl;
+            cout << endl << endl;
+            break;
+        /*
+        case (2):
+            break;
+        case (3):
+            break;*/
+    }
+    file.close();
+
 }
 
