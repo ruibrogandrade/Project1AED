@@ -8,7 +8,7 @@
 #include "bilhete.h"
 
 
-class Passageiro: public Voo{
+class Passageiro {
 private:
     string nome;
     vector<Bilhete> bilhetes;

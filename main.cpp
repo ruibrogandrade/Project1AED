@@ -10,8 +10,7 @@
 
 using namespace std;
 void ReadFiles() {
-    /*
-    //já funciona!
+    /*//já funciona!
     Aviao a;
     a.ReadVoo();
     a.VooInput();
@@ -19,13 +18,15 @@ void ReadFiles() {
     a.listagemCompleta();
     a.listagemIncompleta();
     */
+    /*//já funciona!
     Passageiro p;
     p.ReadBilhete();
-    //p.BilheteInput();
-    //p.WriteBilhete();
-    //p.listagemCompleta();
+    p.BilheteInput();
+    p.WriteBilhete();
+    p.listagemCompleta();
     p.listagemIncompleta();
-     /*
+    */
+    /*
     GestaoBagagens g;
     g.ReadTapete();
     g.colocarMalas();

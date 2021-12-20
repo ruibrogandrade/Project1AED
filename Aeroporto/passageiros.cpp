@@ -15,13 +15,14 @@ string Passageiro::getNome() {
     return nome;
 }
 
+ //a função addBilhete não está totalmente bem..
 void Passageiro::addBilhete(string & nome, Bilhete b) {
     Voo v; //como adicionar outro bilhete à mesma pessoa?
     if (v.getVagas() != 0){
         Passageiro p;
         p.nome = nome;
         bilhetes.push_back(b);
-        vagas--;
+        v.setVagas(v.getVagas()-1);
     }
 }
 
@@ -244,8 +245,5 @@ void Passageiro::listagemIncompleta() {
             cout << endl << endl;
         }
     }
-
     file.close();
-
-
 }

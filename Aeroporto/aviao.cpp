@@ -5,10 +5,7 @@
 using namespace std;
 
 
-
-Aviao::Aviao() {
-    //não sei se faz sentido criar um Aviao vazio (?)
-}
+Aviao::Aviao() {}
 
 Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
     this->matricula = matricula;
