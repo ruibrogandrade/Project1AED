@@ -11,18 +11,18 @@ using namespace std;
 class Transporte {
     string tipoTransp;
     int distancia;
-    list<int> horario;
+    list<float> horario;
 public:
     Transporte() : tipoTransp(""), distancia(0), horario(0){};
-    Transporte(string tipoTransp, int distancia, list<int> horario);
+    Transporte(string tipoTransp, int distancia, list<float> horario);
     string getTipoTransp() const;
 
     int getDistancia() const;
     void setTipoTransp(string tipoTransporte);
     void addHoraExtra( int horaExtra);
     void setDistancia(int dist);
-    list<int> getHorario() const;
-    void setHorario(list<int> horario) {
+    list<float> getHorario() const;
+    void setHorario(list<float> horario) {
         this->horario = horario;
     }
     bool operator < (const Transporte & lt) const {
@@ -37,7 +37,7 @@ public:
     OpcoesTransporte() {};
     BST<Transporte> getTransportes() const;
     vector<Transporte> chooseTransporte(int dist) const;
-    void updateHorario(Transporte t, int horaAtual, int horaNova);
+    void updateHorario(Transporte t, float horaAtual, float horaNova);
     void WriteBST(BST<Transporte> transportes);
     void readFile();
     void print(OpcoesTransporte ot);

@@ -1,4 +1,5 @@
 
+#include <fstream>
 #include "voo.h"
 
 using namespace std;
@@ -10,9 +11,10 @@ Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, stri
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
     this->duracao = duracao;
+    this->lotacao = lot;
     this->origem = origem;
     this->destino = destino;
-    vagas = lot;
+    this->vagas = lot;
 }
 
 int Voo::getNumVoo() const{

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include "Data.h"
 
 using namespace std;
@@ -14,7 +15,7 @@ private: //estes atributos estariam tbm em protected para de alguma
     string origem, destino;
     Data dataPartida;
 protected:
-    int vagas; //int vagas{}; porque é q puseram assim dantes?
+    int vagas; //int vagas{}; porque é q puseram assim dantes? -> era erro
     int lotacao; //const
 public:
     Voo();
@@ -36,6 +37,6 @@ public:
     void setDestino(string destino);
 };
 
-
+static list<Voo> listVoos;
 
 #endif //PROJETO1_VOO_H

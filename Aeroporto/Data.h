@@ -1,7 +1,3 @@
-//
-// Created by barba on 07/12/2021.
-//
-
 #ifndef PROJETO1_DATA_H
 #define PROJETO1_DATA_H
 

@@ -1,17 +1,16 @@
 #include "transpTerr.h"
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include <string>
 
-Transporte::Transporte(string tipoT, int dist, list<int> hor) :
+Transporte::Transporte(string tipoT, int dist, list<float> hor) :
         tipoTransp(tipoT), distancia(dist), horario(hor){}
 
 string Transporte::getTipoTransp() const {
     return this->tipoTransp;
 }
 
-list<int> Transporte::getHorario() const {
+list<float> Transporte::getHorario() const {
     return horario;
 }
 
@@ -56,8 +55,9 @@ void OpcoesTransporte::readFile() {
     ifstream f;
     f.open("transTerr.txt");
     string tipoT, strDist, line;
-    int dist, hor;
-    list<int> listHor;
+    int dist;
+    float hor;
+    list<float> listHor;
     Transporte t;
     int i = 0;
     while (getline(f, line, ';')){
@@ -72,7 +72,7 @@ void OpcoesTransporte::readFile() {
                 break;
             case (2):
                 while(getline(f, line, ',')){
-                    hor = stoi(line);
+                    hor = stof(line);
                     t.addHoraExtra(hor);
                 }
                 t.setHorario(listHor);
@@ -112,8 +112,8 @@ vector<Transporte> OpcoesTransporte::chooseTransporte(int dist) const {
     return opcoes;
 }
 
-void OpcoesTransporte::updateHorario(Transporte t, int horaAtual, int horaNova) {
-    list<int>::iterator it;
+void OpcoesTransporte::updateHorario(Transporte t, float horaAtual, float horaNova) {
+    list<float>::iterator it;
     for(it = t.getHorario().begin(); it != t.getHorario().end() ; it++){
         if ((*it) == horaAtual){
             (*it) = horaNova;

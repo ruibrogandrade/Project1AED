@@ -1,40 +1,42 @@
-#ifndef PROJETO1_SERVICO_H
-#define PROJETO1_SERVICO_H
+#ifndef PROJETO1_Servico_H
+#define PROJETO1_Servico_H
 #include "Data.h"
 #include <queue>
 #include "aviao.h"
-/*
+
 using namespace std;
 
-class servico{
+class Servico{
 private:
-    char tiposervico; //'m' = manutenção && 'l' = limpeza
+    char tipoServico; //'m' = manutenção && 'l' = limpeza
     Data data;
     string nomeFuncionario;
     string matriculaAviao;
-    queue<servico> servicosFeitos;
-    queue<servico> servicosPorFazer;
 public:
-    servico();
-    servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao);
+    Servico();
+    Servico(char tipoServico, Data data, string nomeFuncionario, string matriculaAviao);
     char getTipoServico() const;
-    void setTipoServico(char tiposervico);
+    void setTipoServico(char tipoServico);
     Data getData() const;
     void setData(Data data);
     string getNomeFuncionario() const;
     void setNomeFuncionario(string nomeFuncionario);
     string getMatriculaAviao() const;
     void setMatriculaAviao(string matriculaAviao);
-    void setServicosPorFazer(queue<servico> servicosFeitos);
-    queue<servico> getServicosPorFazer() const;
-    void setServicosFeitos(queue<servico> servicosFeitos);
-    queue<servico> getServicosFeitos() const;
-    bool operator == (const servico & s) const;
+    //void setServicosPorFazer(queue<Servico> ServicosFeitos);
+    //queue<Servico> getServicosPorFazer() const;
+    //void setServicosFeitos(queue<Servico> ServicosFeitos);
+    //queue<Servico> getServicosFeitos() const;
+    bool operator == (const Servico & s) const;
     static bool MenorQueDataAtual(Data data);
     void WriteServico();
     void ServicoInput();
     void ReadServico();
-    list<Aviao>::iterator findAviao(list<Aviao> listAviao, string matriculaAviao);
+    void ListagemServicos();
+    void ListagemParcialServicos();
 };
-*/
-#endif //PROJETO1_SERVICO_H
+
+static queue<Servico> servicosFeitos;
+static queue<Servico> servicosPorFazer;
+
+#endif //PROJETO1_Servico_H
