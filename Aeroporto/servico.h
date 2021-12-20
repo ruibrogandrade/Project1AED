@@ -34,7 +34,6 @@ public:
     void ReadServico();
     void ListagemServicos();
     void ListagemParcialServicos();
-    bool operator == (servico s) const;
 };
 
 static queue<servico> servicosFeitos;
