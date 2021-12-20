@@ -80,6 +80,8 @@ void servico::WriteServico() {
         file << "/"
         << tmp1.front().getData().getAno() << "," << tmp1.front().getMatriculaAviao() <<  "," << tmp1.front().getNomeFuncionario() <<  ",";
         tmp1.pop();
+        if (tmp1.empty() && tmp2.empty()) continue;
+        else file << endl;
     }
     for(int i = 0; i < servicosPorFazer.size();i++) {
         file << tmp2.front().getTipoServico() << ',';
@@ -91,6 +93,8 @@ void servico::WriteServico() {
         file << "/"
         << tmp2.front().getData().getAno() << "," << tmp2.front().getMatriculaAviao() << "," << tmp2.front().getNomeFuncionario() <<  ",";
         tmp2.pop();
+        if (tmp2.empty()) continue;
+        else file << endl;
     }
     file.close();
 }
@@ -151,6 +155,7 @@ void servico::ReadServico() {
     {
         switch(i){
             case(0):
+                if (line.substr(0,1) == "\n") line.erase(0,1);
                 tiposervico = line;
                 tmp.setTipoServico(tiposervico);
                 break;
@@ -193,12 +198,55 @@ void servico::ListagemServicos() {
 
 void servico::ListagemParcialServicos() {
     string parametro;
+    string tipo;
     cout << "Que parametro deseja filtrar?";
     cin >> parametro;
+    vector<servico> satisfaz;
+    queue<servico> tmp1 = servicosFeitos;
+    queue<servico> tmp2 = servicosPorFazer;
     if (parametro == "tipoServico") {
         cout << "Que tipo de serviço deseja ver?";
-        cin >> tiposervico;
+        cin >> tipo;
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            if (tmp1.front().getTipoServico() == tipo) {
+                satisfaz.push_back(tmp1.front());
+            }
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            if (tmp2.front().getTipoServico() == tipo) {
+                satisfaz.push_back(tmp2.front());
+            }
+            tmp2.pop();
+        }
 
+        //Selection Sort
+        if (satisfaz.size() > 1) {
+            for (int i = 0; i < satisfaz.size(); i++) {
+                for (unsigned i = 0; i < satisfaz.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < satisfaz.size(); j++)
+                        if (satisfaz[j].getData() < satisfaz[imin].getData())
+                            imin = j;
+                    swap(satisfaz[i], satisfaz[imin]);
+                }
+            }
+        }
+
+        int size = satisfaz.size();
+        for(int i = 0; i < size; i++) {
+            cout << satisfaz.front().getTipoServico() << ',';
+            if (satisfaz.front().getData().getDia() < 10) cout << "0" << satisfaz.front().getData().getDia();
+            else cout << satisfaz.front().getData().getDia();
+            cout << '/';
+            if (satisfaz.front().getData().getMes() < 10) cout << "0" << satisfaz.front().getData().getMes();
+            else cout << satisfaz.front().getData().getMes();
+            cout << "/" << satisfaz.front().getData().getAno() << "," << satisfaz.front().getMatriculaAviao() << ","
+            << satisfaz.front().getNomeFuncionario() << ",";
+            satisfaz.erase(satisfaz.begin());
+            if (satisfaz.empty()) continue;
+            else cout << endl;
+        }
     }
 }
 

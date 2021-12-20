@@ -46,7 +46,7 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 int main() {
     ReadFiles();
     servico s;
-    s.ListagemServicos();
+    s.ListagemParcialServicos();
     return 0;
 }
 
