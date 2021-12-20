@@ -4,17 +4,32 @@
 
 using namespace std;
 
+/**
+ * Aviao
+ * \brief construtor padrão
+ */
 
+Aviao::Aviao() {}
 
-Aviao::Aviao() {
-    //não sei se faz sentido criar um Aviao vazio (?)
-}
+/**
+ *Aviao com parâmetros
+ * \brief construtor que inicializa os atributos
+ * @param matricula
+ * @param capacidade
+ * @param listaVoo
+ */
 
 Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
     this->matricula = matricula;
     this->capacidade = capacidade;
     this->listaVoo = listaVoo;
 }
+
+/**
+ * getListaVoo
+ * \brief getter para voo
+ * @return lista de voos
+ */
 
 list<Voo> Aviao::getListaVoo() const {
     return listaVoo;

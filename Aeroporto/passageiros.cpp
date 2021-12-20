@@ -4,16 +4,33 @@
 #include "bilhete.h"
 #include "voo.h"
 
+/**
+ * Construtor padrão de passageiros
+ */
+
 Passageiro::Passageiro() {}
+
+/**
+ * Constrtuor inicializador para passageiro
+ * @param nome nome
+ * @param b número do bilhete
+ */
 
 Passageiro::Passageiro(string nome, Bilhete b)  {
     this->nome = nome;
     bilhetes.push_back(b);
 }
 
+
 string Passageiro::getNome() {
     return nome;
 }
+
+/** add Bilhete
+ * \brief Adiciona bilhete para um passageiro
+ * @param nome
+ * @param b
+ */
 
 void Passageiro::addBilhete(string & nome, Bilhete b) {
     Voo v; //como adicionar outro bilhete à mesma pessoa?

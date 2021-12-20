@@ -6,8 +6,20 @@
 #include "Data.h"
 
 using namespace std;
+
+/**
+ * Construtor padrão de servico
+ */
+
 servico::servico() {}
 
+/**Construtor de servico
+ * \brief contrutor de servico com atributos
+ * @param tiposervico
+ * @param data
+ * @param nomeFuncionario
+ * @param matriculaAviao
+ */
 
 servico::servico(char tiposervico, Data data, string nomeFuncionario, string matriculaAviao) {
     this->tiposervico=tiposervico;
@@ -39,10 +51,6 @@ void servico::setNomeFuncionario(string nomeFuncionario) {
     this->nomeFuncionario=nomeFuncionario;
 }
 
-bool servico::operator==(const servico &s) const {
-    return tiposervico == s.tiposervico || data == s.data || nomeFuncionario == s.nomeFuncionario;
-}
-
 void servico::setMatriculaAviao(string matriculaAviao) {
     this->matriculaAviao=matriculaAviao;
 }
@@ -50,6 +58,21 @@ void servico::setMatriculaAviao(string matriculaAviao) {
 string servico::getMatriculaAviao() const{
     return matriculaAviao;
 }
+/**
+ * Operator overloading para == para comparar servicos
+ * @param s servico
+ * @return booleano de igualdade de servicos
+ */
+
+bool servico::operator==(const servico &s) const {
+    return tiposervico == s.tiposervico || data == s.data || nomeFuncionario == s.nomeFuncionario;
+}
+
+/**
+ * Compara datas com a data atual
+ * @param data
+ * @return booleano
+ */
 
 bool servico::MenorQueDataAtual(Data data) {
     Data DataAtual;

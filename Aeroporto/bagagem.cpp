@@ -3,20 +3,45 @@
 #include <iostream>
 #include "bagagem.h"
 
+/**
+ * Construtor que inicializa a bagagem
+ * @param nb ///numero de bilhetes
+ * @param p ///peso
+ */
 
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
+
+/**
+ * Getter do numero de bilhetes
+ * @return num bilhete
+ */
 
 int Bagagem::getNumBilhete() const {
     return this-> numBilhete;
 }
 
+/** Getter de peso
+ * @return peso
+ */
+
 float Bagagem::getPeso() const {
     return peso;
 }
 
+/**
+ * Construtor de gestor da bagagem
+ * @param c numero de carruagens
+ * @param n numero de pilhas
+ * @param m numero de malas
+ */
+
 GestaoBagagens::GestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
 
-//função para listas
+/**
+ * Colocar malas
+ * \brief coloca malas do tapete para o carrinho
+ */
+
 void GestaoBagagens::colocarMalas(){
     stack<Bagagem> pilhaBagagemVazia;
     Bagagem bagagemVazia;
@@ -52,7 +77,12 @@ void GestaoBagagens::colocarMalas(){
     }   // a inserção de bagagem!
 
 }
-//funçao para listas
+
+/**
+ * Retirar malas
+ * \brief funcao que retira malas do carrinho
+ */
+
 void GestaoBagagens::retirarMalas(){
     Bagagem b;
     for (auto it = carrinho.begin(); it != carrinho.end(); it++){
@@ -63,6 +93,7 @@ void GestaoBagagens::retirarMalas(){
         }
     }
 }
+
 
 void GestaoBagagens::TapeteInput() {
     //valores para testar
