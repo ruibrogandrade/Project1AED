@@ -37,7 +37,6 @@ private:
 
     queue<Bagagem> tapeteInserir;
     queue<Bagagem> tapeteRetirar;
-    list<list<stack<Bagagem>>> carrinho;
 public:
     GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
@@ -48,7 +47,9 @@ public:
     void TapeteInput();
     void WriteTapete();
     void ReadTapete();
+    void ListagemParcial();
 
+    list<list<stack<Bagagem>>> carrinho;
 };
 
 

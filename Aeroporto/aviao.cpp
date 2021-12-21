@@ -113,7 +113,7 @@ void Aviao::ReadVoo(){
                 tmp.setDuracao(duracao); //PASSAR PARA FLOAT
                 break;
             case (3):
-                lot = stoi(line); //por vagas tbm que ele nao faz a ligação
+                lot = stoi(line); 
                 tmp.setVagas(lot);
                 tmp.setNumLugares(lot);
                 break;
@@ -232,17 +232,44 @@ void Aviao::listagemIncompleta() {
 
 //só implementei para a matricula e para a capacidade
 void Aviao::AviaoInput() {
-    //valores para testar
-    listAviao.emplace_back("37-FP-45", 1500);
-    listAviao.push_back(Aviao("81-TM-05", 1250));
+    cout << endl;
+    cout << "Quantos avioes deseja adicionar? " << endl;
+    cout << '>';
+    cout << endl;
+    int quant;
+    cin >> quant;
+    if (quant == 0) {cout << "Nao vai ser adicionado nenhum Aviao." << endl;}
+    if (quant == 1) {cout << "Vamos adicionar um novo Aviao." << endl;}
+    if (quant > 1){cout << "Vamos adicionar " << quant << " novos Avioes." << endl; }
+    cout << endl;
+    while(quant != 0){
+        cout << "Insira a matricula do Aviao: " << endl;
+        cout << '>';
+        string matricula;
+        cin >> matricula;
+        cout << "Insira a capacidade do Aviao: " <<  endl;
+        cout << '>';
+        int capacidade;
+        cin >> capacidade;
+        Aviao a = Aviao(matricula, capacidade);
+        listAviao.push_back(a); //ver onde anda a listaVoo que ando a confundir com esta
+        cout << endl;
+        quant--;
+        if(quant != 0) {
+            cout << "(Proximo Aviao)";
+            cout << endl;
+        }
+    }
 }
 
 void Aviao::WriteAviao() {
     ofstream file;
-    file.open("");
+    file.open("aviao.txt");
     //list<Voo> tmp = listaVoo;
     for (auto it = listAviao.begin(); it != listAviao.end(); it++){
-        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << endl;
+        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << ',';
+        if (next(it) == listAviao.end()) continue;
+        else file << endl;
     }
     file.close();
 }

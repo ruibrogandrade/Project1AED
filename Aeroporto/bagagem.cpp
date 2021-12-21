@@ -27,11 +27,11 @@ void GestaoBagagens::colocarMalas(){
     stack<Bagagem> pilhaBagagemVazia;
     Bagagem bagagemVazia;
     static int i = 0;
-    for(int i = 0; i < numCarruagens; i++) {
+    for(int i = 0; i < numCarruagens + 1; i++) {
         list<stack<Bagagem>> novaCarruagemVazia;
-        for(int j = 0; j < numPilhas; j++) {
+        for(int j = 0; j < numPilhas + 1; j++) {
             novaCarruagemVazia.push_back(pilhaBagagemVazia);
-            for(int k = 0; k < numMalas; k++) {
+            for(int k = 0; k < numMalas + 1; k++) {
                 pilhaBagagemVazia.push(bagagemVazia);
             }
         }
@@ -41,10 +41,9 @@ void GestaoBagagens::colocarMalas(){
         for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
             for (auto et = (*it).begin(); et != (*it).end(); et++) {
                 stack<Bagagem> st;
-                while (st.size() < numMalas) {
+                while (st.size() < numMalas + 1) {
                     if (tapeteInserir.empty()) break;
                     Bagagem b = tapeteInserir.front();
-                    //cout << tapeteInserir.front().getNumBilhete() << endl;
                     st.push(b);
                     tapeteInserir.pop(); //pop deleta o front
                 }
@@ -55,18 +54,7 @@ void GestaoBagagens::colocarMalas(){
     }   // a inserção de bagagem!
 
 
-    cout << endl;
-    list<list<stack<Bagagem>>> tmp = carrinho;
-    string flag = "green";
-    for (auto it = tmp.begin(); it != tmp.end(); it++) {
-        for (auto et = (*it).begin(); et != (*it).end(); et++){
-            if (tmp.empty()) flag = "red";
-            while ((flag == "green")){
-                cout << (*et).top().getNumBilhete() << ',' << (*et).top().getPeso() << ',' << endl;
-                (*et).pop();
-            }
-        }
-    }
+
 
 }
 
@@ -97,7 +85,7 @@ void GestaoBagagens::TapeteInput() {
         cout << '>';
         int nrBilhete;
         cin >> nrBilhete;
-        cout << "Insira a o peso da bagagem: " <<  endl;
+        cout << "Insira o peso da bagagem: " <<  endl;
         cout << '>';
         float peso;
         cin >> peso;
@@ -154,12 +142,12 @@ void GestaoBagagens::ReadTapete() {
         i++;
     }
     file.close();
-    /*
+
     queue<Bagagem> tmp = tapeteInserir;
     while (!tmp.empty()){
         cout << tmp.front().getNumBilhete() << ',' << tmp.front().getPeso() << endl;
         tmp.pop();
-    }*/
+    }
 }
 
 void GestaoBagagens::definirCarrinho() {
@@ -183,7 +171,38 @@ void GestaoBagagens::definirCarrinho() {
     this->numMalas = numMalas;
 }
 
-
+//copiei do andré, mas não lê do ficheiro
+void GestaoBagagens::ListagemParcial() {
+    string parametro;
+    int num;
+    float p;
+    cout << "Que parâmetro deseja filtrar?" << endl;
+    cin >> parametro;
+    if (parametro == "numero do bilhete") {
+        cout << "Qual o bilhete associado à bagagem?" << endl;
+        cin >> num;
+        list<Bagagem> bagagemAssociada;
+        while (!tapeteRetirar.empty()) {
+            if (tapeteRetirar.front().getNumBilhete() == num) {
+                bagagemAssociada.push_back(tapeteRetirar.front());
+                tapeteRetirar.pop();
+            }
+        }
+        cout << "O cliente tem " << bagagemAssociada.size() << "bagagens associadas.";
+    }
+    if (parametro == "peso") {
+        cout << "Pretende encontrar bagagens com peso superior a quantos kgs?" << endl;
+        cin >> p;
+    }
+    list<Bagagem> aux;
+    while (!tapeteRetirar.empty()) {
+        if (tapeteRetirar.front().getPeso() >= p) {
+            aux.push_back(tapeteRetirar.front());
+            tapeteRetirar.pop();
+        }
+    }
+    cout << "Há" << aux.size() << "malas com peso superior a" << p << "kgs";
+}
 
 
 
