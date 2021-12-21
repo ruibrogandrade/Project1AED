@@ -163,7 +163,7 @@ void Aviao::listagemIncompletaVoo() {
     cout << endl;
     cout << "1) " << "Visualizar voos com data de partida especificada." << endl;
     cout << "2) " << "Visualizar voos com uma determinada origem e destino." << endl;
-    cout << "3) " << "Visualizar voos que ainda tenham bilhetes disponiveis." << endl; //???
+    cout << "3) " << "Visualizar voos que ainda tenham bilhetes disponiveis." << endl;
     cout << ">";
     int escolha;
     cin >> escolha;

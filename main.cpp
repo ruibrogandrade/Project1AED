@@ -29,10 +29,11 @@ void ReadFiles() {
 
     GestaoBagagens g;
     //g.ReadTapete();
-    //g.TapeteInput();
+    g.TapeteInput();
     //g.WriteTapete();
-    g.definirCarrinho();
-    g.colocarMalas();
+    //g.definirCarrinho();
+    //g.colocarMalas();
+    g.ListagemParcial();
 
     cout << endl;
     list<list<stack<Bagagem>>> tmp = g.carrinho;
