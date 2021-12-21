@@ -25,16 +25,18 @@ public:
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
-    void listagemCompleta();
-    void listagemIncompleta();
 
     void VooInput();
     void WriteVoo();
     void ReadVoo();
+    void listagemCompletaVoo();
+    void listagemIncompletaVoo();
 
     void AviaoInput();
     void WriteAviao();
     void ReadAviao();
+    void listagemCompletaAviao();
+    void listagemIncompletaAviao();
 
 };
 

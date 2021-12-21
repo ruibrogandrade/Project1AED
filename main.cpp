@@ -45,10 +45,13 @@ void ReadFiles() {
         }
     }
 */
-    Aviao a;
+    Aviao a; //como ligar uma lista de voo a um avião?
     a.ReadAviao();
     a.AviaoInput();
     a.WriteAviao();
+    //a.listagemCompletaAviao();
+    a.listagemIncompletaAviao();
+
 
     /*
     Servico s;

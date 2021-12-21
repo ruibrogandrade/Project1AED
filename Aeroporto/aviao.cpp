@@ -113,7 +113,7 @@ void Aviao::ReadVoo(){
                 tmp.setDuracao(duracao); //PASSAR PARA FLOAT
                 break;
             case (3):
-                lot = stoi(line); 
+                lot = stoi(line);
                 tmp.setVagas(lot);
                 tmp.setNumLugares(lot);
                 break;
@@ -136,7 +136,7 @@ void Aviao::ReadVoo(){
     }*/
 }
 
-void Aviao::listagemCompleta() {
+void Aviao::listagemCompletaVoo() {
     cout << endl;
     ifstream file("voo.txt");
     string line;
@@ -147,7 +147,7 @@ void Aviao::listagemCompleta() {
     }
 }
 
-void Aviao::listagemIncompleta() {
+void Aviao::listagemIncompletaVoo() {
     cout << endl << endl;
     cout << "Escolha uma opcao para visualizar os voos:" << endl;
     cout << endl;
@@ -232,12 +232,11 @@ void Aviao::listagemIncompleta() {
 
 //só implementei para a matricula e para a capacidade
 void Aviao::AviaoInput() {
-    cout << endl;
     cout << "Quantos avioes deseja adicionar? " << endl;
     cout << '>';
-    cout << endl;
     int quant;
     cin >> quant;
+    cout << endl;
     if (quant == 0) {cout << "Nao vai ser adicionado nenhum Aviao." << endl;}
     if (quant == 1) {cout << "Vamos adicionar um novo Aviao." << endl;}
     if (quant > 1){cout << "Vamos adicionar " << quant << " novos Avioes." << endl; }
@@ -285,6 +284,7 @@ void Aviao::ReadAviao() {
     while (getline(file, line, ',')){
         switch(i){
             case(0):
+                if (line.substr(0,1) == "\n") line.erase(0,1);
                 a.matricula = line;
                 break;
             case(1):
@@ -298,3 +298,75 @@ void Aviao::ReadAviao() {
     }
     file.close();
 }
+
+void Aviao::listagemCompletaAviao() {
+    cout << endl;
+    ifstream file("aviao.txt");
+    string line;
+    cout << "Conteudo do ficheiro de avioes:" << endl;
+    cout << endl;
+    while (getline(file, line)){
+        cout << line << endl;
+    }
+}
+
+void Aviao::listagemIncompletaAviao() {
+    cout << endl << endl;
+    cout << "Escolha uma opcao para visualizar os avioes:" << endl;
+    cout << endl;
+    cout << "1) " << "Visualizar avioes ordenados por capacidade." << endl;
+    cout << "2) " << "Visualizar avioes com capacidade superior a <?>." << endl;
+    //cout << "3) " << "Visualizar voos que ainda tenham bilhetes disponiveis." << endl; //???
+    cout << ">";
+    int escolha;
+    cin >> escolha;
+    ifstream file("aviao.txt");
+    string line;
+    if(escolha == 1) {
+        bool flag = false;
+        vector<Aviao> aux;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++) {
+            aux.push_back(*it);
+        }
+        for (auto it = aux.begin(); it != aux.end(); it++) {
+            //Selection Sort
+            if (aux.size() > 1) {
+                for (int i = 0; i < aux.size(); i++) {
+                    for (unsigned i = 0; i < aux.size() - 1; i++) {
+                        unsigned imin = i;
+                        for (int j = i + 1; j < aux.size(); j++) {
+                            if (aux[j].getCapacidade() < aux[imin].getCapacidade()) {
+                                imin = j;
+                            }
+                            swap(aux[i], aux[imin]);
+                        }
+                    }
+                }
+            }
+        }
+        for (auto it = aux.begin(); it != aux.end(); it++){
+            flag = true;
+            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << endl;
+        }
+        if(!flag) cout << "---> Nao existem avioes." << endl;
+        cout << endl << endl;
+    }
+    if(escolha == 2){
+        cout << "Defina a capacidade minima: " << endl;
+        cout << ">";
+        int capacidade;
+        cin >> capacidade;
+        bool flag2 = false;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++){
+            if((*it).getCapacidade() > capacidade){
+                flag2 = true;
+                cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << endl;
+            }
+        }
+        if(!flag2) cout << "---> Nao existem voos disponiveis com capacidade superior a " << capacidade << '.' << endl;
+        cout << endl << endl;
+    }
+
+    file.close();
+}
+

@@ -201,7 +201,7 @@ void GestaoBagagens::ListagemParcial() {
             tapeteRetirar.pop();
         }
     }
-    cout << "Há" << aux.size() << "malas com peso superior a" << p << "kgs";
+    cout << "Ha" << aux.size() << "malas com peso superior a" << p << "kgs";
 }
 
 
