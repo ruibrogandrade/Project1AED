@@ -1,42 +1,23 @@
 #include "Data.h"
 
-/**
- * Overload do operador < para datas
- * @param d data
- * @return booleano com menor data
- */
-
-bool Data::operator<(Data d) const{
-    if(ano > d.ano) {
-        if(mes > d.mes) {
-            if(dia > d.dia) return true;
-        }
+bool Data::operator<(const Data &d) const{
+    if ( ano != d.ano) {
+        return ano < d.ano;
+    }
+    if (mes != d.mes) {
+        return mes < d.mes;
+    }
+    if (dia != d.dia) {
+        return dia < d.dia;
     }
     return false;
 }
 
-/**
- * Overload do operador == para datas
- * @param d data
- * @return booleano com igualdade de datas
- */
-
-bool Data::operator==(Data d) const {
-    return ano == d.ano && mes == d.mes && dia == d.dia;
+bool Data::operator==(const Data &d) const {
+    return (ano == d.ano && mes == d.mes && dia == d.dia);
 }
 
-/**
- *Construtor padrão para datas
- */
-
 Data::Data() {}
-
-/**
- * Construtor com atributos para data
- * @param ano
- * @param mes
- * @param dia
- */
 
 Data::Data(int ano, int mes, int dia) {
     this->ano = ano;

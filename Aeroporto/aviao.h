@@ -15,23 +15,33 @@ private:
     string matricula;
     int capacidade;
     list<Voo> listaVoo;
+    string tipoAviao;
 public:
     Aviao();
     Aviao(string matric, int cap){
         this->matricula = matric;
         this->capacidade = cap;
     };
-    Aviao(string matricula, int capacidade,list<Voo> listaVoo);
+    Aviao(string matricula, int capacidade,list<Voo> listaVoo, string tipoAviao);
     list<Voo> getListaVoo() const;
     string getMatricula() const {return matricula;};
     int getCapacidade() const {return capacidade;};
+
     void VooInput();
     void WriteVoo();
     void ReadVoo();
+    void listagemCompletaVoo();
+    void listagemIncompletaVoo();
+
     void AviaoInput();
     void WriteAviao();
     void ReadAviao();
+    void listagemCompletaAviao();
+    void listagemIncompletaAviao();
 
+    string getTipoAviao();
+
+    void setTipoAviao(string tipoAviao);
 };
 
 static list<Aviao> listAviao;

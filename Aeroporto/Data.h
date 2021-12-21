@@ -18,8 +18,8 @@ public:
     void setMes(int mes);
     int getAno();
     void setAno(int ano);
-    bool operator < (Data d) const;
-    bool operator == (Data d) const;
+    bool operator < (const Data &d) const;
+    bool operator == (const Data &d) const;
 
 };
 

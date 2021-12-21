@@ -23,9 +23,9 @@ public:
         this->numBilhete = nrBilh;
     };
     float getPeso() const;
-    float setPeso(float peso) {
+    void setPeso(float peso) {
         this->peso = peso;
-    }
+    };
 };
 
 
@@ -35,21 +35,29 @@ private:
     unsigned numPilhas = 3;
     unsigned numMalas = 4;
 
-    queue<Bagagem> tapeteInserir;
-    queue<Bagagem> tapeteRetirar;
-    list<list<stack<Bagagem>>> carrinho;
+    //queue<Bagagem> tapeteInserir;
+    //queue<Bagagem> tapeteRetirar;
+    //list<list<stack<Bagagem>>> carrinho;
 public:
     GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
+    void definirCarrinho();
     void colocarMalas();
     void retirarMalas();
+
     void TapeteInput();
     void WriteTapete();
     void ReadTapete();
+
+
     void ListagemTotal();
 
     void ListagemParcial();
 };
 
+
+static queue<Bagagem> tapeteInserir;
+static queue<Bagagem> tapeteRetirar;
+static list<list<stack<Bagagem>>> carrinho;
 
 #endif //PROJETO1AED_BAGAGEM_H

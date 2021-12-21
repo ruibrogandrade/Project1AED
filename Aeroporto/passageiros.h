@@ -10,22 +10,24 @@
 #include <sstream>
 
 
-class Passageiro: public Voo{
+class Passageiro {
 private:
     string nome;
-    vector<Bilhete> bilhetes;
-    int numBilhetesAdquiridos = bilhetes.size();
 public:
     Passageiro();
     Passageiro(string nome, Bilhete b);
     string getNome();
-    vector<Bilhete> getBilhetes() const;
-    void setBilhetes(vector<Bilhete> bilhetes);
+    //vector<Bilhete> getBilhetes() const;
+    //void setBilhetes(vector<Bilhete> bilhetes);
     void addBilhete(string & nome, Bilhete b);
     void BilheteInput();
     void WriteBilhete();
     void ReadBilhete();
+    void listagemCompleta();
+    void listagemIncompleta();
 
 };
+
+static vector<Bilhete> bilhetes;
 
 #endif //PROJETO1_PASSAGEIROS_H
