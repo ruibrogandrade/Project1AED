@@ -28,7 +28,7 @@ void Aviao::WriteVoo() {
         if ((*it).getDataPartida().getMes() < 10) file << "0" << (*it).getDataPartida().getMes();
         else file << (*it).getDataPartida().getMes();
         file << "/" << (*it).getDataPartida().getAno() << ',' << (*it).getDuracao() << ',' <<
-        (*it).getNumLugares() << ',' << (*it).getOrigem() << ',' << (*it).getDestino() << ',';
+        (*it).getNumLugares() << ',' << (*it).getOrigem() << ',' << (*it).getDestino() << ',' << (*it).getMatriculaAaviao();
         if (next(it) == listVoos.end()) continue;
         else file << endl;
     }
@@ -36,19 +36,22 @@ void Aviao::WriteVoo() {
 }
 
 void Aviao::VooInput() {
-    cout << "Quantos voos deseja adicionar? ";
-    cout << endl;
+    cout << "Quantos voos deseja adicionar? " << endl;
+    cout << '>';
     int quant;
     cin >> quant;
+    cout << endl;
     if (quant == 0) {cout << "Nao vai ser adicionado nenhum Voo." << endl;}
     if (quant == 1) {cout << "Vamos adicionar um novo Voo." << endl;}
     if (quant > 1){cout << "Vamos adicionar " << quant << " novos Voo." << endl; }
     cout << endl;
     while(quant != 0){
-        cout << "Insira o nr de Voo: ";
+        cout << "Insira o nr de Voo: " << endl;
+        cout << '>';
         int nrVoo;
         cin >> nrVoo;
         cout << "Insira a data de partida do voo no formato DD/MM/AAAA: " <<  endl;
+        cout << '>';
         string data;
         cin >> data;
         Data d;
@@ -56,18 +59,26 @@ void Aviao::VooInput() {
         d.setMes(stoi(data.substr(3,2)));
         d.setAno(stoi(data.substr(6,4)));
         cout << "Insira a duracao do Voo: " <<  endl;
+        cout << '>';
         int duracao;
         cin >> duracao;
         cout << "Insira a lotacao do Voo: " <<  endl;
+        cout << '>';
         int lotacao;
         cin >> lotacao;
         cout << "Insira o local de origem: " <<  endl;
+        cout << '>';
         string origem;
         cin >> origem;
         cout << "Insira o local de destino: " <<  endl;
+        cout << '>';
         string destino;
         cin >> destino;
-        Voo v = Voo(nrVoo,d,duracao,lotacao,origem,destino);
+        cout << "Insira a matricula do aviao que vai efetuar este voo: " <<  endl;
+        cout << '>';
+        string matricula;
+        cin >> matricula;
+        Voo v = Voo(nrVoo, d, duracao, lotacao, origem,destino, matricula);
         listVoos.push_back(v); //ver onde anda a listaVoo que ando a confundir com esta
         cout << endl;
         quant--;
@@ -80,18 +91,12 @@ void Aviao::VooInput() {
 
 void Aviao::ReadVoo(){
     ifstream file("voo.txt");
-    string line;
     Voo v;
-    int numVoo;
     Voo tmp;
     Data dataDePartida;
     int duracao;
-    int dia;
-    int mes;
-    int ano;
-    int lot;
-    string origem;
-    string destino;
+    int dia, mes , ano, lot, numVoo;
+    string origem, destino, matricula, line;
     int i = 0;
     while(getline(file,line,',')) {
         switch(i) {
@@ -124,12 +129,17 @@ void Aviao::ReadVoo(){
             case (5):
                 destino = line;
                 tmp.setDestino(destino);
+                break;
+            case (6):
+                matricula = line;
+                tmp.setMatriculaAviao(matricula);
                 listVoos.push_back(tmp);
                 i = -1;
                 break;
         } i++;
     }
     file.close();
+
     /*
     for (auto it = listVoos.begin(); it != listVoos.end(); it++){
         cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getMes() << ',' << (*it).getDestino() << endl;
@@ -180,7 +190,7 @@ void Aviao::listagemIncompletaVoo() {
                         cout << (*it).getNumVoo() << ',' << (*it).getDataPartida().getDia() << "/"
                              << (*it).getDataPartida().getMes() << "/" << (*it).getDataPartida().getAno()
                              << ',' << (*it).getDuracao() << ',' << (*it).getNumLugares() << ','
-                             << (*it).getOrigem() << ',' << (*it).getDestino() << ',' << endl;
+                             << (*it).getOrigem() << ',' << (*it).getDestino() << ',' << (*it).getMatriculaAaviao() << endl;
                     }
                 }
             }

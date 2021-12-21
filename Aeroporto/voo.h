@@ -14,12 +14,12 @@ private: //estes atributos estariam tbm em protected para de alguma
     int numVoo, duracao;
     string origem, destino;
     Data dataPartida;
-protected:
-    int vagas; //int vagas{}; porque é q puseram assim dantes? -> era erro
-    int lotacao; //const
+//protected:
+    int vagas, lotacao; //int vagas{}; porque é q puseram assim dantes? -> era erro
+    string matriculaAviao;
 public:
     Voo();
-    Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
+    Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino, string matric);
     int getNumVoo() const; //Porque é que os getters eram const?
     void setNumVoo(int numVoo);
     Data getDataPartida() const;
@@ -35,6 +35,8 @@ public:
     void setOrigem(string origem);
     string getDestino() const;
     void setDestino(string destino);
+    string getMatriculaAaviao();
+    void setMatriculaAviao(string matricula);
 };
 
 static list<Voo> listVoos;

@@ -15,8 +15,8 @@ void ReadFiles() {
     a.ReadVoo();
     a.VooInput();
     a.WriteVoo();
-    a.listagemCompleta();
-    a.listagemIncompleta();
+    a.listagemCompletaVoo();
+    a.listagemIncompletaVoo();
     */
     /*//já funciona!
     Passageiro p;
@@ -26,7 +26,7 @@ void ReadFiles() {
     p.listagemCompleta();
     p.listagemIncompleta();
     */
-/*
+
     GestaoBagagens g;
     //g.ReadTapete();
     //g.TapeteInput();
@@ -44,22 +44,25 @@ void ReadFiles() {
             }
         }
     }
-*/
+
+    /*
     Aviao a; //como ligar uma lista de voo a um avião?
     a.ReadAviao();
     a.AviaoInput();
     a.WriteAviao();
     //a.listagemCompletaAviao();
     a.listagemIncompletaAviao();
-
+    */
 
     /*
     Servico s;
     s.ReadServico();
+    */
     /*
     OpcoesTransporte o;
     o.readFile();
     */
+
 }
 /*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {

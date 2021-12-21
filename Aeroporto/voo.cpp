@@ -6,8 +6,7 @@ using namespace std;
 
 Voo::Voo() {}
 
-Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino) {
-    //ao fazermos assim o construtor de voo, estamos basicamente a incorporar o updater aqui dentro, não sei se está correto
+Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino, string matric) {
     this->numVoo = numVoo;
     this->dataPartida = dataPartida;
     this->duracao = duracao;
@@ -15,6 +14,7 @@ Voo::Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, stri
     this->origem = origem;
     this->destino = destino;
     this->vagas = lot;
+    this->matriculaAviao = matric;
 }
 
 int Voo::getNumVoo() const{
@@ -74,4 +74,12 @@ string Voo::getDestino() const{
 
 void Voo::setDestino(string destino) {
     this->destino=destino;
+}
+
+string Voo::getMatriculaAaviao() {
+    return matriculaAviao;
+}
+
+void Voo::setMatriculaAviao(string matricula) {
+    this->matriculaAviao = matricula;
 }
