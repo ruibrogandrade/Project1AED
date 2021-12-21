@@ -128,13 +128,24 @@ void GestaoBagagens::TapeteInput() {
      */
 }
 
-void GestaoBagagens::WriteTapete(){
+void GestaoBagagens::WriteTapete() {
     ofstream file;
     file.open("tapete.txt");
-    while (!tapeteInserir.empty()){
-        file << tapeteInserir.front().getNumBilhete() << ',' << tapeteInserir.front().getPeso() << ',';
-        if (tapeteInserir.size() != 1) file << endl;
-        tapeteInserir.pop();
+    queue<Bagagem> tapete2;
+    list<list<stack<Bagagem>>> carrinhoAux = carrinho;
+    for (auto it = carrinhoAux.begin(); it != carrinhoAux.end(); it++) {
+        for (auto et = (*it).begin(); et != (*it).end(); et++) {
+            while (!(*et).empty()) {
+                tapete2.push((*et).top());
+                (*et).pop();
+            }
+            while (!tapete2.empty()) {
+                file << tapete2.front().getNumBilhete() << ',' << tapete2.front().getPeso() << ',';
+                tapete2.pop();
+                if(!tapete2.empty()) file << endl;
+                else continue;
+            }
+        }
     }
     file.close();
 }
@@ -240,9 +251,77 @@ void GestaoBagagens::ListagemParcial() {
 }
 
 void GestaoBagagens::deleteBagagens() {
-    
-}
+    string parametro;
+    int num;
+    float p;
+    int counter;
+    cout << "Quer apagar dados com base em que parametro?" << endl;
+    cin >> parametro;
+    if (parametro == "numBilhete") {
+        cout << "Qual o bilhete associado à bagagem que quer apagar?" << endl;
+        cin >> num;
+        int counter;
+        vector<Bagagem> bagagemAssociada;
+        vector<Bagagem> bagagemApagada;
+        list<list<stack<Bagagem>>> carrinhoAux = carrinho;
+        for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
+            for (auto et = (*it).begin(); et != (*it).end(); et++) {
+                vector<Bagagem> bagagemAssociada;
+                while (!(*et).empty()) {
+                    bagagemAssociada.push_back((*et).top());
+                    (*et).pop();
+                }
+                for (int i = 0; i < bagagemAssociada.size(); i++) {
+                    if (bagagemAssociada.empty()) break;
+                    if (bagagemAssociada[i].getNumBilhete() == num) {
+                        bagagemApagada.push_back(bagagemAssociada[i]);
+                        bagagemAssociada.erase(bagagemAssociada.begin() + i);
+                    }
+                }
+                for (auto at = bagagemAssociada.begin(); at != bagagemAssociada.end(); at++) {
+                    (*et).push(*at);
+                }
+            }
+        }
+        cout << bagagemApagada.size() << " bagagens associadas ao numBilhete " << num << " foram apagadas." << endl;
+        for (auto it = bagagemApagada.begin(); it != bagagemApagada.end(); it++) {
+            cout << (*it).getNumBilhete() << "," << (*it).getPeso() << "," << endl;
+        }
+    }
 
+    if (parametro == "peso") {
+        cout << "Pretende apagar bagagens com peso superior a quantos kgs?" << endl;
+        cin >> p;
+        vector<Bagagem> bagagemAssociada;
+        vector<Bagagem> bagagemApagada;
+        list<list<stack<Bagagem>>> carrinhoAux2 = carrinho;
+        auto at = carrinho.begin();
+        auto ft = (*at).begin();
+        for (auto it = carrinho.begin(); it != carrinho.end(); it++) {
+            for (auto et = (*it).begin(); et != (*it).end(); et++) {
+                vector<Bagagem> bagagemAssociada;
+                while (!(*et).empty()) {
+                    bagagemAssociada.push_back((*et).top());
+                    (*et).pop();
+                }
+                for (int i = 0; i < bagagemAssociada.size(); i++) {
+                    if (bagagemAssociada.empty()) break;
+                    if (bagagemAssociada[i].getPeso() > p) {
+                        bagagemApagada.push_back(bagagemAssociada[i]);
+                        bagagemAssociada.erase(bagagemAssociada.begin() + i);
+                    }
+                }
+                for (auto at = bagagemAssociada.begin(); at != bagagemAssociada.end(); at++) {
+                    (*et).push(*at);
+                }
+            }
+        }
+        cout << bagagemApagada.size() << "bagagens associadas ao peso " << p << " foram apagadas." << endl;
+        for (auto it = bagagemApagada.begin(); it != bagagemApagada.end(); it++) {
+            cout << (*it).getNumBilhete() << "," << (*it).getPeso() << "," << endl;
+        }
+    }
+}
 
 
 

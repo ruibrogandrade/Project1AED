@@ -34,6 +34,8 @@ public:
     void ReadServico();
     void ListagemServicos();
     void ListagemParcialServicos();
+
+    void ApagarServicos();
 };
 
 static queue<servico> servicosFeitos;

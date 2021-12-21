@@ -131,6 +131,33 @@ void LerDados() {
     }
 }
 
+void ApagarDados() {
+    servico s;
+    Aviao a;
+    GestaoBagagens g;
+    Passageiro p;
+    string tipo;
+    cout << "Que Tipo de Dados deseja Apagar?" << endl;
+    cin >> tipo;
+    if (tipo == "Servico") {
+        s.ApagarServicos();
+        s.WriteServico();
+    }
+    if (tipo == "Aviao"){
+        a.deleteAviao();
+        a.WriteAviao();
+    }
+    if (tipo == "Bagagem") {
+        g.colocarMalas();
+        g.deleteBagagens();
+        g.WriteTapete();
+    }
+    if (tipo == "Passageiro") {
+        p.ApagarPassageiro();
+        p.WriteBilhete();
+    }
+}
+
 int main() {
     ReadFiles();
 
@@ -144,6 +171,8 @@ int main() {
             LerDados();
             break;
         case(3):
+            ApagarDados();
+            break;
     }
     return 0;
 }

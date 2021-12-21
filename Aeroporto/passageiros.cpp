@@ -277,3 +277,102 @@ void Passageiro::listagemIncompleta() {
     }
     file.close();
 }
+
+
+void Passageiro::ApagarPassageiro() {
+    cout << endl << endl;
+    cout << "Escolha uma opcao para visualizar os Bilhetes:" << endl;
+    cout << endl;
+    cout << "1) " << "Apagar bilhetes com numero de bagagens superior a <?>." << endl;
+    cout << "2) " << "Apagar bilhetes pertencentes ao voo numero <?>." << endl;
+    cout << "3) Apagar bilhetes de um certo passageiro." << endl;
+    cout << ">";
+    int escolha;
+    cin >> escolha;
+    ifstream file("bilhetes.txt");
+    string line;
+    if(escolha == 1){
+        cout << "Deseja apagar os bilhetes associados a mais que 0, 1, 2, 3... bagagens? "
+                "(Insira o numero de bagagens pretendido): " << endl;
+        cout << ">";
+        int nrBagagens;
+        cin >> nrBagagens;
+        vector<Bilhete> apagar;
+        bool flag = false;
+        bool flag2 = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+            if((*it).getQuantBagagem() > nrBagagens){
+                flag = true;
+                flag2 = true;
+                auto et = it++;
+                apagar.push_back(*it);
+                bilhetes.erase(it);
+                it = et;
+            }
+            if (!flag2) it++;
+
+        }
+
+        for (auto et = apagar.begin(); et != apagar.end(); et++) {
+            cout << (*et).getNumBilhete() << ',' << (*et).getQuantBagagem() << ','
+                 << (*et).getNumVoo() << ',' << (*et).getNome() << "," << endl;
+        }
+        if(!flag) cout << "---> Nao existem bilhetes com mais que esse numero de bagagens." << endl;
+        cout << endl << endl;
+    }
+    if (escolha == 2){
+        cout << "Deseja apagar os bilhetes associados ao voo numero? (Insira o respetivo numero de voo): " << endl;
+        cout << ">";
+        int nrVoo;
+        cin >> nrVoo;
+        vector<Bilhete> apagar;
+        bool flag = false;
+        bool flag2 = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+            if((*it).getNumVoo() == nrVoo){
+                flag = true;
+                flag2 = true;
+                auto et = it++;
+                apagar.push_back(*it);
+                bilhetes.erase(it);
+                it = et;
+            }
+            if (!flag2) it++;
+
+        }
+
+        for (auto et = apagar.begin(); et != apagar.end(); et++) {
+            cout << (*et).getNumBilhete() << ',' << (*et).getQuantBagagem() << ','
+                 << (*et).getNumVoo() << ',' << (*et).getNome() << "," << endl;
+        }
+        if(!flag) cout << "---> Nao existem bilhetes associados a esse voo." << endl;
+        cout << endl << endl;
+    }
+    if (escolha == 3) {
+        cout << "Deseja apagar os bilhetes associados ao Passageiro? (Insira o nome do Passageiro): " << endl;
+        cout << ">";
+        string passageiro;
+        vector<Bilhete> apagar;
+        cin >> passageiro;
+        bool flag = false;
+        bool flag2 = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++) {
+            if ((*it).getNome() == passageiro) {
+                flag = true;
+                flag2 = true;
+                auto et = it++;
+                apagar.push_back(*it);
+                bilhetes.erase(it);
+                it = et;
+            }
+            if (!flag2) it++;
+        }
+        for (auto et = apagar.begin(); et != apagar.end(); et++) {
+            cout << (*et).getNumBilhete() << ',' << (*et).getQuantBagagem() << ','
+                 << (*et).getNumVoo() << ',' << (*et).getNome() << "," << endl;
+        }
+        if (!flag) cout << "---> Nao existem bilhetes associados a esse passageiro." << endl;
+        cout << endl << endl;
+    }
+    file.close();
+}

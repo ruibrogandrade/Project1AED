@@ -409,3 +409,156 @@ string Aviao::getTipoAviao() {
 void Aviao::setTipoAviao(string tipoAviao) {
     this->tipoAviao=tipoAviao;
 }
+
+void Aviao::deleteAviao() {
+    cout << "Escolha o parametro utilizado para eliminar:" << endl;
+    cout << "1) Capacidade minima." << endl;
+    cout << "2) Numero minimo de Voos." << endl;
+    cout << "3) Tipo de Avião." << endl;
+    cout << '>';
+    list<Aviao> notElim;
+    int opcao;
+    cin >> opcao;
+    if (opcao == 1) {
+        list<Aviao> elim;
+        cout << "Insira a capacidade minima:" << endl;
+        cout << '>';
+        int cap;
+        cin >> cap;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++){
+            if ((*it).getCapacidade() >= cap){
+                notElim.push_back((*it));
+            }
+        }
+        cout << "Os Avioes com capacidade mair ou igual que " << cap << " foram eliminados." << endl;
+        cout << "-> Avioes eliminados:" << endl;
+        cout << endl;
+        listAviao = notElim;
+        for (auto it = notElim.begin(); it != notElim.end(); it++){
+            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ','
+                 << (*it).getTipoAviao() << ',' << (*it).getMatricula() << ',' << endl;
+        }
+    }
+    if (opcao == 2) {
+        list<Aviao> elim;
+        cout << "Insira o numero minimo de voos:" << endl;
+        cout << '>';
+        int nr;
+        cin >> nr;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++) {
+            if ((*it).getListaVoo().size() >= nr) {
+                notElim.push_back((*it));
+            }
+        }
+        cout << "Os Avioes com numero de voos atribuidos menor que " << nr << " foram eliminados." << endl;
+        cout << "-> Avioes eliminados:" << endl;
+        cout << endl;
+        listAviao = notElim;
+        for (auto it = notElim.begin(); it != notElim.end(); it++) {
+            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ','
+                 << (*it).getTipoAviao() << ',' << (*it).getMatricula() << ',' << endl;
+        }
+    }
+    if (opcao == 3){
+        cout << "Insira o tipo de aviao a ser eliminado:" << endl;
+        cout << '>';
+        string tipo;
+        cin >> tipo;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++) {
+            if ((*it).getTipoAviao() != tipo) {
+                notElim.push_back((*it));
+            }
+        }
+        cout << "Os Avioes do tipo " << tipo << " foram eliminados." << endl;
+        cout << "-> Avioes eliminados:" << endl;
+        cout << endl;
+        listAviao = notElim;
+        for (auto it = notElim.begin(); it != notElim.end(); it++) {
+            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ','
+                 << (*it).getTipoAviao() << ',' << (*it).getMatricula() << ',' << endl;
+        }
+    }
+}
+
+void Aviao::ApagarVoo() {
+    cout << endl << endl;
+    cout << "Escolha uma opcao para apagar os voos:" << endl;
+    cout << endl;
+    cout << "1) " << "Apagar voos com data de partida especificada." << endl;
+    cout << "2) " << "Apagar voos com uma determinada origem e destino." << endl;
+    cout << ">";
+    int escolha;
+    cin >> escolha;
+    ifstream file("voo.txt");
+    string line;
+    if(escolha == 1) {
+        cout << "Defina a data de partida do voo: " << endl;
+        int dia, mes, ano;
+        string data;
+        cin >> data;
+        dia = stoi(data.substr(0, 2));
+        mes = stoi(data.substr(3, 2));
+        ano = stoi(data.substr(6, 4));
+        cout << endl;
+        cout << "Voos apagados a partir dessa data: " << endl;
+        cout << endl;
+        list<Voo> apagar;
+        bool flag1 = false;
+        bool flag3 = false;
+        //um upgrade que podiamos dar a isto era ordenar os voos cronologicamente por datas!
+        for (auto it = listVoos.begin(); it != listVoos.end();) {
+            flag3 = false;
+            if ((*it).getDataPartida().getAno() >= ano) {
+                if ((*it).getDataPartida().getMes() >= mes) {
+                    if ((*it).getDataPartida().getDia() >= dia) {
+                        flag3 = true;
+                        auto et = it++;
+                        apagar.push_back(*it);
+                        listVoos.erase(it);
+                        it = et;
+                    }
+                }
+            }
+            if (!flag3) it++;
+        }
+        for (auto et = apagar.begin(); et != apagar.end(); et++) {
+            cout << (*et).getNumVoo() << ',' << (*et).getDataPartida().getDia() << "/"
+                 << (*et).getDataPartida().getMes() << "/" << (*et).getDataPartida().getAno()
+                 << ',' << (*et).getDuracao() << ',' << (*et).getNumLugares() << ','
+                 << (*et).getOrigem() << ',' << (*et).getDestino() << ',' << (*et).getMatriculaAaviao() << endl;
+        }
+        if (!flag1) cout << "---> Nao existem voos disponiveis :(" << endl;
+        cout << endl << endl;
+    }
+    if(escolha == 2){
+        cout << "Defina o local de origem: " << endl;
+        cout << ">";
+        string origem;
+        cin >> origem;
+        cout << "Defina o local de destino: " << endl;
+        cout << ">";
+        string destino;
+        cin >> destino;
+        list<Voo> apagar;
+        bool flag2 = false;
+        for (auto it = listVoos.begin(); it != listVoos.end(); it++){
+            if((*it).getOrigem() == origem && (*it).getDestino() == destino){
+                flag2 = true;
+                auto et = it++;
+                apagar.push_back(*it);
+                listVoos.erase(it);
+                it = et;
+            }
+            if (!flag2) it++;
+        }
+        for (auto et = apagar.begin(); et != apagar.end(); et++) {
+            cout << (*et).getNumVoo() << ',' << (*et).getDataPartida().getDia() << "/"
+                 << (*et).getDataPartida().getMes() << "/" << (*et).getDataPartida().getAno()
+                 << ',' << (*et).getDuracao() << ',' << (*et).getNumLugares() << ','
+                 << (*et).getOrigem() << ',' << (*et).getDestino() << ',' << (*et).getMatriculaAaviao() << endl;
+        }
+        if(!flag2) cout << "---> Nao existem voos disponiveis de " << origem << " para " << destino <<"." << endl;
+        cout << endl << endl;
+    }
+    file.close();
+}

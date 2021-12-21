@@ -24,6 +24,7 @@ public:
     void listagemCompleta();
     void listagemIncompleta();
 
+    void ApagarPassageiro();
 };
 
 static vector<Bilhete> bilhetes;

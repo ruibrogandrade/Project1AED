@@ -42,6 +42,10 @@ public:
     string getTipoAviao();
 
     void setTipoAviao(string tipoAviao);
+
+    void deleteAviao();
+
+    void ApagarVoo();
 };
 
 static list<Aviao> listAviao;

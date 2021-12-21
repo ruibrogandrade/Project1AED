@@ -451,22 +451,269 @@ void servico::ListagemParcialServicos() {
     }
 }
 
+void servico::ApagarServicos() {
+    string parametro;
+    string tipo;
+    cout << "Que parametro deseja apagar?";
+    cin >> parametro;
+    vector<servico> apagar;
+    queue<servico> tmp1 = servicosFeitos;
+    queue<servico> tmp2 = servicosPorFazer;
+    vector<servico> juntar;
+    if (parametro == "tipoServico") {
+        cout << "Que tipo de serviço deseja apagar?";
+        cin >> tipo;
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            juntar.push_back(tmp1.front());
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            juntar.push_back(tmp2.front());
+            tmp2.pop();
+        }
 
+        for (int i = 0; i < juntar.size(); i++) {
+            if (juntar[i].getTipoServico() == tipo) {
+                juntar.erase(juntar.begin() + i);
+                apagar.push_back(juntar[i]);
+            }
+        }
 
-/*
-void servico::setServicosPorFazer(queue<servico> servicosPorFazer) {
-    this->servicosPorFazer=servicosPorFazer;
+        //Selection Sort
+        if (juntar.size() > 1) {
+            for (int i = 0; i < juntar.size(); i++) {
+                for (unsigned i = 0; i < juntar.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < juntar.size(); j++)
+                        if (juntar[j].getData() < juntar[imin].getData())
+                            imin = j;
+                    swap(juntar[i], juntar[imin]);
+                }
+            }
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (MenorQueDataAtual(juntar[i].getData())) {
+                servicosFeitos.push(juntar[i]);
+            } else {
+                servicosPorFazer.push(juntar[i]);
+            }
+        }
+
+        int size = apagar.size();
+        for (int i = 0; i < size; i++) {
+            cout << apagar.front().getTipoServico() << ',';
+            if (apagar.front().getData().getDia() < 10) cout << "0" << apagar.front().getData().getDia();
+            else cout << apagar.front().getData().getDia();
+            cout << '/';
+            if (apagar.front().getData().getMes() < 10) cout << "0" << apagar.front().getData().getMes();
+            else cout << apagar.front().getData().getMes();
+            cout << "/" << apagar.front().getData().getAno() << "," << apagar.front().getMatriculaAviao() << ","
+                 << apagar.front().getNomeFuncionario() << ",";
+            apagar.erase(apagar.begin());
+            if (apagar.empty()) continue;
+            else cout << endl;
+        }
+    }
+
+    if (parametro == "nomeFuncionario") {
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
+        vector<servico> satisfaz;
+        string nome;
+        cout << "Que Funcionario deseja apagar?";
+        cin >> nome;
+        vector<servico> apagar;
+        queue<servico> tmp1 = servicosFeitos;
+        queue<servico> tmp2 = servicosPorFazer;
+        vector<servico> juntar;
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            juntar.push_back(tmp1.front());
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            juntar.push_back(tmp2.front());
+            tmp2.pop();
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (juntar[i].getNomeFuncionario() == nome) {
+                juntar.erase(juntar.begin() + i);
+                apagar.push_back(juntar[i]);
+            }
+        }
+
+        //Selection Sort
+        if (juntar.size() > 1) {
+            for (int i = 0; i < juntar.size(); i++) {
+                for (unsigned i = 0; i < juntar.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < juntar.size(); j++)
+                        if (juntar[j].getData() < juntar[imin].getData())
+                            imin = j;
+                    swap(juntar[i], juntar[imin]);
+                }
+            }
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (MenorQueDataAtual(juntar[i].getData())) {
+                servicosFeitos.push(juntar[i]);
+            } else {
+                servicosPorFazer.push(juntar[i]);
+            }
+        }
+
+        int size = apagar.size();
+        for (int i = 0; i < size; i++) {
+            cout << apagar.front().getTipoServico() << ',';
+            if (apagar.front().getData().getDia() < 10) cout << "0" << apagar.front().getData().getDia();
+            else cout << apagar.front().getData().getDia();
+            cout << '/';
+            if (apagar.front().getData().getMes() < 10) cout << "0" << apagar.front().getData().getMes();
+            else cout << apagar.front().getData().getMes();
+            cout << "/" << apagar.front().getData().getAno() << "," << apagar.front().getMatriculaAviao() << ","
+                 << apagar.front().getNomeFuncionario() << ",";
+            apagar.erase(apagar.begin());
+            if (apagar.empty()) continue;
+            else cout << endl;
+        }
+    }
+
+    if (parametro == "matriculaAviao") {
+        vector<servico> satisfaz;
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
+        string matricula;
+        cout << "Que Matricula de aviao deseja apagar?";
+        cin >> matricula;
+        vector<servico> apagar;
+        queue<servico> tmp1 = servicosFeitos;
+        queue<servico> tmp2 = servicosPorFazer;
+        vector<servico> juntar;
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            juntar.push_back(tmp1.front());
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            juntar.push_back(tmp2.front());
+            tmp2.pop();
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (juntar[i].getMatriculaAviao() == matricula) {
+                juntar.erase(juntar.begin() + i);
+                apagar.push_back(juntar[i]);
+            }
+        }
+
+        //Selection Sort
+        if (juntar.size() > 1) {
+            for (int i = 0; i < juntar.size(); i++) {
+                for (unsigned i = 0; i < juntar.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < juntar.size(); j++)
+                        if (juntar[j].getData() < juntar[imin].getData())
+                            imin = j;
+                    swap(juntar[i], juntar[imin]);
+                }
+            }
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (MenorQueDataAtual(juntar[i].getData())) {
+                servicosFeitos.push(juntar[i]);
+            } else {
+                servicosPorFazer.push(juntar[i]);
+            }
+        }
+
+        int size = apagar.size();
+        for (int i = 0; i < size; i++) {
+            cout << apagar.front().getTipoServico() << ',';
+            if (apagar.front().getData().getDia() < 10) cout << "0" << apagar.front().getData().getDia();
+            else cout << apagar.front().getData().getDia();
+            cout << '/';
+            if (apagar.front().getData().getMes() < 10) cout << "0" << apagar.front().getData().getMes();
+            else cout << apagar.front().getData().getMes();
+            cout << "/" << apagar.front().getData().getAno() << "," << apagar.front().getMatriculaAviao() << ","
+                 << apagar.front().getNomeFuncionario() << ",";
+            apagar.erase(apagar.begin());
+            if (apagar.empty()) continue;
+            else cout << endl;
+        }
+    }
+    if (parametro == "Data") {
+        vector<servico> satisfaz;
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
+        int dia;
+        int mes;
+        int ano;
+        string strData;
+        Data data;
+        cout << "Quer apagar serviços a partir de que data?";
+        cin >> strData;
+        dia = stoi(strData.substr(0, 2));
+        mes = stoi(strData.substr(3, 2));
+        ano = stoi(strData.substr(6, 4));
+        data.setDia(dia);
+        data.setMes(mes);
+        data.setAno(ano);
+        vector<servico> apagar;
+        queue<servico> tmp1 = servicosFeitos;
+        queue<servico> tmp2 = servicosPorFazer;
+        vector<servico> juntar;
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            juntar.push_back(tmp1.front());
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            juntar.push_back(tmp2.front());
+            tmp2.pop();
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (MenorQueDataAtual(juntar[i].getData())) {
+                juntar.erase(juntar.begin() + i);
+                apagar.push_back(juntar[i]);
+            }
+        }
+
+        //Selection Sort
+        if (juntar.size() > 1) {
+            for (int i = 0; i < juntar.size(); i++) {
+                for (unsigned i = 0; i < juntar.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < juntar.size(); j++)
+                        if (juntar[j].getData() < juntar[imin].getData())
+                            imin = j;
+                    swap(juntar[i], juntar[imin]);
+                }
+            }
+        }
+
+        for (int i = 0; i < juntar.size(); i++) {
+            if (MenorQueDataAtual(juntar[i].getData())) {
+                servicosFeitos.push(juntar[i]);
+            } else {
+                servicosPorFazer.push(juntar[i]);
+            }
+        }
+
+        int size = apagar.size();
+        for (int i = 0; i < size; i++) {
+            cout << apagar.front().getTipoServico() << ',';
+            if (apagar.front().getData().getDia() < 10) cout << "0" << apagar.front().getData().getDia();
+            else cout << apagar.front().getData().getDia();
+            cout << '/';
+            if (apagar.front().getData().getMes() < 10) cout << "0" << apagar.front().getData().getMes();
+            else cout << apagar.front().getData().getMes();
+            cout << "/" << apagar.front().getData().getAno() << "," << apagar.front().getMatriculaAviao() << ","
+                 << apagar.front().getNomeFuncionario() << ",";
+            apagar.erase(apagar.begin());
+            if (apagar.empty()) continue;
+            else cout << endl;
+        }
+    }
 }
-
-queue<servico> servico::getServicosPorFazer() const{
-    return servicosPorFazer;
-}
-
-void servico::setServicosFeitos(queue<servico> servicosFeitos) {
-    this->servicosFeitos=servicosFeitos;
-}
-
-queue<servico> servico::getServicosFeitos()  const{
-    return servicosFeitos;
-}
-*/
