@@ -8,7 +8,7 @@
 #include "bilhete.h"
 
 
-class Passageiro: public Voo{
+class Passageiro {
 private:
     string nome;
     vector<Bilhete> bilhetes;
@@ -23,6 +23,8 @@ public:
     void BilheteInput();
     void WriteBilhete();
     void ReadBilhete();
+    void listagemCompleta();
+    void listagemIncompleta();
 
 };
 

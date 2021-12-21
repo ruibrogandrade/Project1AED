@@ -3,6 +3,7 @@
 #include <iostream>
 #include "bagagem.h"
 
+using namespace std;
 
 Bagagem::Bagagem(int nb, float p) : numBilhete(nb), peso(p) {}
 
@@ -81,7 +82,7 @@ void GestaoBagagens::retirarMalas(){
         for(auto et = (*it).begin(); et != (*it).end(); et++){
             b = (*et).top();
             (*et).pop();
-            //tapeteRetirar.push(b);
+            tapeteRetirar.push(b);
         }
     }
 }
@@ -98,17 +99,50 @@ void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm
 }*/
 
 void GestaoBagagens::TapeteInput() {
-    //valores para testar
-    tapeteInserir.push(Bagagem(12,30));
-    tapeteInserir.push(Bagagem(13,20));
-    tapeteInserir.push(Bagagem(14,45));
+    cout << endl;
+    cout << "Quantas bagagens deseja adicionar? " << endl;
+    cout << '>';
+    int quant;
+    cin >> quant;
+    cout << endl;
+    if (quant == 0) {cout << "Nao vai ser adicionada nenhuma Bagagem ao tapete." << endl;}
+    if (quant == 1) {cout << "Vamos adicionar uma nova Bagagem ao tapete." << endl;}
+    if (quant > 1){cout << "Vamos adicionar " << quant << " novas Bagagens ao tapete." << endl; }
+    cout << endl;
+    while(quant != 0){
+        cout << "Insira o numero do bilhete que esta associado a bagagem: " << endl;
+        cout << '>';
+        int nrBilhete;
+        cin >> nrBilhete;
+        cout << "Insira o peso da bagagem: " <<  endl;
+        cout << '>';
+        float peso;
+        cin >> peso;
+
+        Bagagem b = Bagagem(nrBilhete, peso);
+        tapeteInserir.push(b);
+        cout << endl;
+        quant--;
+        if(quant != 0) {
+            cout << "(Proxima Bagagem)";
+            cout << endl;
+        }
+    }
+    /*
+    queue<Bagagem> tmp = tapeteInserir;
+    while (!tmp.empty()) {
+        cout << tmp.front().getNumBilhete() << ',' << tmp.front().getPeso() << endl;
+        tmp.pop();
+    }
+     */
 }
 
-void GestaoBagagens::WriteTapete() {
+void GestaoBagagens::WriteTapete(){
     ofstream file;
-    file.open("");
+    file.open("tapete.txt");
     while (!tapeteInserir.empty()){
-        file << tapeteInserir.front().getNumBilhete() << ',' << tapeteInserir.front().getPeso() << ','  << endl;
+        file << tapeteInserir.front().getNumBilhete() << ',' << tapeteInserir.front().getPeso() << ',';
+        if (tapeteInserir.size() != 1) file << endl;
         tapeteInserir.pop();
     }
     file.close();
@@ -140,8 +174,25 @@ void GestaoBagagens::ReadTapete() {
     file.close();
 }
 
-void GestaoBagagens::CarrinhoInput() {
-    //colocarMalas();
+void GestaoBagagens::definirCarrinho() {
+    cout << endl;
+    cout << "Vamos definir o tamanho do carrinho de bagagens." << endl;
+    cout << endl;
+    cout << "Insira o numero de carruagens do carrinho: " << endl;
+    cout << '>';
+    int numCarruagens;
+    cin >> numCarruagens;
+    this->numCarruagens = numCarruagens;
+    cout << "Insira o numero de pilhas de malas por carruagem do carrinho: " << endl;
+    cout << '>';
+    int numPilhas;
+    cin >> numPilhas;
+    this->numPilhas = numPilhas;
+    cout << "Insira o numero de malas que uma pilha do carrinho e capaz de suportar: " << endl;
+    cout << '>';
+    int numMalas;
+    cin >> numMalas;
+    this->numMalas = numMalas;
 }
 
 void GestaoBagagens::WriteCarrinho() {

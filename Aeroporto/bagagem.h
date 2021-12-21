@@ -23,24 +23,25 @@ public:
         this->numBilhete = nrBilh;
     };
     float getPeso() const;
-    float setPeso(float peso) {
+    void setPeso(float peso) {
         this->peso = peso;
-    }
+    };
 };
 
 
 class GestaoBagagens {
 private:
-    unsigned numCarruagens = 2;
-    unsigned numPilhas = 3;
-    unsigned numMalas = 4;
+    unsigned numCarruagens;
+    unsigned numPilhas;
+    unsigned numMalas;
 
     //queue<Bagagem> tapeteInserir;
     //queue<Bagagem> tapeteRetirar;
     //list<list<stack<Bagagem>>> carrinho;
 public:
-    GestaoBagagens(){};
+    GestaoBagagens();
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
+    void definirCarrinho();
     void colocarMalas();
     void retirarMalas();
 
@@ -48,10 +49,6 @@ public:
     void WriteTapete();
     void ReadTapete();
 
-    //acho que nao faz sentido implementar estas:
-    void CarrinhoInput();
-    void WriteCarrinho();
-    void ReadCarrinho();
 
     void ListagemTotal();
 

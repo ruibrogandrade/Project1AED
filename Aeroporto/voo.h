@@ -15,7 +15,7 @@ private: //estes atributos estariam tbm em protected para de alguma
     string origem, destino;
     Data dataPartida;
 protected:
-    int vagas; //int vagas{}; porque é q puseram assim dantes?
+    int vagas; //int vagas{}; porque é q puseram assim dantes? -> era erro
     int lotacao; //const
 public:
     Voo();

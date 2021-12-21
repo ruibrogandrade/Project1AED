@@ -1,13 +1,22 @@
 #include "bilhete.h"
 
+<<<<<<<<< Temporary merge branch 1
+
+=========
 Bilhete::Bilhete() {}
+
+Bilhete::Bilhete(int nrBilh, int quantBag, int nrVoo) {
+    this->numBilhete = nrBilh;
+    this->quantBagagem = quantBag;
+    this->numVoo = nrVoo;
+}
 
 int Bilhete::getQuantBagagem() const{
     return quantBagagem;
 }
 
 void Bilhete::setQuantBagagem(int quantBagagem) {
-    this->quantBagagem = quantBagagem;
+    this->quantBagagem=quantBagagem;
 }
 
 int Bilhete::getNumVoo() const {
