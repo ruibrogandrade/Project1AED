@@ -1,16 +1,20 @@
 #include "Data.h"
 
-bool Data::operator<(Data d) const{
-    if(ano > d.ano) {
-        if(mes > d.mes) {
-            if(dia > d.dia) return true;
-        }
+bool Data::operator<(const Data &d) const{
+    if ( ano != d.ano) {
+        return ano < d.ano;
+    }
+    if (mes != d.mes) {
+        return mes < d.mes;
+    }
+    if (dia != d.dia) {
+        return dia < d.dia;
     }
     return false;
 }
 
-bool Data::operator==(Data d) const {
-    return ano == d.ano && mes == d.mes && dia == d.dia;
+bool Data::operator==(const Data &d) const {
+    return (ano == d.ano && mes == d.mes && dia == d.dia);
 }
 
 Data::Data() {}

@@ -35,9 +35,9 @@ private:
     unsigned numPilhas = 3;
     unsigned numMalas = 4;
 
-    queue<Bagagem> tapeteInserir;
-    queue<Bagagem> tapeteRetirar;
-    list<list<stack<Bagagem>>> carrinho;
+    //queue<Bagagem> tapeteInserir;
+    //queue<Bagagem> tapeteRetirar;
+    //list<list<stack<Bagagem>>> carrinho;
 public:
     GestaoBagagens(){};
     GestaoBagagens(unsigned c, unsigned n, unsigned m);
@@ -53,7 +53,14 @@ public:
     void WriteCarrinho();
     void ReadCarrinho();
 
+    void ListagemTotal();
+
+    void ListagemParcial();
 };
 
+
+static queue<Bagagem> tapeteInserir;
+static queue<Bagagem> tapeteRetirar;
+static list<list<stack<Bagagem>>> carrinho;
 
 #endif //PROJETO1AED_BAGAGEM_H

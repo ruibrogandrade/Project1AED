@@ -55,7 +55,7 @@ bool servico::MenorQueDataAtual(Data data) {
     Data DataAtual;
     DataAtual.setDia(15);
     DataAtual.setMes(12);
-    DataAtual.setAno(2021);
+    DataAtual.setAno(2019);
     if (data < DataAtual) {
         return true;
     } else {
@@ -250,6 +250,9 @@ void servico::ListagemParcialServicos() {
     }
 
     if (parametro == "nomeFuncionario") {
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
+        vector<servico> satisfaz;
         string nome;
         cout << "Que Funcionario deseja ver?";
         cin >> nome;
@@ -296,6 +299,9 @@ void servico::ListagemParcialServicos() {
     }
 
     if (parametro == "matriculaAviao") {
+        vector<servico> satisfaz;
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
         string matricula;
         cout << "Que Funcionario deseja ver?";
         cin >> matricula;
@@ -339,6 +345,66 @@ void servico::ListagemParcialServicos() {
             if (satisfaz.empty()) continue;
             else cout << endl;
         }
+    }
+    if (parametro == "Data") {
+        vector<servico> satisfaz;
+        tmp1 = servicosFeitos;
+        tmp2 = servicosPorFazer;
+        int dia;
+        int mes;
+        int ano;
+        string strData;
+        Data data;
+        cout << "Quer serviços a partir de que data?";
+        cin >> strData;
+        dia = stoi(strData.substr(0,2));
+        mes = stoi(strData.substr(3,2));
+        ano = stoi(strData.substr(6,4));
+        data.setDia(dia);
+        data.setMes(mes);
+        data.setAno(ano);
+
+        for (int i = 0; i < servicosFeitos.size(); i++) {
+            if (data < tmp1.front().getData()) {
+                satisfaz.push_back(tmp1.front());
+            }
+            tmp1.pop();
+        }
+        for (int i = 0; i < servicosPorFazer.size(); i++) {
+            if (data < tmp2.front().getData()) {
+                satisfaz.push_back(tmp2.front());
+            }
+            tmp2.pop();
+        }
+
+        //Selection Sort
+        if (satisfaz.size() > 1) {
+            for (int i = 0; i < satisfaz.size(); i++) {
+                for (unsigned i = 0; i < satisfaz.size() - 1; i++) {
+                    unsigned imin = i;
+                    for (int j = i + 1; j < satisfaz.size(); j++)
+                        if (satisfaz[j].getData() < satisfaz[imin].getData())
+                            imin = j;
+                    swap(satisfaz[i], satisfaz[imin]);
+                }
+            }
+        }
+
+        int size = satisfaz.size();
+        for(int i = 0; i < size; i++) {
+            cout << satisfaz.front().getTipoServico() << ',';
+            if (satisfaz.front().getData().getDia() < 10) cout << "0" << satisfaz.front().getData().getDia();
+            else cout << satisfaz.front().getData().getDia();
+            cout << '/';
+            if (satisfaz.front().getData().getMes() < 10) cout << "0" << satisfaz.front().getData().getMes();
+            else cout << satisfaz.front().getData().getMes();
+            cout << "/" << satisfaz.front().getData().getAno() << "," << satisfaz.front().getMatriculaAviao() << ","
+                 << satisfaz.front().getNomeFuncionario() << ",";
+            satisfaz.erase(satisfaz.begin());
+            if (satisfaz.empty()) continue;
+            else cout << endl;
+        }
+
     }
 }
 

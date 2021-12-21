@@ -81,7 +81,7 @@ void GestaoBagagens::retirarMalas(){
         for(auto et = (*it).begin(); et != (*it).end(); et++){
             b = (*et).top();
             (*et).pop();
-            tapeteRetirar.push(b);
+            //tapeteRetirar.push(b);
         }
     }
 }
@@ -150,7 +150,58 @@ void GestaoBagagens::WriteCarrinho() {
 
 void GestaoBagagens::ReadCarrinho() {
 
+}
 
+
+void GestaoBagagens::ListagemTotal() {
+    std::ifstream f("tapete.txt");
+    if (f.is_open())
+        std::cout << f.rdbuf();
+}
+
+void GestaoBagagens::ListagemParcial() {
+    string parametro;
+    int num;
+    float p;
+    cout << "Que parâmetro deseja filtrar?" << endl;
+    cin >> parametro;
+    if(parametro == "numBilhete") {
+        cout << "Qual o bilhete associado à bagagem?" << endl;
+        cin >> num;
+        list<Bagagem> bagagemAssociada;
+        list<list<stack<Bagagem>>> carrinhoAux = carrinho;
+        for (auto it = carrinhoAux.begin(); it != carrinhoAux.end(); it++) {
+            for (auto et = (*it).begin(); et != (*it).end(); et++) {
+                while (!(*et).empty()) {
+                    if ((*et).top().getNumBilhete() == num) {
+                        bagagemAssociada.push_back(((*et).top()));
+                        (*et).pop();
+                    } else {
+                        (*et).pop();
+                    };
+                }
+            }
+        }
+        cout << "O cliente tem " << bagagemAssociada.size() << " bagagens associadas.";
+    }
+
+    if(parametro == "peso") {
+        cout << "Pretende encontrar bagagens com peso superior a quantos kgs?" << endl;
+        cin >> p;
+        list<Bagagem> bagagemPeso;
+        list<list<stack<Bagagem>>> carrinhoAux2 = carrinho;
+        for (auto it = carrinhoAux2.begin(); it != carrinhoAux2.end(); it++) {
+            for (auto et = (*it).begin(); et != (*it).end(); et++) {
+                while (!(*et).empty()) {
+                    if ((*et).top().getPeso() > p) {
+                        bagagemPeso.push_back(((*et).top()));
+                        (*et).pop();
+                    } else ((*et).pop());
+                }
+            }
+        }
+        cout << "Há" << bagagemPeso.size() << "malas com peso superior a" << p << "kgs";
+    }
 }
 
 
