@@ -150,28 +150,36 @@ void GestaoBagagens::ListagemParcial() {
     float p;
     cout << "Que parâmetro deseja filtrar?" << endl;
     cin >> parametro;
-    if(parametro == "numero do bilhete"){
+    if(parametro == "numBilhete") {
         cout << "Qual o bilhete associado à bagagem?" << endl;
         cin >> num;
         list<Bagagem> bagagemAssociada;
-        while(!tapeteRetirar.empty()) {
-            if(tapeteRetirar.front().getNumBilhete() == num) {
-                bagagemAssociada.push_back(tapeteRetirar.front());
-                tapeteRetirar.pop();
+        list<list<stack<Bagagem>>> carrinhoAux = carrinho;
+        for (auto it = carrinhoAux.begin(); it != carrinhoAux.end(); it++) {
+            for (auto et = (*it).begin(); et != (*it).end(); et++) {
+                if ((*et).top().getNumBilhete() == num) {
+                    bagagemAssociada.push_back(((*et).top()));
+                    (*et).pop();
+                } else ((*et).pop());
             }
         }
         cout << "O cliente tem " << bagagemAssociada.size() << "bagagens associadas.";
         }
+
     if(parametro == "peso") {
         cout << "Pretende encontrar bagagens com peso superior a quantos kgs?" << endl;
         cin >> p;
-    }
-    list<Bagagem> aux;
-    while(!tapeteRetirar.empty()) {
-        if (tapeteRetirar.front().getPeso() >= p) {
-            aux.push_back(tapeteRetirar.front());
-            tapeteRetirar.pop();
+
+    list<Bagagem> bagagemPeso;
+    list<list<stack<Bagagem>>> carrinhoAux2 = carrinho;
+    for (auto it = carrinhoAux2.begin(); it != carrinhoAux2.end(); it++) {
+        for (auto et = (*it).begin(); et != (*it).end(); et++) {
+            if ((*et).top().getPeso() > p) {
+                bagagemPeso.push_back(((*et).top()));
+                (*et).pop();
+            } else ((*et).pop());
         }
     }
-    cout << "Há" << aux.size() << "malas com peso superior a" << p << "kgs";
+        cout << "Há" << bagagemPeso.size() << "malas com peso superior a" << p << "kgs";
+    }
 }
