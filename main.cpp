@@ -12,16 +12,6 @@ void ReadFiles() {
     Aviao a;
     a.ReadAviao();
     a.WriteAviao();
-    Voo v;
-    v.ReadVoo();
-    v.WriteVoo();
-    Passageiro p;
-    p.ReadBilhete();
-    GestaoBagagens g;
-    g.ReadTapete();
-    g.colocarMalas();
-    servico s;
-    s.ReadServico();
 }
 /*
 void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFazer) {
@@ -46,8 +36,8 @@ void checkTipoDeData(queue<servico> servicosFeitos, queue<servico> servicosPorFa
 int main() {
     ReadFiles();
     servico s;
-    GestaoBagagens g;
-    g.ListagemParcial();
+    Aviao a;
+    a.listagemIncompletaAviao();
     return 0;
 }
 

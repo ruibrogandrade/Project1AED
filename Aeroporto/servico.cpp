@@ -303,7 +303,7 @@ void servico::ListagemParcialServicos() {
         tmp1 = servicosFeitos;
         tmp2 = servicosPorFazer;
         string matricula;
-        cout << "Que Funcionario deseja ver?";
+        cout << "Que Matricula de aviao deseja ver?";
         cin >> matricula;
         for (int i = 0; i < servicosFeitos.size(); i++) {
             if (tmp1.front().getMatriculaAviao() == matricula) {

@@ -7,10 +7,11 @@ using namespace std;
 
 Aviao::Aviao() {}
 
-Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo) {
+Aviao::Aviao(string matricula, int capacidade, list<Voo> listaVoo, string tipoAviao) {
     this->matricula = matricula;
     this->capacidade = capacidade;
     this->listaVoo = listaVoo;
+    this->tipoAviao = tipoAviao;
 }
 
 list<Voo> Aviao::getListaVoo() const {
@@ -96,7 +97,7 @@ void Aviao::ReadVoo(){
     Data dataDePartida;
     int duracao;
     int dia, mes , ano, lot, numVoo;
-    string origem, destino, matricula, line;
+    string origem, destino, matricula, line, tipoAviao;
     int i = 0;
     while(getline(file,line,',')) {
         switch(i) {
@@ -256,11 +257,16 @@ void Aviao::AviaoInput() {
         cout << '>';
         string matricula;
         cin >> matricula;
+        cout << "Insira o tipo de Aviao: " << endl;
+        cout << '>';
+        string tipoAviao;
+        cin >> tipoAviao;
         cout << "Insira a capacidade do Aviao: " <<  endl;
         cout << '>';
         int capacidade;
         cin >> capacidade;
         Aviao a = Aviao(matricula, capacidade);
+        a.setTipoAviao(tipoAviao);
         listAviao.push_back(a); //ver onde anda a listaVoo que ando a confundir com esta
         cout << endl;
         quant--;
@@ -276,7 +282,7 @@ void Aviao::WriteAviao() {
     file.open("aviao.txt");
     //list<Voo> tmp = listaVoo;
     for (auto it = listAviao.begin(); it != listAviao.end(); it++){
-        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << ',';
+        file << (*it).getMatricula() << ','<< (*it).getCapacidade() << ',' << (*it).getTipoAviao() << ",";
         if (next(it) == listAviao.end()) continue;
         else file << endl;
     }
@@ -300,9 +306,12 @@ void Aviao::ReadAviao() {
             case(1):
                 capacidade = stoi(line);
                 a.capacidade = capacidade;
+                break;
+            case(2):
+                tipoAviao = line;
+                a.tipoAviao = tipoAviao;
                 listAviao.push_back(a);
                 i = -1;
-                break;
         }
         i++;
     }
@@ -326,7 +335,7 @@ void Aviao::listagemIncompletaAviao() {
     cout << endl;
     cout << "1) " << "Visualizar avioes ordenados por capacidade." << endl;
     cout << "2) " << "Visualizar avioes com capacidade superior a <?>." << endl;
-    //cout << "3) " << "Visualizar voos que ainda tenham bilhetes disponiveis." << endl; //???
+    cout << "3) " << "Visualizar avioes de um certo tipo." << endl; //???
     cout << ">";
     int escolha;
     cin >> escolha;
@@ -356,7 +365,7 @@ void Aviao::listagemIncompletaAviao() {
         }
         for (auto it = aux.begin(); it != aux.end(); it++){
             flag = true;
-            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << endl;
+            cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << (*it).getTipoAviao() << endl;
         }
         if(!flag) cout << "---> Nao existem avioes." << endl;
         cout << endl << endl;
@@ -370,13 +379,33 @@ void Aviao::listagemIncompletaAviao() {
         for (auto it = listAviao.begin(); it != listAviao.end(); it++){
             if((*it).getCapacidade() > capacidade){
                 flag2 = true;
-                cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << endl;
+                cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << (*it).getTipoAviao() << endl;
             }
         }
-        if(!flag2) cout << "---> Nao existem voos disponiveis com capacidade superior a " << capacidade << '.' << endl;
+        if(!flag2) cout << "---> Nao existem avioes disponiveis com capacidade superior a " << capacidade << '.' << endl;
         cout << endl << endl;
     }
-
-    file.close();
+    if(escolha == 3) {
+        cout << "Defina o tipo de aviao que pretende ver: " << endl;
+        cout << ">";
+        string tipoAviao;
+        cin >> tipoAviao;
+        bool flag2 = false;
+        for (auto it = listAviao.begin(); it != listAviao.end(); it++){
+            if((*it).getTipoAviao() == tipoAviao){
+                flag2 = true;
+                cout << (*it).getMatricula() << ',' << (*it).getCapacidade() << ',' << (*it).getTipoAviao() << endl;
+            }
+        }
+        if(!flag2) cout << "---> Nao existem avioes do tipo " << tipoAviao << '.' << endl;
+        cout << endl << endl;
+    }
 }
 
+string Aviao::getTipoAviao() {
+    return tipoAviao;
+}
+
+void Aviao::setTipoAviao(string tipoAviao) {
+    this->tipoAviao=tipoAviao;
+}

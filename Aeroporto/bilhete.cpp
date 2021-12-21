@@ -1,8 +1,6 @@
 #include "bilhete.h"
 
-<<<<<<<<< Temporary merge branch 1
 
-=========
 Bilhete::Bilhete() {}
 
 Bilhete::Bilhete(int nrBilh, int quantBag, int nrVoo) {

@@ -195,13 +195,6 @@ void GestaoBagagens::definirCarrinho() {
     this->numMalas = numMalas;
 }
 
-void GestaoBagagens::WriteCarrinho() {
-    //retirarMalas();
-}
-
-void GestaoBagagens::ReadCarrinho() {
-
-}
 
 
 void GestaoBagagens::ListagemTotal() {
