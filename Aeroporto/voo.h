@@ -12,14 +12,14 @@ class Voo{
 private: //estes atributos estariam tbm em protected para de alguma
     //maneira a classe Bilhete conseguir aceder?
     int numVoo, duracao;
-    string origem, destino;
+    string origem, destino, matriculaAviao;
     Data dataPartida;
-protected:
+//protected:
     int vagas; //int vagas{}; porque é q puseram assim dantes? -> era erro
     int lotacao; //const
 public:
     Voo();
-    Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino);
+    Voo(int numVoo, Data dataPartida, int duracao, int lot, string origem, string destino, string matriculaAviao);
     int getNumVoo() const; //Porque é que os getters eram const?
     void setNumVoo(int numVoo);
     Data getDataPartida() const;
@@ -37,6 +37,7 @@ public:
     void setDestino(string destino);
     void ReadVoo();
     void WriteVoo();
+    void setMatriculaAviao(string matriculaAviao);
 };
 
 static list<Voo> listVoos;

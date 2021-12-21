@@ -67,7 +67,7 @@ void Aviao::VooInput() {
         cout << "Insira o local de destino: " <<  endl;
         string destino;
         cin >> destino;
-        Voo v = Voo(nrVoo,d,duracao,lotacao,origem,destino);
+        Voo v = Voo(nrVoo,d,duracao,lotacao,origem,destino,matriculaAviao);
         listVoos.push_back(v); //ver onde anda a listaVoo que ando a confundir com esta
         cout << endl;
         quant--;
