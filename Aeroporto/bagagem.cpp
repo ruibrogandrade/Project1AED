@@ -15,6 +15,8 @@ float Bagagem::getPeso() const {
     return peso;
 }
 
+GestaoBagagens::GestaoBagagens() {}
+
 GestaoBagagens::GestaoBagagens(unsigned int c, unsigned int n, unsigned int m) : numCarruagens(c), numPilhas(n), numMalas(m) {}
 
 //função para listas
@@ -173,7 +175,7 @@ void GestaoBagagens::ReadTapete() {
     }
     file.close();
 }
-
+/*
 void GestaoBagagens::definirCarrinho() {
     cout << endl;
     cout << "Vamos definir o tamanho do carrinho de bagagens." << endl;
@@ -194,7 +196,7 @@ void GestaoBagagens::definirCarrinho() {
     cin >> numMalas;
     this->numMalas = numMalas;
 }
-
+*/
 
 
 void GestaoBagagens::ListagemTotal() {
@@ -207,7 +209,7 @@ void GestaoBagagens::ListagemParcial() {
     string parametro;
     int num;
     float p;
-    cout << "Que parâmetro deseja filtrar?" << endl;
+    cout << "Que parametro deseja filtrar?" << endl;
     cin >> parametro;
     if(parametro == "numBilhete") {
         cout << "Qual o bilhete associado à bagagem?" << endl;
@@ -244,7 +246,7 @@ void GestaoBagagens::ListagemParcial() {
                 }
             }
         }
-        cout << "Há" << bagagemPeso.size() << "malas com peso superior a" << p << "kgs";
+        cout << "Ha" << bagagemPeso.size() << "malas com peso superior a " << p << " kgs";
     }
 }
 

@@ -105,18 +105,21 @@ void servico::ServicoInput() {
     servico tmp;
     string input;
     string tipoServico;
+    string matricula;
     int dia;
     int mes;
     int ano;
     Data data;
+    string strdata;
     string nomeFuncionario;
-    cout << "Estrutura de Input de Servico: (C,DD/MM/YYYY,NOME)";
+    /*
+    cout << "Estrutura de Input de Servico: (C,DD/MM/YYYY,MatriculaAviao,Nome de Funcionário)";
     cin >> input;
     tipoServico = input.c_str()[0];
-    dia = stoi(input.substr(2,4));
-    mes = stoi(input.substr(5,7));
-    ano = stoi(input.substr(8,12));
-    matriculaAviao = (input.substr(13,19));
+    dia = stoi(input.substr(2,2));
+    mes = stoi(input.substr(5,2));
+    ano = stoi(input.substr(8,4));
+    matriculaAviao = (input.substr(13,6));
     nomeFuncionario = input.substr(20);
     tmp.setTipoServico(tipoServico);
     data.setDia(dia);
@@ -130,9 +133,49 @@ void servico::ServicoInput() {
     } else {
         servicosPorFazer.push(tmp);
     }
-    //setServicosFeitos(servicosFeitos);
-    //setServicosPorFazer(servicosPorFazer);
-    WriteServico();
+*/
+    cout << "Quantos servicos deseja inserir" << endl;
+    int quant;
+    cin >> quant;
+    if (quant == 0) { cout << "Nao vai ser adicionado nenhum Servico." << endl;}
+    if (quant == 1) {cout << "Vamos adicionar um novo Servico." << endl;}
+    if (quant > 1) {cout << "Vamos adicionar " << quant << " novos Servico." << endl;}
+    cout << endl;
+    while(quant != 0){
+        cout << "Insira o código de Servico: " << endl;
+        cout << '>';
+        cin >> tipoServico;
+        cout << "Insira a data do Servico: " <<  endl;
+        cout << '>';
+        cin >> strdata;
+        dia = stoi(strdata.substr(0,2));
+        mes = stoi(strdata.substr(3,2));
+        ano = stoi(strdata.substr(6,4));
+        data.setDia(dia);
+        data.setMes(mes);
+        data.setAno(ano);
+        cout << "Insira a matricula do Aviao " <<  endl;
+        cout << '>';
+        cin >> matricula;
+        cout << "Insira o nome do Funcionário " <<  endl;
+        cout << '>';
+        cin >> nomeFuncionario;
+        tmp.setTipoServico(tipoServico);
+        tmp.setData(data);
+        tmp.setMatriculaAviao(matricula);
+        tmp.setNomeFuncionario(nomeFuncionario);
+        if (MenorQueDataAtual(data)) {
+            servicosFeitos.push(tmp);
+        } else {
+            servicosPorFazer.push(tmp);
+        }
+        cout << endl;
+        quant--;
+        if(quant != 0) {
+            cout << "(Proximo Servico)";
+            cout << endl;
+        }
+    }
 }
 
 void servico::ReadServico() {

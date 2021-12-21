@@ -29,9 +29,9 @@ void Passageiro::addBilhete(string & nome, Bilhete b) {
 void Passageiro::BilheteInput() {
     cout << "Quantos bilhetes deseja adicionar? " << endl;
     cout << '>';
-    cout << endl;
     int quant;
     cin >> quant;
+    cout << endl;
     if (quant == 0) { cout << "Nao vai ser adicionado nenhum bilhete." << endl;}
     if (quant == 1) {cout << "Vamos adicionar um novo Bilhete." << endl;}
     if (quant > 1) {cout << "Vamos adicionar " << quant << " novos Bilhetes." << endl;}
@@ -49,7 +49,11 @@ void Passageiro::BilheteInput() {
         cout << '>';
         int nrVoo;
         cin >> nrVoo;
-        Bilhete b = Bilhete(nrBilhete, nrBagagens, nrVoo);
+        cout << "Insira o nome do Passageiro: " <<  endl;
+        cout << '>';
+        string nomee;
+        cin >> nomee;
+        Bilhete b = Bilhete(nrBilhete, nrBagagens, nrVoo, nomee);
         bilhetes.push_back(b);
         cout << endl;
         quant--;
@@ -62,9 +66,9 @@ void Passageiro::BilheteInput() {
 
 void Passageiro::WriteBilhete() {
     ofstream file;
-    file.open("bilhete.txt");
+    file.open("bilhetes.txt");
     for (auto it = bilhetes.begin(); it != bilhetes.end(); it++){
-        file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << ',';
+        file << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << ',' << (*it).getNome() << ",";
         if (next(it) == bilhetes.end()) continue;
         else file << endl;
     }
@@ -73,8 +77,9 @@ void Passageiro::WriteBilhete() {
 
 void Passageiro::ReadBilhete() {
     int nrBilh, quantBag, nrVoo;
-    ifstream file("bilhete.txt");
+    ifstream file("bilhetes.txt");
     string line;
+    string nome;
     Bilhete b;
     int i = 0;
     while (getline(file, line, ',')){
@@ -90,6 +95,10 @@ void Passageiro::ReadBilhete() {
             case (2):
                 nrVoo = stoi(line);
                 b.setNumVoo(nrVoo);
+                break;
+            case (3):
+                nome = line;
+                b.setNome(nome);
                 bilhetes.push_back(b);
                 i = -1;
                 break;
@@ -97,12 +106,12 @@ void Passageiro::ReadBilhete() {
         i++;
     }
     file.close();
-    /*
-    for(auto it = bilhetes.begin(); it != bilhetes.end(); it++){
-        cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << endl;
-    }*/
-}
 
+    //for(auto it = bilhetes.begin(); it != bilhetes.end(); it++){
+      //  cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ',' << (*it).getNumVoo() << endl;
+    //}
+}
+/*
 vector<Bilhete> Passageiro::getBilhetes() const{
     return bilhetes;
 }
@@ -110,10 +119,10 @@ vector<Bilhete> Passageiro::getBilhetes() const{
 void Passageiro::setBilhetes(vector<Bilhete> bilhetes) {
     this->bilhetes=bilhetes;
 }
-
+*/
 void Passageiro::listagemCompleta() {
     cout << endl;
-    ifstream file("bilhete.txt");
+    ifstream file("bilhetes.txt");
     string line;
     cout << "Conteudo do ficheiro de bilhetes:" << endl;
     cout << endl;
@@ -130,10 +139,11 @@ void Passageiro::listagemIncompleta() {
     cout << "1) " << "Visualizar bilhetes com numero de bagagens superior a <?>." << endl;
     cout << "2) " << "Visualizar bilhetes pertencentes ao voo numero <?>." << endl;
     cout << "3) " << "Visualizar bilhetes ordenados por um parâmetro específico." << endl;
+    cout << "4) Visualizar bilhetes de um certo passageiro." << endl;
     cout << ">";
     int escolha;
     cin >> escolha;
-    ifstream file("bilhete.txt");
+    ifstream file("bilhetes.txt");
     string line;
     if(escolha == 1){
         cout << "Deseja visualizar os bilhetes associados a mais que 0, 1, 2, 3... bagagens? "
@@ -146,7 +156,7 @@ void Passageiro::listagemIncompleta() {
             if((*it).getQuantBagagem() > nrBagagens){
                 flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
-                << (*it).getNumVoo() << ','  << endl;
+                << (*it).getNumVoo() << ',' << (*it).getNome() << ","  << endl;
             }
         }
         if(!flag) cout << "---> Nao existem bilhetes com mais que esse numero de bagagens." << endl;
@@ -162,7 +172,7 @@ void Passageiro::listagemIncompleta() {
             if((*it).getNumVoo() == nrVoo){
                 flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
-                     << (*it).getNumVoo() << ','  << endl;
+                     << (*it).getNumVoo() << ','  << (*it).getNome() << ","  << endl;
             }
         }
         if(!flag) cout << "---> Nao existem bilhetes associados a esse voo." << endl;
@@ -197,7 +207,7 @@ void Passageiro::listagemIncompleta() {
             for (auto it = aux.begin(); it != aux.end(); it++){
                 flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
-                     << (*it).getNumVoo() << ','  << endl;
+                     << (*it).getNumVoo() << ','  << (*it).getNome() << ","  << endl;
             }
             if(!flag) cout << "---> Nao existem bilhetes." << endl;
             cout << endl << endl;
@@ -220,7 +230,7 @@ void Passageiro::listagemIncompleta() {
             for (auto it = aux.begin(); it != aux.end(); it++) {
                 flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
-                     << (*it).getNumVoo() << ',' << endl;
+                     << (*it).getNumVoo() << ',' << (*it).getNome() << ","  << endl;
             }
             if (!flag) cout << "---> Nao existem bilhetes." << endl;
             cout << endl << endl;
@@ -243,11 +253,27 @@ void Passageiro::listagemIncompleta() {
             for (auto it = aux.begin(); it != aux.end(); it++) {
                 flag = true;
                 cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
-                     << (*it).getNumVoo() << ',' << endl;
+                     << (*it).getNumVoo() << ',' << (*it).getNome() << ","  << endl;
             }
             if (!flag) cout << "---> Nao existem bilhetes." << endl;
             cout << endl << endl;
         }
+    }
+    if (escolha == 4) {
+        cout << "Deseja visualizar os bilhetes associados ao Passageiro? (Insira o nome do Passageiro): " << endl;
+        cout << ">";
+        string passageiro;
+        cin >> passageiro;
+        bool flag = false;
+        for (auto it = bilhetes.begin(); it != bilhetes.end(); it++) {
+            if ((*it).getNome() == passageiro) {
+                flag = true;
+                cout << (*it).getNumBilhete() << ',' << (*it).getQuantBagagem() << ','
+                     << (*it).getNumVoo() << ',' << (*it).getNome() << "," << endl;
+            }
+        }
+        if (!flag) cout << "---> Nao existem bilhetes associados a esse passageiro." << endl;
+        cout << endl << endl;
     }
     file.close();
 }

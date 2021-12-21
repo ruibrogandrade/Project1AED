@@ -3,10 +3,11 @@
 
 Bilhete::Bilhete() {}
 
-Bilhete::Bilhete(int nrBilh, int quantBag, int nrVoo) {
+Bilhete::Bilhete(int nrBilh, int quantBag, int nrVoo, string nome) {
     this->numBilhete = nrBilh;
     this->quantBagagem = quantBag;
     this->numVoo = nrVoo;
+    this->nome = nome;
 }
 
 int Bilhete::getQuantBagagem() const{
@@ -33,4 +34,10 @@ void Bilhete::setNumBilhete(int numBilhete) {
     this->numBilhete=numBilhete;
 }
 
+string Bilhete::getNome() {
+    return nome;
+}
 
+void Bilhete::setNome(string nome) {
+    this->nome = nome;
+}
