@@ -53,6 +53,8 @@ public:
     void ListagemTotal();
 
     void ListagemParcial();
+
+    void deleteBagagens();
 };
 
 

@@ -88,17 +88,6 @@ void GestaoBagagens::retirarMalas(){
         }
     }
 }
-//função para vetores, mas nao vi se esta estava certa
-/*
-void GestaoBagagens::retirarMalas(Bagagem b) { //provavelmente não esta bem tbm => REVER
-    for (int i = 0; i < carrinho[i].size(); i++) {
-        for (int j = 0; carrinho[i][j].size(); j++) {
-            if (b.getNumBilhete() == carrinho[i][j].top().getNumBilhete()) {
-                //devolver mala ao cliente
-            }
-        }
-    }
-}*/
 
 void GestaoBagagens::TapeteInput() {
     cout << endl;
@@ -250,7 +239,9 @@ void GestaoBagagens::ListagemParcial() {
     }
 }
 
-
+void GestaoBagagens::deleteBagagens() {
+    
+}
 
 
 
