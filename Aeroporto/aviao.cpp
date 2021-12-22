@@ -159,7 +159,7 @@ void Aviao::listagemCompletaVoo() {
 }
 
 void Aviao::listagemIncompletaVoo() {
-    cout << endl << endl;
+    cout << endl;
     cout << "Escolha uma opcao para visualizar os voos:" << endl;
     cout << endl;
     cout << "1) " << "Visualizar voos com data de partida especificada." << endl;

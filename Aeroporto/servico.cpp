@@ -144,7 +144,7 @@ void servico::ServicoInput() {
     if (quant > 1) {cout << "Vamos adicionar " << quant << " novos Servico." << endl;}
     cout << endl;
     while(quant != 0){
-        cout << "Insira o código de Servico: " << endl;
+        cout << "Insira o codigo de Servico: " << endl;
         cout << '>';
         cin >> tipoServico;
         cout << "Insira a data do Servico: " <<  endl;
@@ -159,7 +159,7 @@ void servico::ServicoInput() {
         cout << "Insira a matricula do Aviao " <<  endl;
         cout << '>';
         cin >> matricula;
-        cout << "Insira o nome do Funcionário " <<  endl;
+        cout << "Insira o nome do Funcionario " <<  endl;
         cout << '>';
         cin >> nomeFuncionario;
         tmp.setTipoServico(tipoServico);
@@ -244,7 +244,7 @@ void servico::ListagemServicos() {
 void servico::ListagemParcialServicos() {
     string parametro;
     string tipo;
-    cout << "Que parametro deseja filtrar?";
+    cout << "Que parametro deseja filtrar?" << endl;
     cout << '>';
     cin >> parametro;
     cout << endl;
@@ -252,7 +252,7 @@ void servico::ListagemParcialServicos() {
     queue<servico> tmp1 = servicosFeitos;
     queue<servico> tmp2 = servicosPorFazer;
     if (parametro == "tipoServico") {
-        cout << "Que tipo de serviço deseja ver?";
+        cout << "Que tipo de servico deseja ver?" << endl;
         cin >> tipo;
         for (int i = 0; i < servicosFeitos.size(); i++) {
             if (tmp1.front().getTipoServico() == tipo) {
@@ -301,7 +301,7 @@ void servico::ListagemParcialServicos() {
         tmp2 = servicosPorFazer;
         vector<servico> satisfaz;
         string nome;
-        cout << "Que Funcionario deseja ver?";
+        cout << "Que Funcionario deseja ver?" << endl;
         cout << '>';
         cin >> nome;
         cout << endl;
@@ -352,7 +352,7 @@ void servico::ListagemParcialServicos() {
         tmp1 = servicosFeitos;
         tmp2 = servicosPorFazer;
         string matricula;
-        cout << "Que Matricula de aviao deseja ver?";
+        cout << "Que Matricula de aviao deseja ver?" << endl;
         cout << '>';
         cin >> matricula;
         cout << endl;
@@ -406,7 +406,7 @@ void servico::ListagemParcialServicos() {
         int ano;
         string strData;
         Data data;
-        cout << "Quer serviços a partir de que data?";
+        cout << "Quer servicos a partir de que data?" << endl;
         cout << '>';
         cin >> strData;
         cout << endl;
@@ -464,7 +464,7 @@ void servico::ListagemParcialServicos() {
 void servico::ApagarServicos() {
     string parametro;
     string tipo;
-    cout << "Que parametro deseja apagar?";
+    cout << "Que parametro deseja apagar?" << endl;
     cout << '>';
     cin >> parametro;
     cout << endl;
@@ -473,7 +473,7 @@ void servico::ApagarServicos() {
     queue<servico> tmp2 = servicosPorFazer;
     vector<servico> juntar;
     if (parametro == "tipoServico") {
-        cout << "Que tipo de serviço deseja apagar?";
+        cout << "Que tipo de servico deseja apagar?" << endl;
         cout << '>';
         cin >> tipo;
         cout << endl;
@@ -535,7 +535,7 @@ void servico::ApagarServicos() {
         tmp2 = servicosPorFazer;
         vector<servico> satisfaz;
         string nome;
-        cout << "Que Funcionario deseja apagar?";
+        cout << "Que Funcionario deseja apagar?" << endl;
         cout << '>';
         cin >> nome;
         cout << endl;
@@ -601,7 +601,7 @@ void servico::ApagarServicos() {
         tmp1 = servicosFeitos;
         tmp2 = servicosPorFazer;
         string matricula;
-        cout << "Que Matricula de aviao deseja apagar?";
+        cout << "Que Matricula de aviao deseja apagar?" << endl;
         cout << '>';
         cin >> matricula;
         cout << endl;
@@ -670,7 +670,7 @@ void servico::ApagarServicos() {
         int ano;
         string strData;
         Data data;
-        cout << "Quer apagar serviços a partir de que data?";
+        cout << "Quer apagar servicos a partir de que data?" << endl;
         cout << '>';
         cout << endl;
         cin >> strData;
