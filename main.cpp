@@ -8,6 +8,9 @@
 #include "Aeroporto/bagagem.h"
 
 using namespace std;
+
+int main();
+
 void ReadFiles() {
     servico s;
     s.ReadServico();
@@ -41,30 +44,32 @@ void CriarDadosNovos() {
     Passageiro p;
     string tipoDeDados;
     cout << "Que tipo de Dados e que deseja criar?" << endl;
+    cout << '>';
     cin >> tipoDeDados;
+    cout << endl;
     if(tipoDeDados == "Servico") {
         s.ServicoInput();
         s.WriteServico();
         s.ListagemServicos();
-        MenuInicial();
+        main();
     }
     if(tipoDeDados == "Aviao") {
         a.AviaoInput();
         a.WriteAviao();
         a.listagemCompletaAviao();
-        MenuInicial();
+        main();
     }
     if(tipoDeDados == "Bagagem") {
         g.TapeteInput();
         g.WriteTapete();
         g.ListagemTotal();
-        MenuInicial();
+        main();
     }
     if(tipoDeDados == "Passageiro"){
         p.BilheteInput();
         p.WriteBilhete();
         p.listagemCompleta();
-        MenuInicial();
+        main();
     }
 }
 
@@ -76,54 +81,64 @@ void LerDados() {
     string check;
     string tipoDeDados;
     cout << "Que tipo de Dados e que deseja ler?" << endl;
+    cout << '>';
     cin >> tipoDeDados;
+    cout << endl;
     if(tipoDeDados == "Servico") {
         cout << "Total ou Parcial?";
+        cout << '>';
         cin >> check;
+        cout << endl;
         if (check == "Total") {
             s.ListagemServicos();
-            MenuInicial();
+            main();
         }
         if (check == "Parcial") {
             s.ListagemParcialServicos();
-            MenuInicial();
+            main();
         }
     }
     if(tipoDeDados == "Aviao") {
         cout << "Total ou Parcial?";
+        cout << '>';
         cin >> check;
+        cout << endl;
         if (check == "Total") {
             a.listagemCompletaAviao();
-            MenuInicial();
+            main();
         }
         if (check == "Parcial") {
             a.listagemIncompletaAviao();
-            MenuInicial();
+            main();
         }
     }
     if(tipoDeDados == "Bagagem") {
         cout << "Total ou Parcial?";
+        cout << '>';
         cin >> check;
+        cout << endl;
         if (check == "Total") {
             g.ListagemTotal();
-            MenuInicial();
+            main();
         }
         if (check == "Parcial") {
             g.colocarMalas();
             g.ListagemParcial();
-            MenuInicial();
+            main();
         }
     }
     if(tipoDeDados == "Passageiro"){
         cout << "Total ou Parcial?";
+        cout << '>';
         cin >> check;
+        cout << endl;
         if (check == "Total") {
             p.listagemCompleta();
-            MenuInicial();
+            main();
         }
         if (check == "Parcial") {
             p.listagemIncompleta();
-            MenuInicial();
+            main();
         }
     }
 }
@@ -135,27 +150,29 @@ void ApagarDados() {
     Passageiro p;
     string tipo;
     cout << "Que Tipo de Dados deseja Apagar?" << endl;
+    cout << '>';
     cin >> tipo;
+    cout << endl;
     if (tipo == "Servico") {
         s.ApagarServicos();
         s.WriteServico();
-        MenuInicial();
+        main();
     }
     if (tipo == "Aviao"){
         a.deleteAviao();
         a.WriteAviao();
-        MenuInicial();
+        main();
     }
     if (tipo == "Bagagem") {
         g.colocarMalas();
         g.deleteBagagens();
         g.WriteTapete();
-        MenuInicial();
+        main();
     }
     if (tipo == "Passageiro") {
         p.ApagarPassageiro();
         p.WriteBilhete();
-        MenuInicial();
+        main();
     }
 }
 

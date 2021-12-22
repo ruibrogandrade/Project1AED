@@ -135,8 +135,10 @@ void servico::ServicoInput() {
     }
 */
     cout << "Quantos servicos deseja inserir" << endl;
+    cout << '>';
     int quant;
     cin >> quant;
+    cout << endl;
     if (quant == 0) { cout << "Nao vai ser adicionado nenhum Servico." << endl;}
     if (quant == 1) {cout << "Vamos adicionar um novo Servico." << endl;}
     if (quant > 1) {cout << "Vamos adicionar " << quant << " novos Servico." << endl;}
@@ -243,7 +245,9 @@ void servico::ListagemParcialServicos() {
     string parametro;
     string tipo;
     cout << "Que parametro deseja filtrar?";
+    cout << '>';
     cin >> parametro;
+    cout << endl;
     vector<servico> satisfaz;
     queue<servico> tmp1 = servicosFeitos;
     queue<servico> tmp2 = servicosPorFazer;
@@ -298,7 +302,9 @@ void servico::ListagemParcialServicos() {
         vector<servico> satisfaz;
         string nome;
         cout << "Que Funcionario deseja ver?";
+        cout << '>';
         cin >> nome;
+        cout << endl;
         for (int i = 0; i < servicosFeitos.size(); i++) {
             if (tmp1.front().getNomeFuncionario() == nome) {
                 satisfaz.push_back(tmp1.front());
@@ -347,7 +353,9 @@ void servico::ListagemParcialServicos() {
         tmp2 = servicosPorFazer;
         string matricula;
         cout << "Que Matricula de aviao deseja ver?";
+        cout << '>';
         cin >> matricula;
+        cout << endl;
         for (int i = 0; i < servicosFeitos.size(); i++) {
             if (tmp1.front().getMatriculaAviao() == matricula) {
                 satisfaz.push_back(tmp1.front());
@@ -399,7 +407,9 @@ void servico::ListagemParcialServicos() {
         string strData;
         Data data;
         cout << "Quer serviços a partir de que data?";
+        cout << '>';
         cin >> strData;
+        cout << endl;
         dia = stoi(strData.substr(0,2));
         mes = stoi(strData.substr(3,2));
         ano = stoi(strData.substr(6,4));
@@ -455,14 +465,18 @@ void servico::ApagarServicos() {
     string parametro;
     string tipo;
     cout << "Que parametro deseja apagar?";
+    cout << '>';
     cin >> parametro;
+    cout << endl;
     vector<servico> apagar;
     queue<servico> tmp1 = servicosFeitos;
     queue<servico> tmp2 = servicosPorFazer;
     vector<servico> juntar;
     if (parametro == "tipoServico") {
         cout << "Que tipo de serviço deseja apagar?";
+        cout << '>';
         cin >> tipo;
+        cout << endl;
         for (int i = 0; i < servicosFeitos.size(); i++) {
             juntar.push_back(tmp1.front());
             tmp1.pop();
@@ -522,7 +536,9 @@ void servico::ApagarServicos() {
         vector<servico> satisfaz;
         string nome;
         cout << "Que Funcionario deseja apagar?";
+        cout << '>';
         cin >> nome;
+        cout << endl;
         vector<servico> apagar;
         queue<servico> tmp1 = servicosFeitos;
         queue<servico> tmp2 = servicosPorFazer;
@@ -586,7 +602,9 @@ void servico::ApagarServicos() {
         tmp2 = servicosPorFazer;
         string matricula;
         cout << "Que Matricula de aviao deseja apagar?";
+        cout << '>';
         cin >> matricula;
+        cout << endl;
         vector<servico> apagar;
         queue<servico> tmp1 = servicosFeitos;
         queue<servico> tmp2 = servicosPorFazer;
@@ -653,6 +671,8 @@ void servico::ApagarServicos() {
         string strData;
         Data data;
         cout << "Quer apagar serviços a partir de que data?";
+        cout << '>';
+        cout << endl;
         cin >> strData;
         dia = stoi(strData.substr(0, 2));
         mes = stoi(strData.substr(3, 2));
